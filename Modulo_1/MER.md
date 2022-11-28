@@ -20,16 +20,16 @@
 
 ## Atributos
 
-- **Arma:** Potencia.
-- **Armadura:** Resistencia.
+- **Arma:**TipoArma, Potencia.
+- **Armadura:**TipoArmadura, Resistencia.
 - **Batalha:** <ins>idBatalha</ins>, qtdRespeitoBat, qtdDinheiroBat.
 - **Equipamento:** TipoEquip.
-- **Guerreiro:** <ins>idGuerreiro</ins>, Nome, Dinheiro, Posicao, Atributos.
-- **Inimigo:** <ins>idInimigo</ins>, Dano, Vida.
+- **Guerreiro:** <ins>idGuerreiro</ins>, Nome, Dinheiro, Posicao, Vida, Forca, Defesa, Respeito, Habilidade.
+- **Inimigo:** <ins>idInimigo</ins>,NomeInimigo, DescricaoInimigo, Dano, Vida.
 - **Item:** <ins>idItem</ins>, Quantidade, ValorItem, tipoItem.
-- **Lugar:** <ins>id_Lugar</ins>, Coordenadas, Descricao.
-- **Missão:** <ins>id_missao</ins>,Objetivo, Recompensa.
-- **Poção:** TipoPoc,qtdPoc.
+- **Lugar:** <ins>id_Lugar</ins>,NomeLugar, Coordenadas, DescricaoLugar, DonoLugar.
+- **Missão:** <ins>id_missao</ins>,nomeMissao, DescricaoMissao, Objetivo, Recompensa.
+- **Poção:** TipoPoc, qtdPoc.
 - **Treino:** <ins>idTreino</ins>, TipoTreino, ValorTreino, MelhoriaTreino.
 
 ## Relacionamentos
@@ -62,12 +62,17 @@
 **Lugar *Contém* Guerreiro**
 
 - Um Lugar contem nenhum ou muitos Guerreiros **(0,N)**
-- Um Guerreiro está contido e um Lugar **(1,1)**
+- Um Guerreiro está contido em um Lugar **(1,1)**
 
 **Lugar *Contém* Inimigo**
 
-- Um Lugar contem nenhum ou muitos Inimigos **(0,N)**
-- Um Inimigo está contido e um Lugar **(1,1)**
+- Um Lugar contém nenhum ou muitos Inimigos **(0,N)**
+- Um Inimigo está contido em um Lugar **(1,1)**
+
+**Lugar *Contém* Item**
+
+- Um Lugar contém nenhum ou muitos Itens **(0,N)**
+- Um Item está contido em um Lugar ou muitos **(1,N)**
 
 **Batalha *Contém* Inimigo**
 
