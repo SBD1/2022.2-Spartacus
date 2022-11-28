@@ -24,6 +24,8 @@
 | Atributo | Classe | Domínio | Tamanho | Descrição |
 | ---- | ---- | ---- | ---- | ---- |
 | idMissao | ---- | ---- | ---- | ---- |
+| nomeMissao | ---- | ---- | ---- | ---- |
+| Descricao | ---- | ---- | ---- | ---- |
 | Objetivo | ---- | ---- | ---- | ---- |
 | Recompensa | ---- | ---- | ---- | ---- |
 
@@ -32,8 +34,8 @@
 | Atributo | Classe | Domínio | Tamanho | Descrição |
 | ---- | ---- | ---- | ---- | ---- |
 | idBatalha | ---- | ---- | ---- | ---- |
-| Respeito | ---- | ---- | ---- | ---- |
-| Dinheiro | ---- | ---- | ---- | ---- |
+| qntRespeitoBat | ---- | ---- | ---- | ---- |
+| qntDinheiroBat | ---- | ---- | ---- | ---- |
 
 ## Item
 
@@ -61,12 +63,14 @@
 
 | Atributo | Classe | Domínio | Tamanho | Descrição |
 | ---- | ---- | ---- | ---- | ---- |
+| TipoArmadura | ---- | ---- | ---- | ---- |
 | Resistencia | ---- | ---- | ---- | ---- |
 
 ## Arma
 
 | Atributo | Classe | Domínio | Tamanho | Descrição |
 | ---- | ---- | ---- | ---- | ---- |
+| TipoArma | ---- | ---- | ---- | ---- |
 | Potencia | ---- | ---- | ---- | ---- |
 
 ## Lugar
@@ -74,8 +78,10 @@
 | Atributo | Classe | Domínio | Tamanho | Descrição |
 | ---- | ---- | ---- | ---- | ---- |
 | idLugar | ---- | ---- | ---- | ---- |
+| nomeLugar | ---- | ---- | ---- | ---- |
 | Coordenadas | ---- | ---- | ---- | ---- |
-| Descricao | ---- | ---- | ---- | ---- |
+| DescricaoLugar | ---- | ---- | ---- | ---- |
+| DonoLugar | ---- | ---- | ---- | ---- |
 
 ## Inimigo
 
@@ -86,4 +92,3 @@
 | DescricaoInimigo | ---- | ---- | ---- | ---- |
 | Dano | ---- | ---- | ---- | ---- |
 | Vida | ---- | ---- | ---- | ---- |
-
