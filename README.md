@@ -6,6 +6,9 @@ Repositório destinado ao projeto de Sistema de Banco de Dados 1 do segundo seme
 
 Spartacus é um jogo baseado nas histórias gregas, que retrata a vida de um guerreiro com objetivo de ficar cada vez mais forte e mais respeitado em sua cidade. O jogo contém missões, batalhas, inimigos, tudo que uma verdadeira história deve ter.
 
+<div style="text-align:center"><img src= "assets/spar.png"/></div>
+<figcaption>Representação do personagem.</figcaption>
+
 ## Contribuidores
 
 |                                                                                        **Foto**                                                                                         |         **Nome**         |                    **GitHub**                     |
