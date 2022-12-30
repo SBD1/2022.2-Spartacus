@@ -51,6 +51,14 @@
 | TipoItem   | Obrigatorio     | Simples      | Texto    | 15      | Equipamento ou poção.                     | Poção.  |
 | Quantidade | Obrigatorio     | Simples      | Numérico | 50      | Valores inteiros, quantidade de melhoria. | 25      |
 
+## Loja
+
+| Atributo   | Obrigatoriedade | Classe       | Domínio  | Tamanho | Descrição                                 | Exemplo |
+| ---------- | --------------- | ------------ | -------- | ------- | ----------------------------------------- | ------- |
+| idLoja     | Obrigatorio     | Determinante | Numérico | 3       | Identificação da Loja.                    | 01      |
+| Nome       | Obrigatorio     | Simples      | Texto    | 20      | Nome da Loja                              | Lojinha Bom Preço|
+| Descrição  | Obrigatorio     | Simples      | Texto    | 300     | Equipamento ou poção.                     | Essa é uma loja de armas milenares...  |
+
 ## Equipamento
 
 | Atributo  | Obrigatoriedade | Classe  | Domínio | Tamanho | Descrição        | Exemplo |
@@ -88,12 +96,29 @@
 | DescricaoLugar | Obrigatorio     | Simples      | Texto    | 300     | Descreve o lugar.                       | A praça principal era composta de varias lojas de comercio, que aparentavam ser construidas por aquitetos muito experientes. Havia uma pequena casa no qual era possivel realizar compras de poções por um preço mais barato. |
 | DonoLugar      | Não Obrigatorio | Simples      | Texto    | 20      | Nome do personagem que é dono do lugar. | José Aquiles.                                                                                                                                                                                                                 |
 
+## NPC
+
+| Atributo         | Obrigatoriedade | Classe       | Domínio  | Tamanho | Descrição                               | Exemplo                        |
+| ---------------- | --------------- | ------------ | -------- | ------- | ----------------------------------------|--------------------------------|
+| idNPC            | Obrigatorio     | Determinante | Numérico | 2       | Identificação do inimigo.               | 02                             |
+| NomeNPC          | Obrigatorio     | Simples      | Texto    | 20      | Nome do inimigo.                        | Damon                          |
+| Descricao        | Obrigatorio     | Simples      | Texto    | 300     | Descreve as caracteristicas do NPC.     | Esse NPC cuida da floresta     |
+| TipoNPC          | Obrigatorio     | Simples      | Texto    | 20      | Dano que o inimigo causa ao jogador.    | 25                             |
+| idLugar          | Obrigatorio     | Simples      | Numérico | 2       | Quantidade de vida do inimigo.          | 170                            |
+
 ## Inimigo
 
-| Atributo         | Obrigatoriedade | Classe       | Domínio  | Tamanho | Descrição                               | Exemplo                                                                                                 |
-| ---------------- | --------------- | ------------ | -------- | ------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| idInimigo        | Obrigatorio     | Determinante | Numérico | 2       | Identificação do inimigo.               | 02                                                                                                      |
-| NomeInimigo      | Obrigatorio     | Simples      | Texto    | 20      | Nome do inimigo.                        | Lobo da Floresta                                                                                        |
-| DescricaoInimigo | Obrigatorio     | Simples      | Texto    | 300     | Descreve as caracteristicas do inimigo. | O lobo tinha um pelo meio cinza, uma cicatriz de guerra no oloho direito e aparentava esta muito bravo. |
-| Dano             | Obrigatorio     | Simples      | Numérico | 100     | Dano que o inimigo causa ao jogador.    | 25                                                                                                      |
-| Vida             | Obrigatorio     | Simples      | Numérico | 100     | Quantidade de vida do inimigo.          | 170                                                                                                     |
+| Atributo         | Obrigatoriedade | Classe       | Domínio  | Tamanho | Descrição                               | Exemplo                        |
+| ---------------- | --------------- | ------------ | -------- | ------- | ----------------------------------------|--------------------------------|
+| idNPC            | Obrigatorio     | Determinante | Numérico | 2       | Identificação do inimigo.               | 02                             |
+| Dano             | Obrigatorio     | Simples      | Numérico | 50      | Valores inteiros, capacidade de dano    | 30                             |
+| Vida             | Obrigatorio     | Simples      | Numérico | 200     | Quantidade de vida do inimigo           | 5                              |
+| NPC              | Obrigatorio     | Simples      | Numérico | 2       | Id do NPC                               | 02                             |
+
+## Amigável
+
+| Atributo         | Obrigatoriedade | Classe       | Domínio  | Tamanho | Descrição                               | Exemplo                        |
+| ---------------- | --------------- | ------------ | -------- | ------- | ----------------------------------------|--------------------------------|
+| idNPC            | Obrigatorio     | Determinante | Numérico | 2       | Identificação do inimigo.               | 02                             |
+| Falas            | Obrigatorio     | Simples      | Texto    | 300     | Nome do inimigo.                        | Olá, seja bem vindo            |
+| NPC              | Obrigatorio     | Simples      | Numérico | 2       | Id do NPC                               | 02                             |
