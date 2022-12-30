@@ -100,17 +100,17 @@
 
 | Atributo         | Obrigatoriedade | Classe       | Domínio  | Tamanho | Descrição                               | Exemplo                        |
 | ---------------- | --------------- | ------------ | -------- | ------- | ----------------------------------------|--------------------------------|
-| idNPC            | Obrigatorio     | Determinante | Numérico | 2       | Identificação do inimigo.               | 02                             |
+| idNPC            | Obrigatorio     | Determinante | Numérico | 2       | Identificação do NPC.                   | 02                             |
 | NomeNPC          | Obrigatorio     | Simples      | Texto    | 20      | Nome do inimigo.                        | Damon                          |
 | Descricao        | Obrigatorio     | Simples      | Texto    | 300     | Descreve as caracteristicas do NPC.     | Esse NPC cuida da floresta     |
-| TipoNPC          | Obrigatorio     | Simples      | Texto    | 20      | Dano que o inimigo causa ao jogador.    | 25                             |
-| idLugar          | Obrigatorio     | Simples      | Numérico | 2       | Quantidade de vida do inimigo.          | 170                            |
+| TipoNPC          | Obrigatorio     | Simples      | Texto    | 20      | Define o tipo de NPC                    | Amigável ou Inimigo            |
+| idLugar          | Obrigatorio     | Simples      | Numérico | 2       | Lugar onde o NPC está                   | 03                             |
 
 ## Inimigo
 
 | Atributo         | Obrigatoriedade | Classe       | Domínio  | Tamanho | Descrição                               | Exemplo                        |
 | ---------------- | --------------- | ------------ | -------- | ------- | ----------------------------------------|--------------------------------|
-| idNPC            | Obrigatorio     | Determinante | Numérico | 2       | Identificação do inimigo.               | 02                             |
+| idNPC            | Obrigatorio     | Determinante | Numérico | 2       | Identificação do NPC.                   | 02                             |
 | Dano             | Obrigatorio     | Simples      | Numérico | 50      | Valores inteiros, capacidade de dano    | 30                             |
 | Vida             | Obrigatorio     | Simples      | Numérico | 200     | Quantidade de vida do inimigo           | 5                              |
 | NPC              | Obrigatorio     | Simples      | Numérico | 2       | Id do NPC                               | 02                             |
@@ -119,6 +119,6 @@
 
 | Atributo         | Obrigatoriedade | Classe       | Domínio  | Tamanho | Descrição                               | Exemplo                        |
 | ---------------- | --------------- | ------------ | -------- | ------- | ----------------------------------------|--------------------------------|
-| idNPC            | Obrigatorio     | Determinante | Numérico | 2       | Identificação do inimigo.               | 02                             |
-| Falas            | Obrigatorio     | Simples      | Texto    | 300     | Nome do inimigo.                        | Olá, seja bem vindo            |
+| idNPC            | Obrigatorio     | Determinante | Numérico | 2       | Identificação do NPC.                   | 02                             |
+| Falas            | Obrigatorio     | Simples      | Texto    | 300     | Falas do NPC                            | Olá, seja bem vindo            |
 | NPC              | Obrigatorio     | Simples      | Numérico | 2       | Id do NPC                               | 02                             |
