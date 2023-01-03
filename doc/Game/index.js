@@ -2,6 +2,7 @@
 const entrada = require("prompt-sync")({ sigint: true });
 let op;
 const lugares = require("./locais");
+const func = require("./func");
 
 //-------------------Codigo----------------------------
 console.log("--------------------------------------------------");
@@ -12,7 +13,6 @@ console.log("Todo Guerreiro começa no Centro de Esparta.");
 console.log(
   "Um local extremamente belo, construído em pedra e marmóre e como o próprio nome diz localizado ao centro de toda cidade."
 );
-console.log("Apartir daqui você pode se locomover por alguns locais! Veja:");
 console.log("");
 lugares.CentroE();
 op = entrada(
@@ -21,19 +21,19 @@ op = entrada(
 
 switch (op) {
   case "1":
-    console.log("Você está em Trezentes - Loja de equipamentos!");
+    func.Trezentes();
     break;
 
   case "2":
-    console.log("Você está em Alquimia - Loja de poções!");
+    func.Alquimia();
     break;
 
   case "3":
-    console.log("Você está em Saída de Esparta!");
+    func.SaidaE();
     break;
 
   case "4":
-    console.log("Você está em Entrada de Esparta!");
+    func.EntradaE();
     break;
 
   default:
