@@ -9,10 +9,12 @@ function Trezentes() {
     "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
   );
   switch (op) {
-    case "1":
+    case "1": //centro
+      CentroE();
       break;
 
-    case "2":
+    case "2": //centroT
+      CentroTreinamento();
       break;
   }
 }
@@ -24,10 +26,16 @@ function Alquimia() {
     "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
   );
   switch (op) {
-    case "1":
+    case "1": // centroB
+      CentroBatalha();
       break;
 
-    case "2":
+    case "2": //cetroE
+      CentroE();
+      break;
+
+    case "3": //oeste
+      OesteE();
       break;
   }
 }
@@ -39,16 +47,20 @@ function SaidaE() {
     "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
   );
   switch (op) {
-    case "1":
+    case "1": // centroB
+      CentroBatalha();
       break;
 
-    case "2":
+    case "2": //CentroE
+      CentroE();
       break;
 
-    case "3":
+    case "3": // lago
+      LagoPrespa();
       break;
 
-    case "4":
+    case "4": // florestaB
+      FlorestaBrightwood();
       break;
   }
 }
@@ -60,12 +72,191 @@ function EntradaE() {
     "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
   );
   switch (op) {
-    case "1":
+    case "1": // centro
+      CentroE();
       break;
 
-    case "2":
+    case "2": // florestaA
+      FlorestaAmazonica();
       break;
   }
 }
 
-module.exports = { Trezentes, Alquimia, SaidaE, EntradaE };
+function CentroBatalha() {
+  console.log("Você está em Centro de Batalha!");
+  lugares.CentroBatalha();
+  op = entrada(
+    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
+  );
+  switch (op) {
+    case "1": //saida
+      SaidaE();
+      break;
+
+    case "2": // alquimia
+      Alquimia();
+      break;
+  }
+}
+
+function CentroTreinamento() {
+  console.log("Você está em Centro de Treinamento!");
+  lugares.CentroTreinamento();
+  op = entrada(
+    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
+  );
+  switch (op) {
+    case "1": //trezentes
+      Trezentes();
+      break;
+
+    case "2": // leste
+      LesteE();
+      break;
+  }
+}
+
+function OesteE() {
+  console.log("Você está em Oeste de Esparta!");
+  lugares.OesteE();
+  op = entrada(
+    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
+  );
+  switch (op) {
+    case "1": //centroT
+      CentroTreinamento();
+      break;
+  }
+}
+
+function LesteE() {
+  console.log("Você está em Leste de Esparta!");
+  lugares.LesteE();
+  op = entrada(
+    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
+  );
+  switch (op) {
+    case "1": //alquimia
+      Alquimia();
+      break;
+  }
+}
+
+function FlorestaBrightwood() {
+  console.log("Você está em Floresta Brightwood!");
+  lugares.FlorestaBrightwood();
+  op = entrada(
+    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
+  );
+  switch (op) {
+    case "1": //saida
+      SaidaE();
+      break;
+    case "2": //lago
+      LagoPrespa();
+      break;
+  }
+}
+
+function LagoPrespa() {
+  console.log("Você está em Lago Prespa!");
+  lugares.LagoPrespa();
+  op = entrada(
+    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
+  );
+  switch (op) {
+    case "1": //saida
+      SaidaE();
+      break;
+    case "2": //florestaB
+      FlorestaBrightwood();
+      break;
+    case "3": //everleste
+      Everleste();
+      break;
+  }
+}
+
+function Everleste() {
+  console.log("Você está em Everleste!");
+  lugares.Everleste();
+  op = entrada(
+    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
+  );
+  switch (op) {
+    case "1": //lago
+      LagoPrespa();
+      break;
+  }
+}
+
+function CentroE() {
+  console.log("Você está em Centro de Esparta!");
+  lugares.CentroE();
+  op = entrada(
+    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
+  );
+  switch (op) {
+    case "1": // calquimia
+      Alquimia();
+      break;
+
+    case "2": //trezentes
+      Trezentes();
+      break;
+
+    case "3": // saida
+      SaidaE();
+      break;
+
+    case "4": // entrada
+      EntradaE();
+      break;
+  }
+}
+
+function FlorestaAmazonica() {
+  console.log("Você está em Floresta Amazônica!");
+  lugares.FlorestaAmazonica();
+  op = entrada(
+    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
+  );
+  switch (op) {
+    case "1": //saida
+      SaidaE();
+      break;
+    case "2": //lago
+      LagoPrespa();
+      break;
+  }
+}
+
+function CavernaMelissanthi() {
+  console.log("Você está em Caverna de Melissanthi!");
+  lugares.Everleste();
+  op = entrada(
+    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
+  );
+  switch (op) {
+    case "1": //florestaA
+      FlorestaAmazonica();
+      break;
+  }
+}
+
+module.exports = {
+  Trezentes,
+  Alquimia,
+  SaidaE,
+  EntradaE,
+  CentroBatalha,
+  CentroTreinamento,
+  OesteE,
+  FlorestaBrightwood,
+  LagoPrespa,
+  Everleste,
+  CentroE,
+  LesteE,
+  FlorestaAmazonica,
+  CavernaMelissanthi,
+};
