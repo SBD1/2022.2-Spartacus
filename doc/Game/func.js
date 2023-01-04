@@ -16,6 +16,10 @@ function Trezentes() {
     case "2": //centroT
       CentroTreinamento();
       break;
+
+    default: // opcao invalida
+      console.log("Opção Inválida!");
+
   }
 }
 
@@ -37,6 +41,9 @@ function Alquimia() {
     case "3": //oeste
       OesteE();
       break;
+
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -62,6 +69,9 @@ function SaidaE() {
     case "4": // florestaB
       FlorestaBrightwood();
       break;
+
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -79,6 +89,9 @@ function EntradaE() {
     case "2": // florestaA
       FlorestaAmazonica();
       break;
+
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -96,6 +109,9 @@ function CentroBatalha() {
     case "2": // alquimia
       Alquimia();
       break;
+
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -113,6 +129,9 @@ function CentroTreinamento() {
     case "2": // leste
       LesteE();
       break;
+
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -126,6 +145,9 @@ function OesteE() {
     case "1": //centroT
       CentroTreinamento();
       break;
+
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -139,6 +161,9 @@ function LesteE() {
     case "1": //alquimia
       Alquimia();
       break;
+    
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -152,9 +177,13 @@ function FlorestaBrightwood() {
     case "1": //saida
       SaidaE();
       break;
+    
     case "2": //lago
       LagoPrespa();
       break;
+    
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -174,6 +203,8 @@ function LagoPrespa() {
     case "3": //everleste
       Everleste();
       break;
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -187,6 +218,8 @@ function Everleste() {
     case "1": //lago
       LagoPrespa();
       break;
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -212,6 +245,9 @@ function CentroE() {
     case "4": // entrada
       EntradaE();
       break;
+
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -228,6 +264,8 @@ function FlorestaAmazonica() {
     case "2": //lago
       LagoPrespa();
       break;
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
@@ -241,6 +279,8 @@ function CavernaMelissanthi() {
     case "1": //florestaA
       FlorestaAmazonica();
       break;
+    default: // opcao invalida
+      console.log("Opção Inválida!");
   }
 }
 
