@@ -1,6 +1,25 @@
--- Scripts CREATE TABLE: TABELAS CRIADAS PARA O BANCO DE DADOS "Spartacus" --
--- OBS.: AS TABELAS ESTÃO EM ORDEM ALFABÉTICA --
+-- Scripts CREATE TABLE: TABELAS CRIADAS PARA O BANCO DE DADOS "Spartacus" ----
 -- AO TOTAL, SÃO 18 TABELAS --
+
+CREATE TABLE IF NOT EXISTS public."NPC"
+(
+    "idNPC" integer NOT NULL DEFAULT nextval('"NPC_idNPC_seq"'::regclass),
+    "NomeNPC" character varying(30) COLLATE pg_catalog."default" NOT NULL,
+    "Descricao" character varying(300) COLLATE pg_catalog."default",
+    "TipoNPC" character varying(10) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "NPC_pkey" PRIMARY KEY ("idNPC")
+);
+
+--------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS public."Item"
+(
+    "idItem" integer NOT NULL DEFAULT nextval('"Item_idItem_seq"'::regclass),
+    "Quantidade" integer NOT NULL,
+    "ValorItem" integer NOT NULL,
+    "TipoItem" character varying(15) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT "Item_pkey" PRIMARY KEY ("idItem")
+);
 
 --------------------------------------------------------------------------
 
@@ -16,7 +35,7 @@ CREATE TABLE IF NOT EXISTS public."Amigável"
         DEFERRABLE INITIALLY DEFERRED
         NOT VALID
 )
-    INHERITS (public."NPC")
+    INHERITS (public."NPC");
 
 --------------------------------------------------------------------------
 
@@ -26,7 +45,7 @@ CREATE TABLE IF NOT EXISTS public."Arma"
     "Potencia" integer NOT NULL,
     CONSTRAINT "Arma_pkey" PRIMARY KEY ("idItem")
 )
-    INHERITS (public."Item")
+    INHERITS (public."Item");
 
 --------------------------------------------------------------------------
 
@@ -36,7 +55,7 @@ CREATE TABLE IF NOT EXISTS public."Armadura"
     "Resistencia" integer NOT NULL,
     CONSTRAINT "Armadura_pkey" PRIMARY KEY ("idItem")
 )
-    INHERITS (public."Item")
+    INHERITS (public."Item");
 
 --------------------------------------------------------------------------
 
@@ -46,7 +65,7 @@ CREATE TABLE IF NOT EXISTS public."Batalha"
     "QtdRespeitoBat" integer NOT NULL,
     "QtdDinheiroBat" integer NOT NULL,
     CONSTRAINT "Batalha_pkey" PRIMARY KEY ("idBatalha")
-)
+);
 
 --------------------------------------------------------------------------
 
@@ -68,7 +87,7 @@ CREATE TABLE IF NOT EXISTS public."Guerreiro"
         ON DELETE NO ACTION
         DEFERRABLE INITIALLY DEFERRED
         NOT VALID
-)
+);
 
 --------------------------------------------------------------------------
 
@@ -85,7 +104,7 @@ CREATE TABLE IF NOT EXISTS public."Inimigo"
         DEFERRABLE INITIALLY DEFERRED
         NOT VALID
 )
-    INHERITS (public."NPC")
+    INHERITS (public."NPC");
 
 --------------------------------------------------------------------------
 
@@ -111,7 +130,7 @@ CREATE TABLE IF NOT EXISTS public."Instância de Batalha"
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
         DEFERRABLE INITIALLY DEFERRED
-)
+);
 
 --------------------------------------------------------------------------
 
@@ -132,7 +151,7 @@ CREATE TABLE IF NOT EXISTS public."Instância de Inimigo"
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
         DEFERRABLE INITIALLY DEFERRED
-)
+);
 
 --------------------------------------------------------------------------
 
@@ -164,7 +183,7 @@ CREATE TABLE IF NOT EXISTS public."Instância de Item"
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
         DEFERRABLE INITIALLY DEFERRED
-)
+);
 
 --------------------------------------------------------------------------
 
@@ -196,7 +215,7 @@ CREATE TABLE IF NOT EXISTS public."Instância de Missão"
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
         DEFERRABLE INITIALLY DEFERRED
-)
+);
 
 --------------------------------------------------------------------------
 
@@ -216,18 +235,7 @@ CREATE TABLE IF NOT EXISTS public."Instância de Treino"
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
         DEFERRABLE INITIALLY DEFERRED
-)
-
---------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS public."Item"
-(
-    "idItem" integer NOT NULL DEFAULT nextval('"Item_idItem_seq"'::regclass),
-    "Quantidade" integer NOT NULL,
-    "ValorItem" integer NOT NULL,
-    "TipoItem" character varying(15) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT "Item_pkey" PRIMARY KEY ("idItem")
-)
+);
 
 --------------------------------------------------------------------------
 
@@ -250,7 +258,7 @@ CREATE TABLE IF NOT EXISTS public."Loja"
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
         DEFERRABLE INITIALLY DEFERRED
-)
+);
 
 --------------------------------------------------------------------------
 
@@ -260,7 +268,7 @@ CREATE TABLE IF NOT EXISTS public."Lugar"
     "NomeLugar" character varying(30) COLLATE pg_catalog."default" NOT NULL,
     "DescricaoLugar" character varying(500) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT "Lugar_pkey" PRIMARY KEY ("idLugar")
-)
+);
 
 --------------------------------------------------------------------------
 
@@ -272,18 +280,7 @@ CREATE TABLE IF NOT EXISTS public."Missao"
     "Objetivo" character varying(150) COLLATE pg_catalog."default" NOT NULL,
     "Recompensa" integer NOT NULL,
     CONSTRAINT "Missao_pkey" PRIMARY KEY ("idMissao")
-)
-
---------------------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS public."NPC"
-(
-    "idNPC" integer NOT NULL DEFAULT nextval('"NPC_idNPC_seq"'::regclass),
-    "NomeNPC" character varying(30) COLLATE pg_catalog."default" NOT NULL,
-    "Descricao" character varying(300) COLLATE pg_catalog."default",
-    "TipoNPC" character varying(10) COLLATE pg_catalog."default" NOT NULL,
-    CONSTRAINT "NPC_pkey" PRIMARY KEY ("idNPC")
-)
+);
 
 --------------------------------------------------------------------------
 
@@ -297,7 +294,7 @@ CREATE TABLE IF NOT EXISTS public."Poção"
     "QtdPoc" integer NOT NULL,
     CONSTRAINT "Poção_pkey" PRIMARY KEY ("idItem")
 )
-    INHERITS (public."Item")
+    INHERITS (public."Item");
 
 --------------------------------------------------------------------------
 
@@ -308,6 +305,6 @@ CREATE TABLE IF NOT EXISTS public."Treino"
     "ValorTreino" integer NOT NULL,
     "MelhoriaTreino" integer NOT NULL,
     CONSTRAINT "Treino_pkey" PRIMARY KEY ("idTreino")
-)
+);
 
 --------------------------------------------------------------------------
