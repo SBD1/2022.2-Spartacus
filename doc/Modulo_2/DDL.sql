@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS Armadura
 
 CREATE TABLE IF NOT EXISTS Poção
 (
-    TipoPoc varchar  NOT NULL,
+    TipoPoc varchar(25)  NOT NULL,
     QtdPoc integer NOT NULL,
     CONSTRAINT Poção_pkey PRIMARY KEY (idItem)
 )
@@ -88,13 +88,13 @@ CREATE TABLE IF NOT EXISTS Guerreiro
 (
     idGuerreiro serial NOT NULL,
     Nome varchar(30)  NOT NULL,
-    Dinheiro integer NOT NULL,
-    Vida integer NOT NULL,
-    Forca integer NOT NULL,
-    Defesa integer NOT NULL,
-    Respeito integer NOT NULL,
-    Habilidade integer NOT NULL,
-    idLugar integer NOT NULL,
+    Dinheiro integer NOT NULL DEFAULT 100,
+    Vida integer NOT NULL DEFAULT 100,
+    Forca integer NOT NULL DEFAULT 0,
+    Defesa integer NOT NULL DEFAULT 0,
+    Respeito integer NOT NULL DEFAULT 0,
+    Habilidade integer NOT NULL DEFAULT 0,
+    idLugar integer NOT NULL DEFAULT 4,
     CONSTRAINT Guerreiro_pkey PRIMARY KEY (idGuerreiro),
     CONSTRAINT idLugar_fk FOREIGN KEY (idLugar)
         REFERENCES Lugar (idLugar) MATCH SIMPLE
@@ -272,7 +272,7 @@ CREATE TABLE IF NOT EXISTS Instancia_de_Missao
 CREATE TABLE IF NOT EXISTS Treino
 (
     idTreino serial NOT NULL,
-    TipoTreino varchar(15)  NOT NULL,
+    TipoTreino varchar(30)  NOT NULL,
     ValorTreino integer NOT NULL,
     MelhoriaTreino integer NOT NULL,
     CONSTRAINT Treino_pkey PRIMARY KEY (idTreino)
