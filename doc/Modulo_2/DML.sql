@@ -72,10 +72,10 @@ INSERT INTO Armadura (idItem, Quantidade, ValorItem, TipoItem, TipoArmadura, Res
 
 -------------------------------------------------
 
-INSERT INTO Batalha (idBatalha, QtdRespeitoBat, QtdDinheiroBat) VALUES 
-( , , ),
-( , , ),
-( , , ); 
+INSERT INTO Batalha (idBatalha, QtdRespeitoBat, QtdDinheiroBat, idInimigo) VALUES 
+( , , , ),
+( , , , ),
+( , , , ); 
 
 -------------------------------------------------
 

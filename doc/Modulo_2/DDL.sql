@@ -74,16 +74,6 @@ CREATE TABLE IF NOT EXISTS Poção
 
 --------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS Batalha
-(
-    idBatalha serial NOT NULL,
-    QtdRespeitoBat integer NOT NULL,
-    QtdDinheiroBat integer NOT NULL,
-    CONSTRAINT Batalha_pkey PRIMARY KEY (idBatalha)
-);
-
---------------------------------------------------------------------------
-
 CREATE TABLE IF NOT EXISTS Guerreiro
 (
     idGuerreiro serial NOT NULL,
@@ -158,6 +148,22 @@ CREATE TABLE IF NOT EXISTS Instancia_de_Inimigo
         ON DELETE NO ACTION
         DEFERRABLE INITIALLY DEFERRED
         NOT VALID,
+    CONSTRAINT idInimigo_fk FOREIGN KEY (idInimigo)
+        REFERENCES Inimigo (idNPC) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        DEFERRABLE INITIALLY DEFERRED
+);
+
+--------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS Batalha
+(
+    idBatalha serial NOT NULL,
+    QtdRespeitoBat integer NOT NULL,
+    QtdDinheiroBat integer NOT NULL,
+    idInimigo integer NOT NULL,
+    CONSTRAINT Batalha_pkey PRIMARY KEY (idBatalha),
     CONSTRAINT idInimigo_fk FOREIGN KEY (idInimigo)
         REFERENCES Inimigo (idNPC) MATCH SIMPLE
         ON UPDATE NO ACTION
