@@ -8,9 +8,9 @@ INSERT INTO Lugar (idLugar, NomeLugar, DescricaoLugar) VALUES
 (7, 'Leste de Esparta', 'É no leste de Esparta que se concentra os governantes da cidade e líderes do país. É um local cheio de assembleias e debates políticos, a famosa Eclésia se encontra aqui.'),
 (8, 'Saída de Esparta', 'A saída de Esparta costuma ser escura, um verdadeiro passaporte para caminhos sombrios e perigosos. É pouco frequentada pelos moradores pois quem ousaria sair dessa amada cidade?'),
 (9, 'Centro de Batalha', 'É aqui onde você terá suas batalhas mais duras, porém, todos poderão assistir à sua ascensão como um bravo guerreiro. O centro de batalha é um imenso complexo que comporta mais de 70 mil pessoas em sua arquibancada e é onde se concentra os maiores entretenimentos do povo espartano. Aqui você encontra guerreiros dos mais diversos lugares e culturas, terá coragem de lutar?'),
-(10, 'Floresta Brightwood', ''),
-(11, 'Lago Prespa', ''),
-(12, 'Everlest', '');
+(10, 'Floresta Brightwood', 'Não existe consenso entre os moradores de Esparta se esse seria o lugar mais perigoso da região ou se seria a caverna. Também localizada fora das limitações da cidade, a Floresta Brightwood é caracterizada pela sua mata densa e fechada, além das mais diversas vegetações, com plantas carnívoras e árvores que chegam a tocar as nuvens. Cuidado! Aqui habita pessoas exiladas de Esparta por seus crimes bárbaros e monstros horripilantes.'),
+(11, 'Lago Prespa', 'O Lago Prespa é um lugar majoritariamente calmo e que os moradores costumam usar para fazer seus piqueniques e passar o tempo com a família. É um lago de águas azuis e tão extenso que chega a atravessar toda a floresta e cobrir a saída de Esparta. Mas não se engane, este lugar não esconde seus crimes. Não se trata do local mais seguro, já que é fonte de água para os perigos que moram na Floresta Brightwood.'),
+(12, 'Everlest', 'Totalmente afastado da cidade mas, ainda assim, é uma das maiores riquezas e belezas de Esparta. O Everlest está localizada na direção sudeste da região e se trata de uma montanha de cerca de 10 mil metros acima do nível do mar, extremamente escorregadia e composta por rochas raras.');
 
 -------------------------------------------------
 
@@ -72,13 +72,6 @@ INSERT INTO Armadura (idItem, Quantidade, ValorItem, TipoItem, TipoArmadura, Res
 
 -------------------------------------------------
 
-INSERT INTO Batalha (idBatalha, QtdRespeitoBat, QtdDinheiroBat, idInimigo) VALUES 
-( , , , ),
-( , , , ),
-( , , , ); 
-
--------------------------------------------------
-
 INSERT INTO Loja (idLoja, Nome, Descricao, idAmigavel, idLugar) VALUES 
 (1,'Loja Alquimia','Alquimia é a loja de poções do mago de Esparta. Nesta loja você encontra diversas poções como: vida extra, força, habilidade, defesa, entre outros. A loja perfeita para guerreiros como você.', 1, 4),
 (2,'Loja Trezentes','Trezentes é a loja de equipamentos do renomado ferreiro e armeiro de Esparta. Nesta loja você encontra armas e armaduras para todos os gostos e valores. Um guerreiro como você precisa de lojas como esta.', 2, 4);
@@ -104,7 +97,14 @@ INSERT INTO Inimigo (idNPC, NomeNPC, Descricao, TipoNPC, Dano, Vida, idLugar) VA
 (5,'Carniceiro',' ','Inimigo', , , ),
 (6,'Dominador',' ','Inimigo', , , ),
 (7,'Tormenta',' ','Inimigo', , , ),
-(8,'Aniquilador',' ','Inimigo', , , ); 
+(8,'Aniquilador',' ','Inimigo', , , );
+
+-------------------------------------------------
+
+INSERT INTO Batalha (idBatalha, QtdRespeitoBat, QtdDinheiroBat, idInimigo) VALUES 
+( , , , ),
+( , , , ),
+( , , , ); 
 
 -------------------------------------------------
 
