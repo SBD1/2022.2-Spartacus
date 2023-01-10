@@ -1,13 +1,13 @@
 INSERT INTO Lugar (idLugar, NomeLugar, DescricaoLugar) VALUES 
-(1, 'Caverna de Melissanthi', ''),
-(2, 'Floresta Amazônica', ''), 
-(3, 'Entrada de Esparta', ''), 
-(4, 'Centro de Esparta', ''),
-(5, 'Oeste de Esparta', ''), 
-(6, 'Centro de Treinamento', ''), 
-(7, 'Leste de Esparta', ''), 
-(8, 'Saída de Esparta', ''), 
-(9, 'Centro de Batalha', ''), 
+(1, 'Caverna de Melissanthi', 'Caverna de Melissanthi é uma antiga caverna localizada fora da cidade de Esparta, responsável pela morte de bravos guerreiros que se aventuraram em desbravá-la. A lenda conta que é um lugar grande, onde a luz não habita e a profundidade não se conhece. Além disso, há algo ou alguém sobrenatural em seu interior, mas nunca descoberto, pois todos que entraram lá, nunca mais saíram. Seria corajoso o suficiente para desbravá-la?'),
+(2, 'Floresta Amazônica', 'A Floresta Amazônica é o antigo lar das guerreiras Amazonas. Desde o último ataque de monstros à floresta, nunca mais se têm notícias delas. Esta floresta, hoje, é onde abriga os seus perigosos animais e monstros que se encondem entre as árvores colossais e se camuflam no verde musgo dos pântanos.'),
+(3, 'Entrada de Esparta', 'A entrada de Esparta contém uma arquitetura única e tipicamente grega, composta de grandes pilares de mármore, com uma simetria jamais vista. É aqui onde você encontra receptividade e moradores esperançosos.'),
+(4, 'Centro de Esparta', 'O centro de Esparta é um lugar amplo, repleto de feiras e lojas. É o local mais movimentado da cidade, você pode dar a sorte de encontrar um item por aqui. Além disso, oportunidades de missões surgem a todo momento.'),
+(5, 'Oeste de Esparta', 'Além de uma bela vista para o pôr do sol, o oeste de Esparta é onde se encontra os templos e locais para meditação. É frequentado, majoritariamente, por religiosos ou apenas pessoas que procuram por paz e momentos de silêncio.'),
+(6, 'Centro de Treinamento', 'Daqui é de onde saem os melhores guerreiros. O centro de treinamento é cheio de ferramentas e equipamentos necessários para levar à sua perfeição. Lembre-se sempre do ditado: "Treinamento difícil, guerra fácil".'),
+(7, 'Leste de Esparta', 'É no leste de Esparta que se concentra os governantes da cidade e líderes do país. É um local cheio de assembleias e debates políticos, a famosa Eclésia se encontra aqui.'),
+(8, 'Saída de Esparta', 'A saída de Esparta costuma ser escura, um verdadeiro passaporte para caminhos sombrios e perigosos. É pouco frequentada pelos moradores pois quem ousaria sair dessa amada cidade?'),
+(9, 'Centro de Batalha', 'É aqui onde você terá suas batalhas mais duras, porém, todos poderão assistir à sua ascensão como um bravo guerreiro. O centro de batalha é um imenso complexo que comporta mais de 70 mil pessoas em sua arquibancada e é onde se concentra os maiores entretenimentos do povo espartano. Aqui você encontra guerreiros dos mais diversos lugares e culturas, terá coragem de lutar?'),
 (10, 'Floresta Brightwood', ''),
 (11, 'Lago Prespa', ''),
 (12, 'Everlest', '');
@@ -80,8 +80,8 @@ INSERT INTO Batalha (idBatalha, QtdRespeitoBat, QtdDinheiroBat) VALUES
 -------------------------------------------------
 
 INSERT INTO Loja (idLoja, Nome, Descricao, idAmigavel, idLugar) VALUES 
-(1,'Alquimia','Aqui é onde a mágica aconte, escolha suas poções e ganhe vantagens na hora da batalha. Um bom feitiço pode ser a chave para a vitória', 1, 4),
-(2,'Trezentes','Trezentes, a sua loja de armas. Os melhores equipamentos feitos pelo melhor armeiro da região', 2, 4);
+(1,'Loja Alquimia','Alquimia é a loja de poções do mago de Esparta. Nesta loja você encontra diversas poções como: vida extra, força, habilidade, defesa, entre outros. A loja perfeita para guerreiros como você.', 1, 4),
+(2,'Loja Trezentes','Trezentes é a loja de equipamentos do renomado ferreiro e armeiro de Esparta. Nesta loja você encontra armas e armaduras para todos os gostos e valores. Um guerreiro como você precisa de lojas como esta.', 2, 4);
 
 -------------------------------------------------
 
