@@ -15,7 +15,7 @@ INSERT INTO Lugar (idLugar, NomeLugar, DescricaoLugar) VALUES
 -------------------------------------------------
 
 INSERT INTO Amigável (idNPC, NomeNPC, Descricao, TipoNPC, Fala) VALUES 
-(1, 'Argus Floros', 'Criado na floresta, Argus é um grande conhecedor das plantas e de suas propriedades, além disso, sua relação com o mundo espiritual creia você ou não, tornam suas poções SURREIAS!', 'Amigável', ' ');
+(1, 'Argus Floros', 'Criado na floresta, Argus é um grande conhecedor das plantas e de suas propriedades, além disso, sua relação com o mundo espiritual creia você ou não, tornam suas poções SURREIAS!', 'Amigável', ' '),
 (2, 'Orion Katsaros', 'Orion desde pequeno ajudava seu pai na construção de armas e armaduras, por consequência, ele se tornou um armeiro excepcional. Não tenha dúvidas que ao comprar um armamento com ele você estará fazendo um ótimo negócio ', 'Amigável', ' ');
 
 -------------------------------------------------
