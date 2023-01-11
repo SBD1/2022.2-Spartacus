@@ -1,10 +1,19 @@
-var db = require("./database");
+const db = require("./database");
+const fs = require('fs');
 
-db.select("idlugar", "nomelugar")
-  .table("lugar")
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((erro) => {
-    console.log(erro);
-  });
+var ddl = fs.readFileSync('DDL.sql').toString();
+var dml = fs.readFileSync('DML.sql').toString(); 
+
+const createTables = async () => {
+  db
+  .query(ddl)
+  .then(res => console.log('TABELAS CRIADAS!'))
+  .catch(e => console.error(e.stack))
+}
+
+const populateTables = async () => {
+  db
+  .query(dml)
+  .then(res => console.log('TABELAS POPULADAS!'))
+  .catch(e => console.error(e.stack))
+}

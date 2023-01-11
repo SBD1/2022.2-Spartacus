@@ -1,14 +1,14 @@
+const { Client } = require('pg');
+
 require('dotenv').config()
 
-const knex = require('knex')({
-    client: 'pg',
-    connection: {
+const db = new Client({
       host : process.env.HOST,
       port : process.env.PORT,
       user : process.env.USER_DB,
       password : process.env.PASSWORD,
       database : process.env.DATABASE
-    }
-  });
+});
 
-  module.exports = knex;
+db.connect();
+module.exports = db;
