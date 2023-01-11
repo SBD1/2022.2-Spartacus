@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "knex": "^2.4.0",
+    "pg": "^8.8.0",
+    "prompt-sync": "^4.2.0"
+  }
+}
