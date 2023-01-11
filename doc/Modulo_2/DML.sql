@@ -102,9 +102,11 @@ INSERT INTO Inimigo (idNPC, NomeNPC, Descricao, TipoNPC, Dano, Vida, idLugar) VA
 -------------------------------------------------
 
 INSERT INTO Batalha (idBatalha, QtdRespeitoBat, QtdDinheiroBat, idInimigo) VALUES 
-( , , , ),
-( , , , ),
-( , , , ); 
+(1, 20, 50, 4),
+(2, 40, 100, 5),
+(3, 60, 200, 6); 
+(4, 80, 400, 7); 
+(5, 100, 600, 8); 
 
 -------------------------------------------------
 
