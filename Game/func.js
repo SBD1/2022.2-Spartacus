@@ -3,285 +3,432 @@ let op;
 const lugares = require("./locais");
 
 function Trezentes() {
-  console.log("Você está em Trezentes - Loja de equipamentos!");
-  lugares.Trezentes();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": //centro
-      CentroE();
-      break;
+  console.clear();
+  console.log("Você está em Trezentes - Loja de equipamentos!\n");
 
-    case "2": //centroT
-      CentroTreinamento();
-      break;
+  do {
+    lugares.Trezentes();
 
-    default: // opcao invalida
-      console.log("Opção Inválida!");
+    op = Number(entrada("\nInforme para onde deseja ir: "));
 
-  }
+    switch (op) {
+      case 1: //centro
+        CentroE();
+        break;
+
+      case 2: //centroT
+        CentroTreinamento();
+        break;
+      
+      case 3:
+        process.exit();
+        break;
+
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+
+    }
+  } while (op >= 1 || op <= 3);
+
+  
 }
 
 function Alquimia() {
-  console.log("Você está em Alquimia - Loja de poções!");
-  lugares.Alquimia();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": // centroB
-      CentroBatalha();
-      break;
+  console.clear();
+  console.log("Você está em Alquimia - Loja de poções!\n");
 
-    case "2": //cetroE
-      CentroE();
-      break;
+  do {
+    lugares.Alquimia();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
 
-    case "3": //oeste
-      OesteE();
-      break;
+    switch (op) {
+      case 1: // centroB
+        CentroE();
+        break;
 
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+      case 2: //cetroE
+        OesteE();
+        break;
+
+      case 3: //oeste
+        CentroBatalha();
+        break;
+
+      case 4:
+        process.exit();
+        break;
+
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 4);
+  
 }
 
 function SaidaE() {
-  console.log("Você está em Saída de Esparta!");
-  lugares.SaidaE();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": // centroB
-      CentroBatalha();
-      break;
+  console.clear();
+  console.log("Você está em Saída de Esparta!\n");
+  
+  do {
+    lugares.SaidaE();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
 
-    case "2": //CentroE
-      CentroE();
-      break;
+    switch (op) {
+      case 1:
+        CentroE();
+        break;
 
-    case "3": // lago
-      LagoPrespa();
-      break;
+      case 2: 
+        FlorestaBrightwood();
+        break;
 
-    case "4": // florestaB
-      FlorestaBrightwood();
-      break;
+      case 3: // lago
+        CentroBatalha();
+        break;
 
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+      case 4: // florestaB
+        LagoPrespa();
+        break;
+
+      case 5:
+        process.exit();
+        break;
+
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 3);
+  
 }
 
 function EntradaE() {
-  console.log("Você está em Entrada de Esparta!");
-  lugares.EntradaE();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": // centro
-      CentroE();
-      break;
+  console.clear();
+  console.log("Você está em Entrada de Esparta!\n");
+  
+  do {
+    lugares.EntradaE();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
 
-    case "2": // florestaA
-      FlorestaAmazonica();
-      break;
+    switch (op) {
+      case 1: // centro
+        CentroE();
+        break;
 
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+      case 2: // florestaA
+        FlorestaAmazonica();
+        break;
+
+      case 3:
+        process.exit();
+        break;
+
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 3);
+  
 }
 
 function CentroBatalha() {
-  console.log("Você está em Centro de Batalha!");
-  lugares.CentroBatalha();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": //saida
-      SaidaE();
-      break;
+  console.clear();
+  console.log("Você está em Centro de Batalha!\n");
+  
+  do {
+    lugares.CentroBatalha();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
 
-    case "2": // alquimia
-      Alquimia();
-      break;
+    switch (op) {
+      case 1: //saida
+        SaidaE();
+        break;
 
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+      case 2: // alquimia
+        Alquimia();
+        break;
+
+      case 3:
+        process.exit();
+        break;
+
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 3);
+  
 }
 
 function CentroTreinamento() {
-  console.log("Você está em Centro de Treinamento!");
-  lugares.CentroTreinamento();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": //trezentes
-      Trezentes();
-      break;
+  console.clear();
+  console.log("Você está em Centro de Treinamento!\n");
+  
+  do {
+    lugares.CentroTreinamento();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
 
-    case "2": // leste
-      LesteE();
-      break;
+    switch (op) {
+      case 1: //trezentes
+        Trezentes();
+        break;
 
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+      case 2: // leste
+        LesteE();
+        break;
+      
+      case 3:
+        process.exit();
+        break;
+
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 3);
+  
 }
 
 function OesteE() {
-  console.log("Você está em Oeste de Esparta!");
-  lugares.OesteE();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": //centroT
-      CentroTreinamento();
-      break;
+  console.clear();
+  console.log("Você está em Oeste de Esparta!\n");
+  
+  do {
+    lugares.OesteE();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
 
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+    switch (op) {
+      case 1: //centroT
+        Alquimia();
+        break;
+
+      case 2:
+        process.exit();
+        break;
+
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 2);
+  
 }
 
 function LesteE() {
-  console.log("Você está em Leste de Esparta!");
-  lugares.LesteE();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": //alquimia
-      Alquimia();
-      break;
-    
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+  console.clear();
+  console.log("Você está em Leste de Esparta!\n");
+  
+  do {
+    lugares.LesteE();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
+
+    switch (op) {
+      case 1: //alquimia
+        CentroTreinamento();
+        break;
+
+      case 2:
+        process.exit();
+        break;
+      
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 2);
+  
 }
 
 function FlorestaBrightwood() {
-  console.log("Você está em Floresta Brightwood!");
-  lugares.FlorestaBrightwood();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": //saida
-      SaidaE();
-      break;
+  console.clear();
+  console.log("Você está em Floresta Brightwood!\n");
+
+  do {
+    lugares.FlorestaBrightwood();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
+
+    switch (op) {
+      case 1: //saida
+        SaidaE();
+        break;
     
-    case "2": //lago
-      LagoPrespa();
-      break;
-    
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+      case 2: //lago
+        LagoPrespa();
+        break;
+
+      case 3:
+        process.exit();
+        break;
+      
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 3);
+  
 }
 
 function LagoPrespa() {
-  console.log("Você está em Lago Prespa!");
-  lugares.LagoPrespa();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": //saida
-      SaidaE();
-      break;
-    case "2": //florestaB
-      FlorestaBrightwood();
-      break;
-    case "3": //everleste
-      Everleste();
-      break;
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+  console.clear();
+  console.log("Você está em Lago Prespa!\n");
+  
+  do {
+    lugares.LagoPrespa();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
+
+    switch (op) {
+      case 1: //saida
+        SaidaE();
+        break;
+
+      case 2: //florestaB
+        FlorestaBrightwood();
+        break;
+
+      case 3: //everleste
+        Everleste();
+        break;
+
+      case 4:
+        process.exit();
+        break;
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 4);
+  
 }
 
 function Everleste() {
-  console.log("Você está em Everleste!");
-  lugares.Everleste();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": //lago
-      LagoPrespa();
-      break;
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+  console.clear();
+  console.log("Você está em Everleste!\n");
+  
+  do {
+    lugares.Everleste();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
+
+    switch (op) {
+      case 1: //lago
+        LagoPrespa();
+        break;
+
+      case 2:
+        process.exit();
+        break;
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 2);
+  
 }
 
 function CentroE() {
-  console.log("Você está em Centro de Esparta!");
-  lugares.CentroE();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": // calquimia
-      Alquimia();
-      break;
+  console.clear()
+  console.log("Você está em Centro de Esparta!\n");
+  
+  do {
+    lugares.CentroE();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
 
-    case "2": //trezentes
-      Trezentes();
-      break;
+    switch (op) {
+      case 1: // calquimia
+        Trezentes();
+        break;
 
-    case "3": // saida
-      SaidaE();
-      break;
+      case 2: //trezentes
+        Alquimia();
+        break;
 
-    case "4": // entrada
-      EntradaE();
-      break;
+      case 3: // saida
+        SaidaE();
+        break;
 
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+      case 4: // entrada
+        EntradaE();
+        break;
+
+      case 5:
+        process.exit();
+        break;
+
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 5);
+  
 }
 
 function FlorestaAmazonica() {
-  console.log("Você está em Floresta Amazônica!");
-  lugares.FlorestaAmazonica();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": //saida
-      SaidaE();
-      break;
-    case "2": //lago
-      LagoPrespa();
-      break;
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+  console.clear();
+  console.log("Você está em Floresta Amazônica!\n");
+  
+  do {
+    lugares.FlorestaAmazonica();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
+
+    switch (op) {
+      case 1: //saida
+        EntradaE();
+        break;
+
+      case 2: //lago
+        CavernaMelissanthi();
+        break;
+
+      case 3:
+        process.exit();
+        break;
+
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 3);
+  
 }
 
 function CavernaMelissanthi() {
-  console.log("Você está em Caverna de Melissanthi!");
-  lugares.Everleste();
-  op = entrada(
-    "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-  );
-  switch (op) {
-    case "1": //florestaA
-      FlorestaAmazonica();
-      break;
-    default: // opcao invalida
-      console.log("Opção Inválida!");
-  }
+  console.clear();
+  console.log("Você está em Caverna de Melissanthi!\n");
+  
+  do {
+    lugares.Everleste();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
+
+    switch (op) {
+      case 1: //florestaA
+        FlorestaAmazonica();
+        break;
+
+      case 2:
+        process.exit();
+        break;
+
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 2);
+
 }
 
 module.exports = {

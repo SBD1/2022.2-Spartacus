@@ -112,10 +112,10 @@ INSERT INTO Inimigo (idNPC, NomeNPC, Descricao, TipoNPC, Dano, Vida, idLugar) VA
 (20,'Sicarius','Classe de inimigos nivel 3, portam um Alfange, seu ataque é potente porém são mais lentos','Inimigo', 30, 30, 8),
 (21,'Cérberos','Um monstruoso cão de três cabeças que guarda a entrada da Caverna de Melissanthi.','Inimigo', 30, 50, 1),
 (22,'Javali de Brightwood','Um monstro terrível que assola a todos que passam pela Floresta de Brightwood.','Inimigo', 25, 70, 10),
-(23,'Minotauro','Uma criatura com a cabeça de um touro sobre o corpo de um homem, um dos monstro mais forte e amedrontador de Esparta.','Inimigo', , , 10),
+(23,'Minotauro','Uma criatura com a cabeça de um touro sobre o corpo de um homem, um dos monstro mais forte e amedrontador de Esparta.','Inimigo', 40, 70, 10),
 (24,'Lobo Raivoso','Lobos são animais extremamente territorialistas, grande azar de quem ousa invadir o seu espaço','Inimigo',30, 65, 10),
-(25,'Ciclope','Gigante irmotal com apenas um olho no centro da testa, eles podem ser lentos, mas tome cuidado, seu ataque é o mais poderoso de Esparta.','Inimigo',100,200,12);
-(26,'Cuca','Jacaré que vive nas proximidades do Lago Prespa pronto para dar o bote em quem passar.','Inimigo', 40, 50, 11);
+(25,'Ciclope','Gigante irmotal com apenas um olho no centro da testa, eles podem ser lentos, mas tome cuidado, seu ataque é o mais poderoso de Esparta.','Inimigo',100,200,12),
+(26,'Cuca','Jacaré que vive nas proximidades do Lago Prespa pronto para dar o bote em quem passar.','Inimigo', 40, 50, 11),
 (27,'Wukong','O monstro mais rápido de Esparta, localizado na Floresta Amazônica, ele alcança velocidades incríveis, além de ter uma grande habilidade com seu bastão.','Inimigo', 40, 50, 2);
 
 -------------------------------------------------
@@ -123,8 +123,8 @@ INSERT INTO Inimigo (idNPC, NomeNPC, Descricao, TipoNPC, Dano, Vida, idLugar) VA
 INSERT INTO Batalha (idBatalha, QtdRespeitoBat, QtdDinheiroBat, idInimigo) VALUES 
 (1, 20, 50, 4),
 (2, 40, 100, 5),
-(3, 60, 200, 6); 
-(4, 80, 400, 7); 
+(3, 60, 200, 6), 
+(4, 80, 400, 7),
 (5, 100, 600, 8); 
 
 -------------------------------------------------

@@ -1,42 +1,96 @@
-//-------------------Constantes------------------
+const db = require("./database");
+const fs = require('fs');
 const entrada = require("prompt-sync")({ sigint: true });
-let op;
-const lugares = require("./locais");
-const func = require("./func");
+const lugar = require("./func");
 
-//-------------------Codigo----------------------------
-console.log("--------------------------------------------------");
-console.log("| Bem Vindo Guerreiro ao início da sua aventura! |");
-console.log("--------------------------------------------------");
-console.log("");
-console.log("Todo Guerreiro começa no Centro de Esparta.");
-console.log(
-  "Um local extremamente belo, construído em pedra e marmóre e como o próprio nome diz localizado ao centro de toda cidade."
-);
-console.log("");
-lugares.CentroE();
-op = entrada(
-  "Para qual desses locais você gostaria de ir? (Digite o numero do local)."
-);
-
-switch (op) {
-  case "1":
-    func.Trezentes();
-    break;
-
-  case "2":
-    func.Alquimia();
-    break;
-
-  case "3":
-    func.SaidaE();
-    break;
-
-  case "4":
-    func.EntradaE();
-    break;
-
-  default:
-    console.log("Local não encontrado!");
-    break;
+const createDB = async () => {
+  db
+  .query('CREATE DATABASE IF NOT EXISTS Spartacus;')
+  .then(res => console.log('DB CRIADO!'))
+  .catch(e => console.error(e.stack))
 }
+
+const createTables = async () => {
+  var ddl = fs.readFileSync('DDL.sql').toString();
+  db.query(ddl)
+  .then(res => true)
+  .catch(e => console.error(e.stack))
+}
+
+const populateTables = async () => {
+  var dml = fs.readFileSync('DML.sql').toString(); 
+  db.query(dml)
+  .then(res => console.log('TABELAS POPULADAS COM SUCESSO!'))
+  .catch(e => console.error(e.stack))
+}
+
+function jogar() {
+  lugar.CentroE();
+}
+
+function main() {
+  console.clear();
+
+  console.log("\n----------------------------------------------------");
+  console.log("| Bem-vindo, guerreiro, ao início da sua aventura! |");
+  console.log("----------------------------------------------------\n");
+
+  op = 0;
+  do {
+    console.log("1. Jogar");
+    console.log("2. Criar e popular tabelas");
+    console.log("3. Sair\n");
+    const op = Number(entrada("Insira a opção que deseja: "));
+
+    switch (op) {
+      case 1:
+        console.clear();
+        jogar();
+        break;
+
+      case 2:
+        console.clear();
+
+        // createDB
+        // createTables();
+        // populateTables();
+
+        do {
+          console.log("\n1. Jogar");
+          console.log("2. Sair\n");
+          const op = Number(entrada("Insira a opção que deseja: "));
+
+          switch (op) {
+            case 1:
+              console.clear();
+              jogar();
+              break;
+          
+            case 2:
+              process.exit();
+              break;
+          
+            default:
+              console.clear();
+              console.log("Opção inválida!");
+              break;
+          }
+        } while (op >= 1 || op <= 2);
+        
+        break;
+
+      case 3:
+        process.exit();
+        break;
+
+      default:
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 3);
+
+  
+}
+
+main();
