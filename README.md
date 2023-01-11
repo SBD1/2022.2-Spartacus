@@ -25,3 +25,41 @@ Spartacus é um jogo baseado nas histórias gregas, que retrata a vida de um gue
 | Hellen Fernanda Mendonça de Faria | 202016480 |
 | Lucas Andrade Lobão               | 202023888 |
 | Lucas Lopes Rocha                 | 202023903 |
+
+## Como executar o cógido
+
+Antes de tudo, você precisará ter o [NodeJS](https://nodejs.org/en/) previamente instalado.
+
+Após clonar o repositótio em sua máquina, siga os passos a seguir.
+
+### Passo 1
+Em seu terminal, entre na pasta Game:
+```bash
+$ cd Game
+```
+
+### Passo 2
+Rode o comando a seguir no terminal para que se instale as dependências necessárias.
+```bash
+$ npm i
+```
+
+### Passo 3
+Ainda dentro da pasta Game, crie um arquivo `.env` e insira as informações a seguir:
+
+```
+HOST= localhost
+PORT= 5432
+USER_DB= <nome de usuário do seu PostgreSQL. Padrão: postgres>
+PASSWORD= <senha do seu PostgreSQL>
+DATABASE= Spartacus
+```
+
+### Passo 4
+Crie um novo banco de dados em seu PostgreSQL denominado `Spartacus`.
+
+### Passo 5
+Por fim, salve tudo e rode o comando a seguir no terminal para iniciar o jogo.
+```bash
+$ node index.js
+```
