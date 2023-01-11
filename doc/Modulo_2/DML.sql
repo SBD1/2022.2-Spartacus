@@ -92,12 +92,31 @@ INSERT INTO Treino ( idTreino, TipoTreino, ValorTreino, MelhoriaTreino) VALUES
 -------------------------------------------------
 
 INSERT INTO Inimigo (idNPC, NomeNPC, Descricao, TipoNPC, Dano, Vida, idLugar) VALUES 
-(3,'Dormammu',' ','Inimigo', , , ),
-(4,'Carniceiro',' ','Inimigo', , , ),
-(5,'Carniceiro',' ','Inimigo', , , ),
-(6,'Dominador',' ','Inimigo', , , ),
-(7,'Tormenta',' ','Inimigo', , , ),
-(8,'Aniquilador',' ','Inimigo', , , );
+(3,'Dormammu','Dormammu é um oponente surreal, sua técnica é fruto de um longo período de reclusão em um mosteiro, aprendendo a lutar e a blindar a sua mente de forma que NADA o abala','Inimigo', 100, 50, 12),
+(4,'Carniceiro','Carniceiro ou "porcão" como muitos o chamam, é um guerreiro extremamente violento, o desejo e o prazer em matar dominaram seu coração ao ponto de ele consumir partes dos seus inimigos após matá-los','Inimigo', 10, 10,9),
+(5,'Kane','Perito na arte da guerra e da caça, Kane consegue enxergar muito bem os pontos fracos de seu adversário, não o subestime','Inimigo', 20, 15, 9),
+(6,'Dominador','Um bravo guerreiro que ganha muito dinheiro e fama no centro de batalha, tem coragem de desafiá-lo?','Inimigo', 30, 30, 9),
+(7,'Tormenta','Parte do significado do seu nome vem da sua aparência horrenda, um pequeno pesadelo acordado. Mas não se preocupe, provavelmente você não terá muito tempo antes que ele te mate','Inimigo', 40, 90, 9),
+(8,'Aniquilador','Conhecido em Esparta por nunca ter perdido uma batalha, seus inimigos tremem de medo ao ver o seu poderoso machado','Inimigo', 50, 150, 9),
+(9,'Kretins','Classe de inimigos nivel 1, geralmente portadores de machadinha, são velozes mas não muito fortes','Inimigo', 10, 10, 3),
+(10,'Kretins','Classe de inimigos nivel 1, geralmente portadores de machadinha, são velozes mas não muito fortes','Inimigo', 10, 10, 5),
+(11,'Kretins','Classe de inimigos nivel 1, geralmente portadores de machadinha, são velozes mas não muito fortes','Inimigo', 10, 10, 7),
+(12,'Kretins','Classe de inimigos nivel 1, geralmente portadores de machadinha, são velozes mas não muito fortes','Inimigo', 10, 10, 8),
+(13,'Furbos','Classe de inimigos nivel 2, utilizam uma cimitarra como arma, são mais resistentes aos ataques','Inimigo', 20, 15, 3),
+(14,'Furbos','Classe de inimigos nivel 2, utilizam uma cimitarra como arma, são mais resistentes aos ataques','Inimigo', 20, 15, 5),
+(15,'Furbos','Classe de inimigos nivel 2, utilizam uma cimitarra como arma, são mais resistentes aos ataques','Inimigo', 20, 15, 7),
+(16,'Furbos','Classe de inimigos nivel 2, utilizam uma cimitarra como arma, são mais resistentes aos ataques','Inimigo', 20, 15, 8),
+(17,'Sicarius','Classe de inimigos nivel 3, portam um Alfange, seu ataque é potente porém são mais lentos','Inimigo', 30, 30, 3),
+(18,'Sicarius','Classe de inimigos nivel 3, portam um Alfange, seu ataque é potente porém são mais lentos','Inimigo', 30, 30, 5),
+(19,'Sicarius','Classe de inimigos nivel 3, portam um Alfange, seu ataque é potente porém são mais lentos','Inimigo', 30, 30, 7),
+(20,'Sicarius','Classe de inimigos nivel 3, portam um Alfange, seu ataque é potente porém são mais lentos','Inimigo', 30, 30, 8),
+(21,'Cérberos','Um monstruoso cão de três cabeças que guarda a entrada da Caverna de Melissanthi.','Inimigo', 30, 50, 1),
+(22,'Javali de Brightwood','Um monstro terrível que assola a todos que passam pela Floresta de Brightwood.','Inimigo', 25, 70, 10),
+(23,'Minotauro','Uma criatura com a cabeça de um touro sobre o corpo de um homem, um dos monstro mais forte e amedrontador de Esparta.','Inimigo', , , 10),
+(24,'Lobo Raivoso','Lobos são animais extremamente territorialistas, grande azar de quem ousa invadir o seu espaço','Inimigo',30, 65, 10),
+(25,'Ciclope','Gigante irmotal com apenas um olho no centro da testa, eles podem ser lentos, mas tome cuidado, seu ataque é o mais poderoso de Esparta.','Inimigo',100,200,12);
+(26,'Cuca','Jacaré que vive nas proximidades do Lago Prespa pronto para dar o bote em quem passar.','Inimigo', 40, 50, 11);
+(27,'Wukong','O monstro mais rápido de Esparta, localizado na Floresta Amazônica, ele alcança velocidades incríveis, além de ter uma grande habilidade com seu bastão.','Inimigo', 40, 50, 2);
 
 -------------------------------------------------
 
