@@ -130,12 +130,19 @@ INSERT INTO Batalha (idBatalha, QtdRespeitoBat, QtdDinheiroBat, idInimigo) VALUE
 -------------------------------------------------
 
 INSERT INTO Missao(idMissao, NomeMissao, DescricaoMissao, Objetivo, Recompensa) VALUES
-(1, 'Primeira Arma', 'Compre sua primeira arma!', 'Comprar uma arma.', 20),
-(2, 'Necessidades Básicas', 'Compre sua primeira armadura!', 'Comprar uma armadura.', 20),
+(1, 'Primeira Arma', 'Compre sua primeira arma!', 'Compre uma arma.', 20),
+(2, 'Necessidades Básicas', 'Compre sua primeira armadura!', 'Compre uma armadura.', 20),
 (3, 'Em busca da Glória Eterna!', 'Faça sua primeira batalha!', 'Batalhe uma primeira vez.', 20),
 (4, 'Cheiro de carniça!', 'Derrote o Carniceiro no Centro de Batalha.', 'Derrote o Carniceiro.', 20),
 (5, 'Adversário qualificado.', 'Derrote o guerreiro Kane no Centro de Batalha.', 'Derrote o guerreiro Kane.', 20),
 (6, 'O Dominador', 'Derrote o mercenário Dominador no Centro de Batalha.', 'Derrote o mercenário Dominador.', 20),
 (7, 'O vale da Tormenta', 'Derrote a Tormenta no Centro de Batalha.', 'Derrote a Tormenta.', 20),
 (8, 'Batalha Final', 'Derrote o chefe das batalhas, o Aniquilador.', 'Derrote o Aniquilador.', 20);
-(9, '', '', '', 20);
+(9, 'Olá, Argus Floros!', 'Visite e compre na loja de poções Trezentes.', 'Compre qualquer porção.', 20);
+(10, 'Eu vim barganhar!', 'Dormammu está aterrorizando por quem passa na Floresta Everlest, os habitantes próximos já tem medo de sair de suas casas com medo deste temível monstro.', 'Derrote Dormammu na região de Everlest.', 20);
+(11, 'O poder da Machadinha', 'Os Kretins, assim como os Furbos e Sicarius, são mosntros nomâdes, a todo momento estão em lugar diferente, mas podem ser encontrados nas extremidades de Esparta, como o Oeste e Leste de Esparta.', 'Encontre um Kretins e derrote-o.', 20);
+(12, 'O poder da Cimitarra', 'Os Furbos, assim como os Kretins e Sicarius, são mosntros nomâdes, a todo momento estão em lugar diferente, mas podem ser encontrados nas extremidades de Esparta, como o Oeste e Leste de Esparta.', 'Encontre um Furbos e derrote-o.', 20);
+(13, 'O poder do Alfange', 'Os Sicarius, assim como os Furbos e Kretins, são mosntros nomâdes, a todo momento estão em lugar diferente, mas podem ser encontrados nas extremidades de Esparta, como o Oeste e Leste de Esparta.', 'Encontre um Sicarius e derrote-o.', 20);
+(14, 'Um cachorro de três cabeças?', 'Cérberos, o guardião da Caverna de Melissanthi, ninguém nunca conseguiu saber o que de tão valioso é guardado lá, pois os que tentaram viraram comida de cachorro.', 'Derrote Cérberos e descubra o de valioso é guardado ali.', 20);
+(15, 'Aquilo é um Javali?', '', '', 20);
+(16, '', '', '', 20);
