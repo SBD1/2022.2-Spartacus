@@ -3,17 +3,10 @@ const fs = require('fs');
 const entrada = require("prompt-sync")({ sigint: true });
 const lugar = require("./func");
 
-const createDB = async () => {
-  db
-  .query('CREATE DATABASE IF NOT EXISTS Spartacus;')
-  .then(res => console.log('DB CRIADO!'))
-  .catch(e => console.error(e.stack))
-}
-
 const createTables = async () => {
   var ddl = fs.readFileSync('DDL.sql').toString();
   db.query(ddl)
-  .then(res => true)
+  .then(res => console.log('TABELAS CRIADAS COM SUCESSO!'))
   .catch(e => console.error(e.stack))
 }
 
@@ -51,7 +44,6 @@ function main() {
       case 2:
         console.clear();
 
-        // createDB
         // createTables();
         // populateTables();
 

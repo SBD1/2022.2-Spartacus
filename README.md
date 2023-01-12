@@ -52,13 +52,10 @@ HOST= localhost
 PORT= 5432
 USER_DB= <nome de usuário do seu PostgreSQL. Padrão: postgres>
 PASSWORD= <senha do seu PostgreSQL>
-DATABASE= Spartacus
+DATABASE= postgres
 ```
 
 ### Passo 4
-Crie um novo banco de dados em seu PostgreSQL denominado `Spartacus`.
-
-### Passo 5
 Por fim, salve tudo e rode o comando a seguir no terminal para iniciar o jogo.
 ```bash
 $ node index.js
