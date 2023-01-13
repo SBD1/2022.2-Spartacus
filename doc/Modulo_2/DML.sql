@@ -137,12 +137,16 @@ INSERT INTO Missao(idMissao, NomeMissao, DescricaoMissao, Objetivo, Recompensa) 
 (5, 'Adversário qualificado.', 'Derrote o guerreiro Kane no Centro de Batalha.', 'Derrote o guerreiro Kane.', 20),
 (6, 'O Dominador', 'Derrote o mercenário Dominador no Centro de Batalha.', 'Derrote o mercenário Dominador.', 20),
 (7, 'O vale da Tormenta', 'Derrote a Tormenta no Centro de Batalha.', 'Derrote a Tormenta.', 20),
-(8, 'Batalha Final', 'Derrote o chefe das batalhas, o Aniquilador.', 'Derrote o Aniquilador.', 20);
-(9, 'Olá, Argus Floros!', 'Visite e compre na loja de poções Trezentes.', 'Compre qualquer porção.', 20);
-(10, 'Eu vim barganhar!', 'Dormammu está aterrorizando por quem passa na Floresta Everlest, os habitantes próximos já tem medo de sair de suas casas com medo deste temível monstro.', 'Derrote Dormammu na região de Everlest.', 20);
-(11, 'O poder da Machadinha', 'Os Kretins, assim como os Furbos e Sicarius, são mosntros nomâdes, a todo momento estão em lugar diferente, mas podem ser encontrados nas extremidades de Esparta, como o Oeste e Leste de Esparta.', 'Encontre um Kretins e derrote-o.', 20);
-(12, 'O poder da Cimitarra', 'Os Furbos, assim como os Kretins e Sicarius, são mosntros nomâdes, a todo momento estão em lugar diferente, mas podem ser encontrados nas extremidades de Esparta, como o Oeste e Leste de Esparta.', 'Encontre um Furbos e derrote-o.', 20);
-(13, 'O poder do Alfange', 'Os Sicarius, assim como os Furbos e Kretins, são mosntros nomâdes, a todo momento estão em lugar diferente, mas podem ser encontrados nas extremidades de Esparta, como o Oeste e Leste de Esparta.', 'Encontre um Sicarius e derrote-o.', 20);
-(14, 'Um cachorro de três cabeças?', 'Cérberos, o guardião da Caverna de Melissanthi, ninguém nunca conseguiu saber o que de tão valioso é guardado lá, pois os que tentaram viraram comida de cachorro.', 'Derrote Cérberos e descubra o de valioso é guardado ali.', 20);
-(15, 'Aquilo é um Javali?', '', '', 20);
-(16, '', '', '', 20);
+(8, 'Batalha Final', 'Derrote o chefe das batalhas, o Aniquilador.', 'Derrote o Aniquilador.', 20),
+(9, 'Olá, Argus Floros!', 'Visite e compre na loja de poções Trezentes.', 'Compre qualquer porção.', 20),
+(10, 'Eu vim barganhar!', 'Dormammu está aterrorizando por quem passa na Floresta Everlest, os habitantes próximos já tem medo de sair de suas casas com medo deste temível monstro.', 'Derrote Dormammu na região de Everlest.', 20),
+(11, 'O poder da Machadinha', 'Os Kretins, assim como os Furbos e Sicarius, são mosntros nomâdes, a todo momento estão em lugar diferente, mas podem ser encontrados nas extremidades de Esparta, como o Oeste e Leste de Esparta.', 'Encontre um Kretins e derrote-o.', 20),
+(12, 'O poder da Cimitarra', 'Os Furbos, assim como os Kretins e Sicarius, são mosntros nomâdes, a todo momento estão em lugar diferente, mas podem ser encontrados nas extremidades de Esparta, como o Oeste e Leste de Esparta.', 'Encontre um Furbos e derrote-o.', 20),
+(13, 'O poder do Alfange', 'Os Sicarius, assim como os Furbos e Kretins, são mosntros nomâdes, a todo momento estão em lugar diferente, mas podem ser encontrados nas extremidades de Esparta, como o Oeste e Leste de Esparta.', 'Encontre um Sicarius e derrote-o.', 20),
+(14, 'Um cachorro de três cabeças?', 'Cérberos, o guardião da Caverna de Melissanthi, ninguém nunca conseguiu saber o que de tão valioso é guardado lá, pois os que tentaram viraram comida de cachorro.', 'Derrote Cérberos e descubra o de valioso é guardado ali.', 20),
+(15, 'Aquilo é um Javali?', 'Tome cuidado ao andar pela Floresta Brightwood, a qualquer momento você pode esbarrar com um Javali abominável, mas se conseguir matá-lo sua cabeça vale uma boa grana!', 'Derrote um Javali na Floresta Brightwood', 20),
+(16, 'A lenda de Minotauro', 'Reza a lenda que na Floresta de Brightwood há um ser que tem o corpo humano, mas sua cabeça é de touro, e todos que o encontraram foram devorados vivos, mas uma boa arma e uma boa armadura é capaz derrotá-lo.', 'Derrote Minotauro na Floresta de Brightwood', 20),
+(17, 'Cuidado com a raiva!', 'A Floresta Brightwood é o local mais perigoso de Esparta pela diversidade de monstros que tem nela, um deles é o Lobo Raivoso que sente o cheiro de qualquer um de longe e qualquer brecha ele estar pronto para atacar e caso você uma mordida, você acaba sendo contaminado pela raiva.', 'Derrote um Lobo Raivoso na Floresta de Brightwood', 20),
+(18, 'O som do gigante','', 'Derrote o Gigante Ciclope na Floresta Everlest', 20),
+(19, 'A velhinha com a cabeça de Jacaré', 'Cuca, domina o lago prespa, mesmo sendo uma velhinha, não subestime sua rapidez e sua mordida pode ser fatal. Mas sua carne de Jacaré é muito cara em Esparta, sendo um dos principais monstros caçados.', 'Derrote Cuca no Lago Prespa.', 20),
+(20, 'Macacos me mordam', 'Os Wukongs dominaram a Floresta Amozônica, expulsando as guerreiras Amazonas que lá habitavam. Derrotando o chefe dos Wukongs, a paz pode finalmente ser reestabelecida novamente na floresta mais bela de Esparta.', 'Derrote o mestre Wukong.', 20);
