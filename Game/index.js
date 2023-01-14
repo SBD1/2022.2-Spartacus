@@ -98,7 +98,7 @@ async function main() {
           switch (op) {
             case 1:
               console.clear();
-              jogar();
+              await jogar();
               break;
           
             case 2:

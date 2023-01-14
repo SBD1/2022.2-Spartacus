@@ -5,7 +5,6 @@ let op;
 const lugares = require("./locais");
 
 async function updateIdLugar(idLugar, idGuerreiro) {
-  console.log("Estou dentro da função")
   try {
     const res = await db.query(`UPDATE guerreiro SET idlugar=${idLugar} WHERE idguerreiro=${idGuerreiro}`)
 
