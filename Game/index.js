@@ -29,10 +29,6 @@ async function jogar() {
 
   try {
     const res = await db.query(`SELECT idguerreiro FROM guerreiro WHERE nome='${nome}'`)
-    
-    await new Promise(r => setTimeout(r, 5000));
-    idGuerreiro = Number(res.rows[0].idguerreiro);
-    
 
     if (res.rows.length === Number(0)) {
       try {
@@ -54,12 +50,13 @@ async function jogar() {
 
     } else {
       console.log(`Entrando com guerreiro ${nome}...`)
+      idGuerreiro = Number(res.rows[0].idguerreiro);
     }
   } catch (err) {
     console.log(err)
   }
   
-  // await new Promise(r => setTimeout(r, 3000));
+  await new Promise(r => setTimeout(r, 3000));
   
   lugar.CentroE(idGuerreiro);
 }
