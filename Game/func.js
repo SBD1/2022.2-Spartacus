@@ -1,23 +1,28 @@
 const db = require("./database");
 const entrada = require("prompt-sync")({ sigint: true });
-// var { idGuerreiro } = require("./index");
 let op;
 const lugares = require("./locais");
 
-async function updateIdLugar(idLugar, idGuerreiro) {
-  try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=${idLugar} WHERE idguerreiro=${idGuerreiro}`)
+// async function updateIdLugar(idLugar, idGuerreiro) {
+//   try {
+//     const res = await db.query(`UPDATE guerreiro SET idlugar=${idLugar} WHERE idguerreiro=${idGuerreiro}`)
 
-  } catch (err) {
-    console.log(err)
-  }
-}
+//   } catch (err) {
+//     console.log(err)
+//   }
+// }
 
 async function Trezentes(idGuerreiro) {
   console.clear();
   console.log("Você está em Trezentes - Loja de equipamentos!\n");
 
-  updateIdLugar(Number(4), Number(idGuerreiro));
+  // updateIdLugar(Number(4), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=4 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
 
   do {
     lugares.Trezentes();
@@ -26,11 +31,11 @@ async function Trezentes(idGuerreiro) {
 
     switch (op) {
       case 1: //centro
-        CentroE(idGuerreiro);
+        await CentroE(idGuerreiro);
         break;
 
       case 2: //centroT
-        CentroTreinamento(idGuerreiro);
+        await CentroTreinamento(idGuerreiro);
         break;
       
       case 3:
@@ -52,7 +57,13 @@ async function Alquimia(idGuerreiro) {
   console.clear();
   console.log("Você está em Alquimia - Loja de poções!\n");
 
-  updateIdLugar(Number(4), Number(idGuerreiro));
+  // updateIdLugar(Number(4), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=4 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
 
   do {
     lugares.Alquimia();
@@ -60,15 +71,15 @@ async function Alquimia(idGuerreiro) {
 
     switch (op) {
       case 1: // centroB
-        CentroE(idGuerreiro);
+        await CentroE(idGuerreiro);
         break;
 
       case 2: //cetroE
-        OesteE(idGuerreiro);
+        await OesteE(idGuerreiro);
         break;
 
       case 3: //oeste
-        CentroBatalha(idGuerreiro);
+        await CentroBatalha(idGuerreiro);
         break;
 
       case 4:
@@ -88,7 +99,13 @@ async function SaidaE(idGuerreiro) {
   console.clear();
   console.log("Você está em Saída de Esparta!\n");
 
-  updateIdLugar(Number(8), Number(idGuerreiro));
+  // updateIdLugar(Number(8), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=8 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
   
   do {
     lugares.SaidaE();
@@ -96,19 +113,19 @@ async function SaidaE(idGuerreiro) {
 
     switch (op) {
       case 1:
-        CentroE(idGuerreiro);
+        await CentroE(idGuerreiro);
         break;
 
       case 2: 
-        FlorestaBrightwood(idGuerreiro);
+        await FlorestaBrightwood(idGuerreiro);
         break;
 
       case 3: // lago
-        CentroBatalha(idGuerreiro);
+        await CentroBatalha(idGuerreiro);
         break;
 
       case 4: // florestaB
-        LagoPrespa(idGuerreiro);
+        await LagoPrespa(idGuerreiro);
         break;
 
       case 5:
@@ -128,7 +145,13 @@ async function EntradaE(idGuerreiro) {
   console.clear();
   console.log("Você está em Entrada de Esparta!\n");
 
-  updateIdLugar(Number(3), Number(idGuerreiro));
+  // updateIdLugar(Number(3), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=3 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
   
   
   do {
@@ -137,11 +160,11 @@ async function EntradaE(idGuerreiro) {
 
     switch (op) {
       case 1: // centro
-        CentroE(idGuerreiro);
+        await CentroE(idGuerreiro);
         break;
 
       case 2: // florestaA
-        FlorestaAmazonica(idGuerreiro);
+        await FlorestaAmazonica(idGuerreiro);
         break;
 
       case 3:
@@ -161,19 +184,25 @@ async function CentroBatalha(idGuerreiro) {
   console.clear();
   console.log("Você está em Centro de Batalha!\n");
 
-  updateIdLugar(Number(9), Number(idGuerreiro));
-  
+  // updateIdLugar(Number(9), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=9 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
+
   do {
     lugares.CentroBatalha();
     op = Number(entrada("\nInforme para onde deseja ir: "));
 
     switch (op) {
       case 1: //saida
-        SaidaE(idGuerreiro);
+        await SaidaE(idGuerreiro);
         break;
 
       case 2: // alquimia
-        Alquimia(idGuerreiro);
+        await Alquimia(idGuerreiro);
         break;
 
       case 3:
@@ -193,7 +222,13 @@ async function CentroTreinamento(idGuerreiro) {
   console.clear();
   console.log("Você está em Centro de Treinamento!\n");
 
-  updateIdLugar(Number(6), Number(idGuerreiro));
+  // updateIdLugar(Number(6), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=6 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
   
   do {
     lugares.CentroTreinamento();
@@ -201,11 +236,11 @@ async function CentroTreinamento(idGuerreiro) {
 
     switch (op) {
       case 1: //trezentes
-        Trezentes(idGuerreiro);
+        await Trezentes(idGuerreiro);
         break;
 
       case 2: // leste
-        LesteE(idGuerreiro);
+        await LesteE(idGuerreiro);
         break;
       
       case 3:
@@ -225,7 +260,13 @@ async function OesteE(idGuerreiro) {
   console.clear();
   console.log("Você está em Oeste de Esparta!\n");
 
-  updateIdLugar(Number(5), Number(idGuerreiro));
+  // updateIdLugar(Number(5), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=5 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
   
   do {
     lugares.OesteE();
@@ -233,7 +274,7 @@ async function OesteE(idGuerreiro) {
 
     switch (op) {
       case 1: //centroT
-        Alquimia(idGuerreiro);
+        await Alquimia(idGuerreiro);
         break;
 
       case 2:
@@ -253,7 +294,13 @@ async function LesteE(idGuerreiro) {
   console.clear();
   console.log("Você está em Leste de Esparta!\n");
   
-  updateIdLugar(Number(7), Number(idGuerreiro));
+  // updateIdLugar(Number(7), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=7 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
 
   do {
     lugares.LesteE();
@@ -261,7 +308,7 @@ async function LesteE(idGuerreiro) {
 
     switch (op) {
       case 1: //alquimia
-        CentroTreinamento(idGuerreiro);
+        await CentroTreinamento(idGuerreiro);
         break;
 
       case 2:
@@ -281,7 +328,13 @@ async function FlorestaBrightwood(idGuerreiro) {
   console.clear();
   console.log("Você está em Floresta Brightwood!\n");
 
-  updateIdLugar(Number(10), Number(idGuerreiro));
+  // updateIdLugar(Number(10), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=10 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
 
   do {
     lugares.FlorestaBrightwood();
@@ -289,11 +342,11 @@ async function FlorestaBrightwood(idGuerreiro) {
 
     switch (op) {
       case 1: //saida
-        SaidaE(idGuerreiro);
+        await SaidaE(idGuerreiro);
         break;
     
       case 2: //lago
-        LagoPrespa(idGuerreiro);
+        await LagoPrespa(idGuerreiro);
         break;
 
       case 3:
@@ -313,7 +366,13 @@ async function LagoPrespa(idGuerreiro) {
   console.clear();
   console.log("Você está em Lago Prespa!\n");
   
-  updateIdLugar(Number(11), Number(idGuerreiro));
+  // updateIdLugar(Number(11), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=11 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
 
   do {
     lugares.LagoPrespa();
@@ -321,20 +380,21 @@ async function LagoPrespa(idGuerreiro) {
 
     switch (op) {
       case 1: //saida
-        SaidaE(idGuerreiro);
+        await SaidaE(idGuerreiro);
         break;
 
       case 2: //florestaB
-        FlorestaBrightwood(idGuerreiro);
+        await FlorestaBrightwood(idGuerreiro);
         break;
 
       case 3: //everleste
-        Everleste(idGuerreiro);
+        await Everleste(idGuerreiro);
         break;
 
       case 4:
         process.exit();
         break;
+
       default: // opcao invalida
         console.clear();
         console.log("Opção inválida!\n");
@@ -348,7 +408,13 @@ async function Everleste(idGuerreiro) {
   console.clear();
   console.log("Você está em Everleste!\n");
 
-  updateIdLugar(Number(12), Number(idGuerreiro));
+  // updateIdLugar(Number(12), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=12 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
   
   do {
     lugares.Everleste();
@@ -356,7 +422,7 @@ async function Everleste(idGuerreiro) {
 
     switch (op) {
       case 1: //lago
-        LagoPrespa(idGuerreiro);
+        await LagoPrespa(idGuerreiro);
         break;
 
       case 2:
@@ -375,7 +441,13 @@ async function CentroE(idGuerreiro) {
   console.clear()
   console.log("Você está em Centro de Esparta!\n");
 
-  updateIdLugar(Number(4), Number(idGuerreiro));
+  // updateIdLugar(Number(4), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=4 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
   
   do {
     lugares.CentroE();
@@ -383,19 +455,19 @@ async function CentroE(idGuerreiro) {
 
     switch (op) {
       case 1: // calquimia
-        Trezentes(idGuerreiro);
+        await Trezentes(idGuerreiro);
         break;
 
       case 2: //trezentes
-        Alquimia(idGuerreiro);
+        await Alquimia(idGuerreiro);
         break;
 
       case 3: // saida
-        SaidaE(idGuerreiro);
+        await SaidaE(idGuerreiro);
         break;
 
       case 4: // entrada
-        EntradaE(idGuerreiro);
+        await EntradaE(idGuerreiro);
         break;
 
       case 5:
@@ -415,7 +487,13 @@ async function FlorestaAmazonica(idGuerreiro) {
   console.clear();
   console.log("Você está em Floresta Amazônica!\n");
 
-  updateIdLugar(Number(2), Number(idGuerreiro));
+  // updateIdLugar(Number(2), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=2 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
   
   do {
     lugares.FlorestaAmazonica();
@@ -423,11 +501,11 @@ async function FlorestaAmazonica(idGuerreiro) {
 
     switch (op) {
       case 1: //saida
-        EntradaE(idGuerreiro);
+        await EntradaE(idGuerreiro);
         break;
 
       case 2: //lago
-        CavernaMelissanthi(idGuerreiro);
+        await CavernaMelissanthi(idGuerreiro);
         break;
 
       case 3:
@@ -447,7 +525,13 @@ async function CavernaMelissanthi(idGuerreiro) {
   console.clear();
   console.log("Você está em Caverna de Melissanthi!\n");
 
-  updateIdLugar(Number(1), Number(idGuerreiro));
+  // updateIdLugar(Number(1), Number(idGuerreiro));
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=1 WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
   
   do {
     lugares.CavernaMelissanthi();
@@ -455,7 +539,7 @@ async function CavernaMelissanthi(idGuerreiro) {
 
     switch (op) {
       case 1: //florestaA
-        FlorestaAmazonica(idGuerreiro);
+        await FlorestaAmazonica(idGuerreiro);
         break;
 
       case 2:

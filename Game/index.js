@@ -58,7 +58,7 @@ async function jogar() {
   
   await new Promise(r => setTimeout(r, 3000));
   
-  lugar.CentroE(idGuerreiro);
+  await lugar.CentroE(idGuerreiro);
 }
 
 async function main() {
