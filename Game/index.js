@@ -59,7 +59,7 @@ async function jogar() {
     console.log(err)
   }
   
-  await new Promise(r => setTimeout(r, 3000));
+  // await new Promise(r => setTimeout(r, 3000));
   
   lugar.CentroE(idGuerreiro);
 }
