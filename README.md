@@ -58,5 +58,5 @@ DATABASE= postgres
 ### Passo 4
 Por fim, salve tudo e rode o comando a seguir no terminal para iniciar o jogo.
 ```bash
-$ node index.js
+$ npm start
 ```

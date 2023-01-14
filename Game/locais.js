@@ -2,7 +2,7 @@
 //-------------Locais que o local em que o jogador esta pode ir-----------
 function CentroE() {
   console.log("A partir daqui você pode se locomover por alguns locais! Veja:");
-  console.log("1. Trezentes - Loja de Rquipamentos.");
+  console.log("1. Trezentes - Loja de Equipamentos.");
   console.log("2. Alquimia - Loja de poções.");
   console.log("3. Saída de Esparta.");
   console.log("4. Entrada de Esparta.");

@@ -2,26 +2,69 @@ const db = require("./database");
 const fs = require('fs');
 const entrada = require("prompt-sync")({ sigint: true });
 const lugar = require("./func");
+var idGuerreiro = 0;
 
-const createTables = async () => {
+async function createTables() {
   var ddl = fs.readFileSync('DDL.sql').toString();
   db.query(ddl)
   .then(res => console.log('TABELAS CRIADAS COM SUCESSO!'))
   .catch(e => console.error(e.stack))
 }
 
-const populateTables = async () => {
+async function populateTables() {
   var dml = fs.readFileSync('DML.sql').toString(); 
   db.query(dml)
   .then(res => console.log('TABELAS POPULADAS COM SUCESSO!'))
   .catch(e => console.error(e.stack))
 }
 
-function jogar() {
-  lugar.CentroE();
+async function jogar() {
+  console.clear();
+
+  console.log("------------------");
+  console.log("| SPARTACUS GAME |");
+  console.log("------------------\n");
+
+  const nome = entrada("Digite o nome do seu guerreiro: ");
+
+  try {
+    const res = await db.query(`SELECT idguerreiro FROM guerreiro WHERE nome='${nome}'`)
+    
+    await new Promise(r => setTimeout(r, 5000));
+    idGuerreiro = Number(res.rows[0].idguerreiro);
+    
+
+    if (res.rows.length === Number(0)) {
+      try {
+        const res = await db.query(`INSERT INTO guerreiro (nome) VALUES ('${nome}')`)
+        console.log(`Novo guerreiro! Criando ${nome}...`)
+    
+      } catch (err) {
+        console.log(err)
+      }
+
+      try {
+        const res = await db.query(`SELECT idguerreiro FROM guerreiro WHERE nome='${nome}'`)
+
+        idGuerreiro = Number(res.rows[0].idguerreiro);
+    
+      } catch (err) {
+        console.log(err)
+      }
+
+    } else {
+      console.log(`Entrando com guerreiro ${nome}...`)
+    }
+  } catch (err) {
+    console.log(err)
+  }
+  
+  await new Promise(r => setTimeout(r, 3000));
+  
+  lugar.CentroE(idGuerreiro);
 }
 
-function main() {
+async function main() {
   console.clear();
 
   console.log("\n----------------------------------------------------");
@@ -38,14 +81,17 @@ function main() {
     switch (op) {
       case 1:
         console.clear();
-        jogar();
+        await jogar();
         break;
 
       case 2:
         console.clear();
 
-        // createTables();
-        // populateTables();
+        createTables(); 
+        await new Promise(r => setTimeout(r, 5000));
+
+        populateTables();
+        await new Promise(r => setTimeout(r, 5000));
 
         do {
           console.log("\n1. Jogar");

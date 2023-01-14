@@ -1,10 +1,23 @@
+const db = require("./database");
 const entrada = require("prompt-sync")({ sigint: true });
 let op;
 const lugares = require("./locais");
 
-function Trezentes() {
+async function updateIdLugar(idLugar, idGuerreiro) {
+  console.log("Estou dentro da função")
+  try {
+    const res = await db.query(`UPDATE guerreiro SET idlugar=${idLugar} WHERE idguerreiro=${idGuerreiro}`)
+
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+async function Trezentes(idGuerreiro) {
   console.clear();
   console.log("Você está em Trezentes - Loja de equipamentos!\n");
+
+  updateIdLugar(Number(4), Number(idGuerreiro));
 
   do {
     lugares.Trezentes();
@@ -13,11 +26,11 @@ function Trezentes() {
 
     switch (op) {
       case 1: //centro
-        CentroE();
+        CentroE(idGuerreiro);
         break;
 
       case 2: //centroT
-        CentroTreinamento();
+        CentroTreinamento(idGuerreiro);
         break;
       
       case 3:
@@ -35,9 +48,11 @@ function Trezentes() {
   
 }
 
-function Alquimia() {
+async function Alquimia(idGuerreiro) {
   console.clear();
   console.log("Você está em Alquimia - Loja de poções!\n");
+
+  updateIdLugar(Number(4), Number(idGuerreiro));
 
   do {
     lugares.Alquimia();
@@ -45,15 +60,15 @@ function Alquimia() {
 
     switch (op) {
       case 1: // centroB
-        CentroE();
+        CentroE(idGuerreiro);
         break;
 
       case 2: //cetroE
-        OesteE();
+        OesteE(idGuerreiro);
         break;
 
       case 3: //oeste
-        CentroBatalha();
+        CentroBatalha(idGuerreiro);
         break;
 
       case 4:
@@ -69,29 +84,31 @@ function Alquimia() {
   
 }
 
-function SaidaE() {
+async function SaidaE(idGuerreiro) {
   console.clear();
   console.log("Você está em Saída de Esparta!\n");
   
+  updateIdLugar(Number(8), Number(idGuerreiro));
+
   do {
     lugares.SaidaE();
     op = Number(entrada("\nInforme para onde deseja ir: "));
 
     switch (op) {
       case 1:
-        CentroE();
+        CentroE(idGuerreiro);
         break;
 
       case 2: 
-        FlorestaBrightwood();
+        FlorestaBrightwood(idGuerreiro);
         break;
 
       case 3: // lago
-        CentroBatalha();
+        CentroBatalha(idGuerreiro);
         break;
 
       case 4: // florestaB
-        LagoPrespa();
+        LagoPrespa(idGuerreiro);
         break;
 
       case 5:
@@ -107,9 +124,11 @@ function SaidaE() {
   
 }
 
-function EntradaE() {
+async function EntradaE(idGuerreiro) {
   console.clear();
   console.log("Você está em Entrada de Esparta!\n");
+
+  updateIdLugar(Number(3), Number(idGuerreiro));
   
   do {
     lugares.EntradaE();
@@ -117,11 +136,11 @@ function EntradaE() {
 
     switch (op) {
       case 1: // centro
-        CentroE();
+        CentroE(idGuerreiro);
         break;
 
       case 2: // florestaA
-        FlorestaAmazonica();
+        FlorestaAmazonica(idGuerreiro);
         break;
 
       case 3:
@@ -137,9 +156,11 @@ function EntradaE() {
   
 }
 
-function CentroBatalha() {
+async function CentroBatalha(idGuerreiro) {
   console.clear();
   console.log("Você está em Centro de Batalha!\n");
+
+  updateIdLugar(Number(9), Number(idGuerreiro));
   
   do {
     lugares.CentroBatalha();
@@ -147,11 +168,11 @@ function CentroBatalha() {
 
     switch (op) {
       case 1: //saida
-        SaidaE();
+        SaidaE(idGuerreiro);
         break;
 
       case 2: // alquimia
-        Alquimia();
+        Alquimia(idGuerreiro);
         break;
 
       case 3:
@@ -167,21 +188,23 @@ function CentroBatalha() {
   
 }
 
-function CentroTreinamento() {
+async function CentroTreinamento(idGuerreiro) {
   console.clear();
   console.log("Você está em Centro de Treinamento!\n");
   
+  updateIdLugar(Number(6), Number(idGuerreiro));
+
   do {
     lugares.CentroTreinamento();
     op = Number(entrada("\nInforme para onde deseja ir: "));
 
     switch (op) {
       case 1: //trezentes
-        Trezentes();
+        Trezentes(idGuerreiro);
         break;
 
       case 2: // leste
-        LesteE();
+        LesteE(idGuerreiro);
         break;
       
       case 3:
@@ -197,9 +220,11 @@ function CentroTreinamento() {
   
 }
 
-function OesteE() {
+async function OesteE(idGuerreiro) {
   console.clear();
   console.log("Você está em Oeste de Esparta!\n");
+
+  updateIdLugar(Number(5), Number(idGuerreiro));
   
   do {
     lugares.OesteE();
@@ -207,7 +232,7 @@ function OesteE() {
 
     switch (op) {
       case 1: //centroT
-        Alquimia();
+        Alquimia(idGuerreiro);
         break;
 
       case 2:
@@ -223,9 +248,11 @@ function OesteE() {
   
 }
 
-function LesteE() {
+async function LesteE(idGuerreiro) {
   console.clear();
   console.log("Você está em Leste de Esparta!\n");
+
+  updateIdLugar(Number(7), Number(idGuerreiro));
   
   do {
     lugares.LesteE();
@@ -233,7 +260,7 @@ function LesteE() {
 
     switch (op) {
       case 1: //alquimia
-        CentroTreinamento();
+        CentroTreinamento(idGuerreiro);
         break;
 
       case 2:
@@ -249,9 +276,11 @@ function LesteE() {
   
 }
 
-function FlorestaBrightwood() {
+async function FlorestaBrightwood(idGuerreiro) {
   console.clear();
   console.log("Você está em Floresta Brightwood!\n");
+
+  updateIdLugar(Number(10), Number(idGuerreiro));
 
   do {
     lugares.FlorestaBrightwood();
@@ -259,11 +288,11 @@ function FlorestaBrightwood() {
 
     switch (op) {
       case 1: //saida
-        SaidaE();
+        SaidaE(idGuerreiro);
         break;
     
       case 2: //lago
-        LagoPrespa();
+        LagoPrespa(idGuerreiro);
         break;
 
       case 3:
@@ -279,9 +308,11 @@ function FlorestaBrightwood() {
   
 }
 
-function LagoPrespa() {
+async function LagoPrespa(idGuerreiro) {
   console.clear();
   console.log("Você está em Lago Prespa!\n");
+
+  updateIdLugar(Number(11), Number(idGuerreiro));
   
   do {
     lugares.LagoPrespa();
@@ -289,15 +320,15 @@ function LagoPrespa() {
 
     switch (op) {
       case 1: //saida
-        SaidaE();
+        SaidaE(idGuerreiro);
         break;
 
       case 2: //florestaB
-        FlorestaBrightwood();
+        FlorestaBrightwood(idGuerreiro);
         break;
 
       case 3: //everleste
-        Everleste();
+        Everleste(idGuerreiro);
         break;
 
       case 4:
@@ -312,9 +343,11 @@ function LagoPrespa() {
   
 }
 
-function Everleste() {
+async function Everleste(idGuerreiro) {
   console.clear();
   console.log("Você está em Everleste!\n");
+
+  updateIdLugar(Number(12), Number(idGuerreiro));
   
   do {
     lugares.Everleste();
@@ -322,7 +355,7 @@ function Everleste() {
 
     switch (op) {
       case 1: //lago
-        LagoPrespa();
+        LagoPrespa(idGuerreiro);
         break;
 
       case 2:
@@ -337,9 +370,11 @@ function Everleste() {
   
 }
 
-function CentroE() {
+async function CentroE(idGuerreiro) {
   console.clear()
   console.log("Você está em Centro de Esparta!\n");
+
+  updateIdLugar(Number(4), Number(idGuerreiro));
   
   do {
     lugares.CentroE();
@@ -347,19 +382,19 @@ function CentroE() {
 
     switch (op) {
       case 1: // calquimia
-        Trezentes();
+        Trezentes(idGuerreiro);
         break;
 
       case 2: //trezentes
-        Alquimia();
+        Alquimia(idGuerreiro);
         break;
 
       case 3: // saida
-        SaidaE();
+        SaidaE(idGuerreiro);
         break;
 
       case 4: // entrada
-        EntradaE();
+        EntradaE(idGuerreiro);
         break;
 
       case 5:
@@ -375,9 +410,11 @@ function CentroE() {
   
 }
 
-function FlorestaAmazonica() {
+async function FlorestaAmazonica(idGuerreiro) {
   console.clear();
   console.log("Você está em Floresta Amazônica!\n");
+
+  updateIdLugar(Number(2), Number(idGuerreiro));
   
   do {
     lugares.FlorestaAmazonica();
@@ -385,11 +422,11 @@ function FlorestaAmazonica() {
 
     switch (op) {
       case 1: //saida
-        EntradaE();
+        EntradaE(idGuerreiro);
         break;
 
       case 2: //lago
-        CavernaMelissanthi();
+        CavernaMelissanthi(idGuerreiro);
         break;
 
       case 3:
@@ -405,9 +442,11 @@ function FlorestaAmazonica() {
   
 }
 
-function CavernaMelissanthi() {
+async function CavernaMelissanthi(idGuerreiro) {
   console.clear();
   console.log("Você está em Caverna de Melissanthi!\n");
+
+  updateIdLugar(Number(1), Number(idGuerreiro));
   
   do {
     lugares.Everleste();
@@ -415,7 +454,7 @@ function CavernaMelissanthi() {
 
     switch (op) {
       case 1: //florestaA
-        FlorestaAmazonica();
+        FlorestaAmazonica(idGuerreiro);
         break;
 
       case 2:
