@@ -1,12 +1,10 @@
 # 2022.2-Spartacus
 
-Repositório destinado ao projeto de Sistema de Banco de Dados 1 do segundo semestre de 2022.
-
 ## Sobre Spartacus
 
 Spartacus é um jogo baseado nas histórias gregas, que retrata a vida de um guerreiro com objetivo de ficar cada vez mais forte e mais respeitado em sua cidade. O jogo contém missões, batalhas, inimigos, tudo que uma verdadeira história deve ter.
 
-<div style="text-align:center"><img src="https://www.thunderwave.com.br/wp-content/uploads/2013/04/Andy.jpg"></div>
+<div style="text-align:center"><img src="https://thumbs.gfycat.com/AnguishedFirstKangaroo-size_restricted.gif"></div>
 
 ## Contribuidores
 
@@ -17,7 +15,7 @@ Spartacus é um jogo baseado nas histórias gregas, que retrata a vida de um gue
 | <a href="https://github.com/lucaslobao-18"><img src="https://avatars.githubusercontent.com/u/83256558?v=4" height="auto" width="90" style="border-radius:50%"></a> &nbsp; &nbsp; &nbsp; |   Lucas Andrade Lobão    | [lucaslobao-18](https://github.com/lucaslobao-18) |
 |   <a href="https://github.com/luclopesr"><img src="https://avatars.githubusercontent.com/u/88348202?v=4" height="auto" width="90" style="border-radius:50%"></a> &nbsp; &nbsp; &nbsp;   |    Lucas Lopes Rocha     |     [luclopesr](https://github.com/luclopesr)     |
 
-## Matrículas
+### Matrículas
 
 | Nome                              | Matrícula |
 | --------------------------------- | --------- |
