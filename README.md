@@ -25,7 +25,7 @@ Spartacus é um jogo baseado nas histórias gregas, que retrata a vida de um gue
 | Lucas Lopes Rocha                 | 202023903 |
 
 ### Apresentações dos módulos 
-|Apresentações| <a href="https://drive.google.com/drive/folders/1oCeQTfjHVmdpd_9G1eLvOOl_kNBI9d70"></a>|
+| Apresentações | <a href="https://drive.google.com/drive/folders/1oCeQTfjHVmdpd_9G1eLvOOl_kNBI9d70"></a> &nbsp; &nbsp; &nbsp; |
 
 ## Como executar o cógido
 
