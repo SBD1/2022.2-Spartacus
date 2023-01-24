@@ -2,15 +2,21 @@ const db = require("./database");
 const entrada = require("prompt-sync")({ sigint: true });
 let op, idNPC = 0, idGuerreiro = 0;
 
-async function calculaDano () {
-
+async function calculaDano (vidaTotal, danoNPC) {
+    return vidaTotal - danoNPC;
 }
 
 async function batalha (idGuerreiro, idNPC) {
-    const vidaNPC = await db.query(`SELECT vida FROM inimigo WHERE idnpc=${idNPC}`);
     const vidaGuerreiro = await db.query(`SELECT vida FROM guerreiro WHERE id=${idGuerreiro}`);
+    const defesaGuerreiro = await db.query(`SELECT defesa FROM guerreiro WHERE id=${idGuerreiro}`);
+    const forcaGuerreiro = await db.query(`SELECT forca FROM guerreiro WHERE id=${idNPC}`);
+    const danoArma = await(`SELECT`);
+    const vidaNPC = await db.query(`SELECT vida FROM inimigo WHERE idnpc=${idNPC}`);
+    const danoNPC = await db.query(`SELECT dano FROM inimigo WHERE idnpc=${idNPC}`);
+    var vidaTotal = vidaGuerreiro + defesaGuerreiro;
     while (vidaNPC < 0 || vidaGuerreiro < 0) {
-        var damage = calculaDano(defesaGuerreiro, NPC);
+        var damage = calculaDano(vidaTotal, danoNPC);
+        console.log("Vida atual: " + damage);
     }
 }
 
