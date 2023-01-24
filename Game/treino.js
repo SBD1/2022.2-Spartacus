@@ -1,6 +1,9 @@
 const db = require("./database");
 const entrada = require("prompt-sync")({ sigint: true });
 let op;
+var idGuerreiro = 0;
+var moedasGuerreiro = 0;
+
 //-------------------------------------------------------------------------------------------------
 async function treinando() {
   op = Number(entrada("\nDeseja treinar ? (1-Sim/2-Não) "));
@@ -10,32 +13,63 @@ async function treinando() {
     console.log("3-Ganho de Habilidade");
     op = Number(entrada("\nInforme oq deseja treinar: "));
 
+    async function buscarGuerreiro() {
+      try {
+        const res = await db.query(`SELECT idguerreiro FROM guerreiro`);
+        idGuerreiro = Number(res.rows[0].idguerreiro);
+        // console.log("AQUI:", idGuerreiro);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    async function moedas() {
+      try {
+        const res = await db.query(`SELECT dinheiro FROM guerreiro`);
+        moedasGuerreiro = Number(res.rows[0].dinheiro);
+        // console.log("AQUI:", moedasGuerreiro);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    async function subMoedas() {
+      try {
+        const res = await db.query(
+          `UPDATE guerreiro SET dinheiro = ${
+            moedasGuerreiro - 20
+          } WHERE dinheiro = ${moedasGuerreiro}`
+        );
+        // console.log("Suas moedas:", moedasGuerreiro);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
     switch (op) {
       case 1:
         console.clear();
+        await moedas();
+        await subMoedas(moedasGuerreiro);
+        console.log(
+          "Você esta prestes a começar um treino de FORÇA. Os treinos são pagos e contém níveis, você pode fazer: "
+        );
+        if (moedasGuerreiro >= 20 && moedasGuerreiro < 35) {
+          console.log(
+            "Treino de Força LEVE custa $20 moedas e aumenta sua força em 2 pontos."
+          );
+          console.log("Treino de Força LEVE realizado - $20 moedas.");
+          await subMoedas();
+        }
 
-        console.log(
-          "Você esta prestes a começar um treino de FORÇA. Os treinos são pagos e contém níveis: "
-        );
-        console.log(
-          "1- Treino de Força LEVE custa $20 moedas e aumenta sua força em 2 pontos."
-        );
-        console.log(
-          "2- Treino de Força MODERADO custa $35 moedas e aumenta sua força em 5 pontos."
-        );
-        console.log(
-          "3- Treino de Força ALTO custa $50 moedas e aumenta sua força em 8 pontos."
-        );
-        op = Number(entrada("\nQual nível você gostaria de treinar?"));
-        switch (op) {
-          case 1:
-            break;
-          case 2:
-            break;
-          case 3:
-            break;
-          default:
-            break;
+        if (moedasGuerreiro >= 35 && moedasGuerreiro < 50) {
+          console.log(
+            "Treino de Força MODERADO custa $35 moedas e aumenta sua força em 5 pontos."
+          );
+        }
+
+        if (moedasGuerreiro >= 50) {
+          console.log(
+            "Treino de Força ALTO custa $50 moedas e aumenta sua força em 8 pontos."
+          );
         }
 
         break;
