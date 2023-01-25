@@ -1,9 +1,6 @@
 const db = require("./database");
 const entrada = require("prompt-sync")({ sigint: true });
-var idGuerreiro = 1;
-var dinheiro = 0;
-var valor = 0;
-var nomeitem = 0;
+var idGuerreiro = 1, dinheiro = 0, valor = 0, nomeitem = 0, atributo = 0, qtdpoc = 0;
 
 async function menuPocoes() {
   try {
@@ -27,9 +24,22 @@ async function compraPocao(idGuerreiro) {
     const iditem = Number(op + 20);
 
     try {
-      const res = await db.query(`SELECT tipopoc, valoritem FROM poção WHERE iditem = ${iditem}`);
+      const res = await db.query(`SELECT tipopoc, valoritem, qtdpoc FROM poção WHERE iditem = ${iditem}`);
       valor = Number(res.rows[0].valoritem);
       nomeitem = res.rows[0].tipopoc;
+      qtdpoc = res.rows[0].qtdpoc;
+
+      if (nomeitem.includes('Força')) {
+        atributo = 'forca';
+      } else if (nomeitem.includes('Defesa')) {
+        atributo = 'defesa';
+      } else if (nomeitem.includes('Habilidade')) {
+        atributo = 'habilidade';
+      } else if (nomeitem.includes('Vida')) {
+        atributo = 'vida';
+      } else if (nomeitem.includes('Respeito')) {
+        atributo = 'respeito';
+      }
   
     } catch (err) {
       console.log(err)
@@ -47,20 +57,11 @@ async function compraPocao(idGuerreiro) {
       const newdinheiro = dinheiro - valor;
 
       try {
-        const res = await db.query(`UPDATE guerreiro SET dinheiro=${newdinheiro} WHERE idguerreiro=${idGuerreiro}`);
+        const res = await db.query(`UPDATE guerreiro SET dinheiro=${newdinheiro}, ${atributo}= ${atributo} + ${qtdpoc} WHERE idguerreiro=${idGuerreiro}`);
     
       } catch (err) {
         console.log(err)
       }
-
-      // try {
-      //   // A TABELA DE ITEM NÃO ESTÁ GRAVANDO OS IDS QUE FORAM GERADOS A PARTIR DOS FILHOS
-      //   const res = await db.query(`INSERT INTO instancia_de_item (iditem, idguerreiro) VALUES
-      //   (${iditem}, ${idGuerreiro})`);
-    
-      // } catch (err) {
-      //   console.log(err)
-      // }
 
       try {
         const res = await db.query(`UPDATE poção SET quantidade=quantidade-1 WHERE iditem=${iditem}`);
@@ -69,7 +70,7 @@ async function compraPocao(idGuerreiro) {
         console.log(err)
       }
 
-      console.log(`Parabéns! Você acabou de comprar ${nomeitem}!\n`)
+      console.log(`Parabéns! Você acaba de comprar ${nomeitem} e ganhou +${qtdpoc} deste atributo!\n`)
       
     } else {
       console.log("Você não tem dinheiro suficiente!\n");
@@ -171,4 +172,4 @@ async function menuArmaduras() {
   }
 }
 
-compraArma(idGuerreiro);
+compraPocao(idGuerreiro);
