@@ -1,30 +1,62 @@
 const db = require("./database");
 const entrada = require("prompt-sync")({ sigint: true });
-let op, idNPC = 0, idGuerreiro = 0;
+let op, idGuerreiro = 0, idNPC = 0;
 
-async function calculaDano (vidaTotal, danoNPC) {
-    return vidaTotal - danoNPC;
-}
+// async function calculaDano (vida_total, dano_npc) {
+//    return vida_total - dano_npc;
+//}
 
 async function batalha (idGuerreiro, idNPC) {
-    const vidaGuerreiro = await db.query(`SELECT vida FROM guerreiro WHERE id=${idGuerreiro}`);
-    const defesaGuerreiro = await db.query(`SELECT defesa FROM guerreiro WHERE id=${idGuerreiro}`);
-    const forcaGuerreiro = await db.query(`SELECT forca FROM guerreiro WHERE id=${idNPC}`);
-    const danoArma = await(`SELECT`);
-    const vidaNPC = await db.query(`SELECT vida FROM inimigo WHERE idnpc=${idNPC}`);
-    const danoNPC = await db.query(`SELECT dano FROM inimigo WHERE idnpc=${idNPC}`);
-    var vidaTotal = vidaGuerreiro + defesaGuerreiro;
-    while (vidaNPC < 0 || vidaGuerreiro < 0) {
-        var damage = calculaDano(vidaTotal, danoNPC);
-        console.log("Vida atual: " + damage);
+
+    try {
+        res = await db.query(`SELECT vida FROM guerreiro`);
+        var vidaGuerreiro = Number(res.rows[0].vida);
+        console.log(vidaGuerreiro);
+    } catch (err) {
+        console.log(err);
     }
+
+    try {
+        res = await db.query(`SELECT defesa FROM guerreiro`);
+        var defesaGuerreiro = Number(res.rows[0].defesa);
+        console.log(defesaGuerreiro);
+    } catch (err) {
+        console.log(err);
+    }
+
+    try {
+        res = await db.query(`SELECT vida FROM inimigo`);
+        var vidaNPC = Number(res.rows[0].vida);
+        console.log(vidaNPC);
+    } catch (err) {
+        console.log(err);
+    }
+
+    try {
+        res = await db.query(`SELECT dano FROM inimigo`);
+        var danoNPC = Number(res.rows[0].dano);
+        console.log(danoNPC);
+    } catch (err) {
+        console.log(err);
+    }
+
+    // const forcaGuerreiro = await db.query(`SELECT forca FROM guerreiro WHERE idguerreiro=${idNPC}`);
+    // const danoArma = await db.query(`SELECT`);
+
+    var vida_total = vidaGuerreiro + defesaGuerreiro;
+
+    console.log("Vida guerreiro: " + vida_total);
+
+    //while (vidaNPC < 0 || vidaGuerreiro < 0) {
+    //      var damage = await calculaDano(vida_total, dano_npc);
+    //    console.log("Vida atual: " + damage);
+    // }
 }
 
 async function batalhando(){
     op = Number(entrada("\nDeseja batalhar? (1-Sim/2-Não) "));
     do {
         if (op == 1){
-            console.clear();
             console.log("1 - Carniceiro");
             console.log("2 - Kane");
             console.log("3 - Dominador");
@@ -35,12 +67,31 @@ async function batalhando(){
     
             switch (op) {
                 case 1: 
-                    console.clear();
-                    res = await db.query(`SELECT descricao FROM inimigo WHERE idnpc = 4`);
-                    idNPC = await db.query(`SELECT idnpc FROM inimigo WHERE idnpc = 4`);
-                    idGuerreiro = await db.query("SELECT idguerreiro FROM guerreiro WHERE idnpc = 4");
-                    console.log(res.rows[0].descricao + "\n");
-                    batalha(idNPC, idGuerreiro);
+                
+                    try {
+                        res = await db.query(`SELECT descricao FROM inimigo WHERE idnpc = 4`);
+                        console.log(res.rows[0].descricao + "\n");
+                    } catch (err) {
+                        console.log(err)
+                    }
+                    
+                    try {
+                        res = await db.query(`SELECT idnpc FROM inimigo WHERE idnpc = 4`);
+                        idNPC = Number(res.rows[0].idnpc);
+                        console.log(idNPC);
+                    } catch (err) {
+                        console.log(err);
+                    }
+
+                    try {
+                        res = await db.query(`SELECT idguerreiro FROM guerreiro`);
+                        idGuerreiro = Number(res.rows[0].idguerreiro);
+                        console.log(idGuerreiro);
+                    } catch (err) {
+                        console.log(err);
+                    }
+        
+                    await batalha(idNPC, idGuerreiro);
                     break;
                 case 2:     
                     console.clear();
