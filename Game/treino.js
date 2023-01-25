@@ -5,9 +5,10 @@ var moedasGuerreiro = 0;
 var defesaGuerreiro = 0;
 var forcaGuerreiro = 0;
 var habilidadeGuerreiro = 0;
+var idGuerreiro = 1;
 
 //-------------------------------------------------------------------------------------------------
-async function treinando() {
+async function treinando(idGuerreiro) {
   do {
     op = Number(entrada("\nDeseja treinar ? (1-Sim/0-Não) "));
     if (op == 1) {
@@ -18,9 +19,11 @@ async function treinando() {
       op = Number(entrada("\nInforme oq deseja treinar: "));
 
       // ------------------------------FORCA-----------------------------------------------------
-      async function forca() {
+      async function forca(idGuerreiro) {
         try {
-          const res = await db.query(`SELECT forca FROM guerreiro`);
+          const res = await db.query(
+            `SELECT forca FROM guerreiro WHERE idguerreiro=${idGuerreiro}`
+          );
           forcaGuerreiro = Number(res.rows[0].forca);
         } catch (err) {
           console.log(err);
@@ -62,9 +65,11 @@ async function treinando() {
       // ------------------------------FORCA-----------------------------------------------------
 
       // ------------------------------HABILIDADE-----------------------------------------------------
-      async function habilidade() {
+      async function habilidade(idGuerreiro) {
         try {
-          const res = await db.query(`SELECT habilidade FROM guerreiro`);
+          const res = await db.query(
+            `SELECT habilidade FROM guerreiro WHERE idguerreiro=${idGuerreiro}`
+          );
           habilidadeGuerreiro = Number(res.rows[0].habilidade);
         } catch (err) {
           console.log(err);
@@ -106,9 +111,11 @@ async function treinando() {
       // ------------------------------HABILIDADE-----------------------------------------------------
 
       // ------------------------------DEFESA-----------------------------------------------------
-      async function defesa() {
+      async function defesa(idGuerreiro) {
         try {
-          const res = await db.query(`SELECT defesa FROM guerreiro`);
+          const res = await db.query(
+            `SELECT defesa FROM guerreiro WHERE idguerreiro=${idGuerreiro}`
+          );
           defesaGuerreiro = Number(res.rows[0].defesa);
         } catch (err) {
           console.log(err);
@@ -150,9 +157,11 @@ async function treinando() {
       // ------------------------------DEFESA-----------------------------------------------------
 
       //----------------------------DINHEIRO-------------------------------------------------
-      async function moedas() {
+      async function moedas(idGuerreiro) {
         try {
-          const res = await db.query(`SELECT dinheiro FROM guerreiro`);
+          const res = await db.query(
+            `SELECT dinheiro FROM guerreiro WHERE idguerreiro=${idGuerreiro}`
+          );
           moedasGuerreiro = Number(res.rows[0].dinheiro);
         } catch (err) {
           console.log(err);
@@ -192,10 +201,10 @@ async function treinando() {
         }
       }
       //----------------------------DINHEIRO-------------------------------------------------
-      await moedas();
-      await forca();
-      await defesa();
-      await habilidade();
+      await moedas(idGuerreiro);
+      await forca(idGuerreiro);
+      await defesa(idGuerreiro);
+      await habilidade(idGuerreiro);
 
       switch (op) {
         case 1:

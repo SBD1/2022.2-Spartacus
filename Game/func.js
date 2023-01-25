@@ -27,9 +27,13 @@ async function Trezentes(idGuerreiro) {
   }
 
   try {
-    const res = await db.query(`SELECT nomenpc, descricao, fala FROM amigável WHERE idnpc=2`);
+    const res = await db.query(
+      `SELECT nomenpc, descricao, fala FROM amigável WHERE idnpc=2`
+    );
 
-    console.log(`O dono desta loja se chama ${res.rows[0].nomenpc}. ${res.rows[0].descricao}\n\n– ${res.rows[0].fala}\n`)
+    console.log(
+      `O dono desta loja se chama ${res.rows[0].nomenpc}. ${res.rows[0].descricao}\n\n– ${res.rows[0].fala}\n`
+    );
   } catch (err) {
     console.log(err);
   }
@@ -43,22 +47,22 @@ async function Trezentes(idGuerreiro) {
     console.log(err);
   }
 
-  console.log("Deseja comprar equipamento?\n1. Sim\n2. Não")
+  console.log("Deseja comprar equipamento?\n1. Sim\n2. Não");
   op = Number(entrada("Insira o número da sua resposta: "));
 
   if (op == 1) {
     do {
       console.clear();
-      console.log("O que está procurando?\n1. Armas\n2. Armaduras")
+      console.log("O que está procurando?\n1. Armas\n2. Armaduras");
       const op2 = Number(entrada("Insira o número da sua resposta: "));
 
       if (op2 == 1) {
         await comprar.compraArma(idGuerreiro);
       } else if (op2 == 2) {
         await comprar.compraArmadura(idGuerreiro);
-      }      
+      }
 
-      console.log("Deseja comprar mais?\n1. Sim\n2. Não\n")
+      console.log("Deseja comprar mais?\n1. Sim\n2. Não\n");
       op = Number(entrada("Insira o número da sua resposta: "));
     } while (op == 1);
   }
@@ -101,9 +105,13 @@ async function Alquimia(idGuerreiro) {
   }
 
   try {
-    const res = await db.query(`SELECT nomenpc, descricao, fala FROM amigável WHERE idnpc=1`);
+    const res = await db.query(
+      `SELECT nomenpc, descricao, fala FROM amigável WHERE idnpc=1`
+    );
 
-    console.log(`O dono desta loja se chama ${res.rows[0].nomenpc}. ${res.rows[0].descricao}\n\n– ${res.rows[0].fala}\n`)
+    console.log(
+      `O dono desta loja se chama ${res.rows[0].nomenpc}. ${res.rows[0].descricao}\n\n– ${res.rows[0].fala}\n`
+    );
   } catch (err) {
     console.log(err);
   }
@@ -117,19 +125,18 @@ async function Alquimia(idGuerreiro) {
     console.log(err);
   }
 
-  console.log("Deseja comprar poções?\n1. Sim\n2. Não")
+  console.log("Deseja comprar poções?\n1. Sim\n2. Não");
   op = Number(entrada("Insira o número da sua resposta: "));
 
   if (op == 1) {
     do {
-      await comprar.compraPocao(idGuerreiro)
+      await comprar.compraPocao(idGuerreiro);
 
-      console.log("Deseja comprar mais?\n1. Sim\n2. Não\n")
+      console.log("Deseja comprar mais?\n1. Sim\n2. Não\n");
       op = Number(entrada("Insira o número da sua resposta: "));
     } while (op == 1);
   }
-  
-  
+
   do {
     console.clear();
     lugares.Alquimia();
@@ -317,7 +324,7 @@ async function CentroTreinamento(idGuerreiro) {
     console.log(err);
   }
   //chamando treino
-  await treinar.treinando();
+  await treinar.treinando(idGuerreiro);
   do {
     lugares.CentroTreinamento();
     op = Number(entrada("\nInforme para onde deseja ir: "));
