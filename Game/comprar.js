@@ -1,6 +1,6 @@
 const db = require("./database");
 const entrada = require("prompt-sync")({ sigint: true });
-var idGuerreiro = 1, dinheiro = 0, valor = 0, nomeitem = 0, atributo = 0, qtdpoc = 0;
+var dinheiro = 0, valor = 0, nomeitem = 0, atributo = 0, qtdpoc = 0;
 
 async function menuPocoes() {
   try {
