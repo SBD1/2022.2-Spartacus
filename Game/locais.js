@@ -6,7 +6,8 @@ function CentroE() {
   console.log("2. Alquimia - Loja de poções.");
   console.log("3. Saída de Esparta.");
   console.log("4. Entrada de Esparta.");
-  console.log("5. Sair.");
+  console.log("5. Missão.");
+  console.log("6. Sair.");
 }
 
 function Trezentes() {

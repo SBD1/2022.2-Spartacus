@@ -4,6 +4,7 @@ let op;
 const lugares = require("./locais");
 const treinar = require("./treino");
 const batalha = require("./batalha");
+const missao = require("./missao");
 
 // async function updateIdLugar(idLugar, idGuerreiro) {
 //   try {
@@ -540,8 +541,12 @@ async function CentroE(idGuerreiro) {
       case 4: // entrada
         await EntradaE(idGuerreiro);
         break;
+      case 5: // entrada
+        console.clear();
+        await missao.missao01();
+        break;
 
-      case 5:
+      case 6:
         process.exit();
         break;
 
