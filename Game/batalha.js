@@ -206,6 +206,10 @@ async function switchInimigos(op){
             await batalha();
             
             break;
+        
+        case 6 :
+            console.log("Saindo do Centro de Batalha! \n");
+            break;
 
         default: 
             console.log("Opção Inválida! Digite novamente ou 6 para SAIR!");
@@ -214,14 +218,13 @@ async function switchInimigos(op){
 
 async function batalhando(){
     op = Number(entrada("\nDeseja batalhar? (1-Sim/2-Não) "));
-    do {
         if (op == 1){
-            await menuOpcoes();
-            op = Number(entrada("Com quem deseja batalhar?"));
-            await switchInimigos(op);
+            do {
+                await menuOpcoes();
+                op = Number(entrada("Com quem deseja batalhar? "));
+                await switchInimigos(op);
+            } while (op != 6);
         }
-    } while (op != 6);
-    
 }
 
 module.exports = { batalhando };
