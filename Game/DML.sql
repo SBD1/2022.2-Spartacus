@@ -95,7 +95,7 @@ INSERT INTO Inimigo (idNPC, NomeNPC, Descricao, TipoNPC, Dano, Vida, idLugar) VA
 (3,'Dormammu','Dormammu é um oponente surreal, sua técnica é fruto de um longo período de reclusão em um mosteiro, aprendendo a lutar e a blindar a sua mente de forma que NADA o abala','Inimigo', 100, 50, 12),
 (4,'Carniceiro','Carniceiro ou "porcão" como muitos o chamam, é um guerreiro extremamente violento, o desejo e o prazer em matar dominaram seu coração ao ponto de ele consumir partes dos seus inimigos após matá-los','Inimigo', 10, 10,9),
 (5,'Kane','Perito na arte da guerra e da caça, Kane consegue enxergar muito bem os pontos fracos de seu adversário, não o subestime','Inimigo', 20, 15, 9),
-(6,'Dominador','Um bravo guerreiro que ganha muito dinheiro e fama no centro de batalha, tem coragem de desafiá-lo?','Inimigo', 30, 30, 9),
+(6,'Dominador','Um bravo guerreiro que ganha muito dinheiro e fama no centro de batalha.','Inimigo', 30, 30, 9),
 (7,'Tormenta','Parte do significado do seu nome vem da sua aparência horrenda, um pequeno pesadelo acordado. Mas não se preocupe, provavelmente você não terá muito tempo antes que ele te mate','Inimigo', 40, 90, 9),
 (8,'Aniquilador','Conhecido em Esparta por nunca ter perdido uma batalha, seus inimigos tremem de medo ao ver o seu poderoso machado','Inimigo', 50, 150, 9),
 (9,'Kretins','Classe de inimigos nivel 1, geralmente portadores de machadinha, são velozes mas não muito fortes','Inimigo', 10, 10, 3),

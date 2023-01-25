@@ -3,6 +3,7 @@ const entrada = require("prompt-sync")({ sigint: true });
 let op;
 const lugares = require("./locais");
 const treinar = require("./treino");
+const batalha = require("./batalha");
 
 // async function updateIdLugar(idLugar, idGuerreiro) {
 //   try {
@@ -190,7 +191,7 @@ async function CentroBatalha(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
-
+  await batalha.batalhando();
   do {
     lugares.CentroBatalha();
     op = Number(entrada("\nInforme para onde deseja ir: "));

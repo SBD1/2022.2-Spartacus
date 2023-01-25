@@ -34,7 +34,7 @@ async function jogar() {
       try {
         const res = await db.query(`INSERT INTO guerreiro (nome) VALUES ('${nome}')`)
         console.log(`Novo guerreiro! Criando ${nome}...`)
-    
+
       } catch (err) {
         console.log(err)
       }

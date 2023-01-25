@@ -4,7 +4,7 @@
   },
   "dependencies": {
     "dotenv": "^16.0.3",
-    "file-system": "^2.2.2",
+    "file-system": "^1.2.2",
     "pg": "^8.8.0",
     "prompt-sync": "^4.2.0"
   }
