@@ -172,4 +172,74 @@ async function menuArmaduras() {
   }
 }
 
-compraPocao(idGuerreiro);
+async function compraArmadura(idGuerreiro) {
+  console.clear();
+  console.log("Estas são nossas armaduras disponíveis:\n")
+
+  await menuArmaduras();
+  const op = Number(entrada("\nInsira o número da armadura que deseja comprar: "));
+
+  console.clear();
+  if (op >= 1 && op <= 5) {
+    const iditem = Number(op + 35);
+
+    try {
+      const res = await db.query(`SELECT tipoarmadura, valoritem FROM armadura WHERE iditem = ${iditem}`);
+      valor = Number(res.rows[0].valoritem);
+      nomeitem = res.rows[0].tipoarmadura;
+  
+    } catch (err) {
+      console.log(err)
+    }
+    
+    try {
+      const res = await db.query(`SELECT dinheiro FROM guerreiro WHERE idguerreiro = ${idGuerreiro}`);
+      dinheiro = Number(res.rows[0].dinheiro);
+  
+    } catch (err) {
+      console.log(err)
+    }
+
+    if (dinheiro >= valor) {
+      const newdinheiro = dinheiro - valor;
+
+      try {
+        const res = await db.query(`UPDATE guerreiro SET dinheiro=${newdinheiro} WHERE idguerreiro=${idGuerreiro}`);
+    
+      } catch (err) {
+        console.log(err)
+      }
+
+      // try {
+      //   // A TABELA DE ITEM NÃO ESTÁ GRAVANDO OS IDS QUE FORAM GERADOS A PARTIR DOS FILHOS
+      //   const res = await db.query(`INSERT INTO instancia_de_item (iditem, idguerreiro) VALUES
+      //   (${iditem}, ${idGuerreiro})`);
+    
+      // } catch (err) {
+      //   console.log(err)
+      // }
+
+      try {
+        const res = await db.query(`UPDATE armadura SET quantidade=quantidade-1 WHERE iditem=${iditem}`);
+    
+      } catch (err) {
+        console.log(err)
+      }
+
+      console.log(`Parabéns! Você acabou de comprar ${nomeitem}!\n`)
+      
+    } else {
+      console.log("Você não tem dinheiro suficiente!\n");
+    }
+
+  } else {
+    console.log("Opção inválida!\n");
+  }
+
+}
+
+module.exports = {
+  compraPocao,
+  compraArma,
+  compraArmadura
+};
