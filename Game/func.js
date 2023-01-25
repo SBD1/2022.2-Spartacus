@@ -17,6 +17,12 @@ const batalha = require("./batalha");
 async function Trezentes(idGuerreiro) {
   console.clear();
   console.log("Você está em Trezentes - Loja de equipamentos!\n");
+  try {
+    res = await db.query(`SELECT descricao FROM loja WHERE idloja = 2`);
+    console.log(res.rows[0].descricao + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(4), Number(idGuerreiro));
   try {
@@ -56,6 +62,12 @@ async function Trezentes(idGuerreiro) {
 async function Alquimia(idGuerreiro) {
   console.clear();
   console.log("Você está em Alquimia - Loja de poções!\n");
+  try {
+    res = await db.query(`SELECT descricao FROM loja WHERE idloja = 1`);
+    console.log(res.rows[0].descricao + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(4), Number(idGuerreiro));
   try {
@@ -98,6 +110,12 @@ async function Alquimia(idGuerreiro) {
 async function SaidaE(idGuerreiro) {
   console.clear();
   console.log("Você está em Saída de Esparta!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 8`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(8), Number(idGuerreiro));
   try {
@@ -144,6 +162,12 @@ async function SaidaE(idGuerreiro) {
 async function EntradaE(idGuerreiro) {
   console.clear();
   console.log("Você está em Entrada de Esparta!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 3`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(3), Number(idGuerreiro));
   try {
@@ -182,6 +206,12 @@ async function EntradaE(idGuerreiro) {
 async function CentroBatalha(idGuerreiro) {
   console.clear();
   console.log("Você está em Centro de Batalha!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 9`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(9), Number(idGuerreiro));
   try {
@@ -220,8 +250,12 @@ async function CentroBatalha(idGuerreiro) {
 async function CentroTreinamento(idGuerreiro) {
   console.clear();
   console.log("Você está em Centro de Treinamento!\n");
-  // pagar pra treinar
-  // updateIdLugar(Number(6), Number(idGuerreiro));
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 6`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
   try {
     const res = await db.query(
       `UPDATE guerreiro SET idlugar=6 WHERE idguerreiro=${idGuerreiro}`
@@ -259,6 +293,12 @@ async function CentroTreinamento(idGuerreiro) {
 async function OesteE(idGuerreiro) {
   console.clear();
   console.log("Você está em Oeste de Esparta!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 5`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(5), Number(idGuerreiro));
   try {
@@ -293,6 +333,12 @@ async function OesteE(idGuerreiro) {
 async function LesteE(idGuerreiro) {
   console.clear();
   console.log("Você está em Leste de Esparta!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 7`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(7), Number(idGuerreiro));
   try {
@@ -327,6 +373,12 @@ async function LesteE(idGuerreiro) {
 async function FlorestaBrightwood(idGuerreiro) {
   console.clear();
   console.log("Você está em Floresta Brightwood!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 10`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(10), Number(idGuerreiro));
   try {
@@ -365,6 +417,12 @@ async function FlorestaBrightwood(idGuerreiro) {
 async function LagoPrespa(idGuerreiro) {
   console.clear();
   console.log("Você está em Lago Prespa!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 11`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(11), Number(idGuerreiro));
   try {
@@ -407,6 +465,12 @@ async function LagoPrespa(idGuerreiro) {
 async function Everleste(idGuerreiro) {
   console.clear();
   console.log("Você está em Everleste!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 12`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(12), Number(idGuerreiro));
   try {
@@ -440,6 +504,12 @@ async function Everleste(idGuerreiro) {
 async function CentroE(idGuerreiro) {
   console.clear();
   console.log("Você está em Centro de Esparta!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 4`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(4), Number(idGuerreiro));
   try {
@@ -486,6 +556,12 @@ async function CentroE(idGuerreiro) {
 async function FlorestaAmazonica(idGuerreiro) {
   console.clear();
   console.log("Você está em Floresta Amazônica!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 2`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(2), Number(idGuerreiro));
   try {
@@ -524,6 +600,12 @@ async function FlorestaAmazonica(idGuerreiro) {
 async function CavernaMelissanthi(idGuerreiro) {
   console.clear();
   console.log("Você está em Caverna de Melissanthi!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 1`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
 
   // updateIdLugar(Number(1), Number(idGuerreiro));
   try {
