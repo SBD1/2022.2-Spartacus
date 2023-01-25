@@ -20,10 +20,11 @@ async function Trezentes(idGuerreiro) {
 
   // updateIdLugar(Number(4), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=4 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=4 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 
   do {
@@ -39,7 +40,7 @@ async function Trezentes(idGuerreiro) {
       case 2: //centroT
         await CentroTreinamento(idGuerreiro);
         break;
-      
+
       case 3:
         process.exit();
         break;
@@ -48,11 +49,8 @@ async function Trezentes(idGuerreiro) {
         console.clear();
         console.log("Opção inválida!\n");
         break;
-
     }
   } while (op >= 1 || op <= 3);
-
-  
 }
 
 async function Alquimia(idGuerreiro) {
@@ -61,10 +59,11 @@ async function Alquimia(idGuerreiro) {
 
   // updateIdLugar(Number(4), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=4 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=4 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 
   do {
@@ -94,7 +93,6 @@ async function Alquimia(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 4);
-  
 }
 
 async function SaidaE(idGuerreiro) {
@@ -103,12 +101,13 @@ async function SaidaE(idGuerreiro) {
 
   // updateIdLugar(Number(8), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=8 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=8 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-  
+
   do {
     lugares.SaidaE();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -118,7 +117,7 @@ async function SaidaE(idGuerreiro) {
         await CentroE(idGuerreiro);
         break;
 
-      case 2: 
+      case 2:
         await FlorestaBrightwood(idGuerreiro);
         break;
 
@@ -140,7 +139,6 @@ async function SaidaE(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 3);
-  
 }
 
 async function EntradaE(idGuerreiro) {
@@ -149,13 +147,13 @@ async function EntradaE(idGuerreiro) {
 
   // updateIdLugar(Number(3), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=3 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=3 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-  
-  
+
   do {
     lugares.EntradaE();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -179,7 +177,6 @@ async function EntradaE(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 3);
-  
 }
 
 async function CentroBatalha(idGuerreiro) {
@@ -188,10 +185,11 @@ async function CentroBatalha(idGuerreiro) {
 
   // updateIdLugar(Number(9), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=9 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=9 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
   await batalha.batalhando();
   do {
@@ -217,21 +215,22 @@ async function CentroBatalha(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 3);
-  
 }
 
 async function CentroTreinamento(idGuerreiro) {
   console.clear();
   console.log("Você está em Centro de Treinamento!\n");
-
+  // pagar pra treinar
   // updateIdLugar(Number(6), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=6 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=6 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-  
+  //chamando treino
+  await treinar.treinando();
   do {
     lugares.CentroTreinamento();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -244,7 +243,7 @@ async function CentroTreinamento(idGuerreiro) {
       case 2: // leste
         await LesteE(idGuerreiro);
         break;
-      
+
       case 3:
         process.exit();
         break;
@@ -255,7 +254,6 @@ async function CentroTreinamento(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 3);
-  
 }
 
 async function OesteE(idGuerreiro) {
@@ -264,12 +262,13 @@ async function OesteE(idGuerreiro) {
 
   // updateIdLugar(Number(5), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=5 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=5 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-  
+
   do {
     lugares.OesteE();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -289,19 +288,19 @@ async function OesteE(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 2);
-  
 }
 
 async function LesteE(idGuerreiro) {
   console.clear();
   console.log("Você está em Leste de Esparta!\n");
-  
+
   // updateIdLugar(Number(7), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=7 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=7 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 
   do {
@@ -316,14 +315,13 @@ async function LesteE(idGuerreiro) {
       case 2:
         process.exit();
         break;
-      
+
       default: // opcao invalida
         console.clear();
         console.log("Opção inválida!\n");
         break;
     }
   } while (op >= 1 || op <= 2);
-  
 }
 
 async function FlorestaBrightwood(idGuerreiro) {
@@ -332,10 +330,11 @@ async function FlorestaBrightwood(idGuerreiro) {
 
   // updateIdLugar(Number(10), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=10 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=10 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 
   do {
@@ -346,7 +345,7 @@ async function FlorestaBrightwood(idGuerreiro) {
       case 1: //saida
         await SaidaE(idGuerreiro);
         break;
-    
+
       case 2: //lago
         await LagoPrespa(idGuerreiro);
         break;
@@ -354,26 +353,26 @@ async function FlorestaBrightwood(idGuerreiro) {
       case 3:
         process.exit();
         break;
-      
+
       default: // opcao invalida
         console.clear();
         console.log("Opção inválida!\n");
         break;
     }
   } while (op >= 1 || op <= 3);
-  
 }
 
 async function LagoPrespa(idGuerreiro) {
   console.clear();
   console.log("Você está em Lago Prespa!\n");
-  
+
   // updateIdLugar(Number(11), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=11 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=11 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
 
   do {
@@ -403,7 +402,6 @@ async function LagoPrespa(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 4);
-  
 }
 
 async function Everleste(idGuerreiro) {
@@ -412,12 +410,13 @@ async function Everleste(idGuerreiro) {
 
   // updateIdLugar(Number(12), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=12 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=12 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-  
+
   do {
     lugares.Everleste();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -436,21 +435,21 @@ async function Everleste(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 2);
-  
 }
 
 async function CentroE(idGuerreiro) {
-  console.clear()
+  console.clear();
   console.log("Você está em Centro de Esparta!\n");
 
   // updateIdLugar(Number(4), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=4 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=4 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-  
+
   do {
     lugares.CentroE();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -482,7 +481,6 @@ async function CentroE(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 5);
-  
 }
 
 async function FlorestaAmazonica(idGuerreiro) {
@@ -491,12 +489,13 @@ async function FlorestaAmazonica(idGuerreiro) {
 
   // updateIdLugar(Number(2), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=2 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=2 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-  
+
   do {
     lugares.FlorestaAmazonica();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -520,7 +519,6 @@ async function FlorestaAmazonica(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 3);
-  
 }
 
 async function CavernaMelissanthi(idGuerreiro) {
@@ -529,12 +527,13 @@ async function CavernaMelissanthi(idGuerreiro) {
 
   // updateIdLugar(Number(1), Number(idGuerreiro));
   try {
-    const res = await db.query(`UPDATE guerreiro SET idlugar=1 WHERE idguerreiro=${idGuerreiro}`)
-
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=1 WHERE idguerreiro=${idGuerreiro}`
+    );
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-  
+
   do {
     lugares.CavernaMelissanthi();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -554,7 +553,6 @@ async function CavernaMelissanthi(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 2);
-
 }
 
 module.exports = {
