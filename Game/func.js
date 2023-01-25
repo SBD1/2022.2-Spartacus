@@ -5,6 +5,7 @@ const lugares = require("./locais");
 const treinar = require("./treino");
 const batalha = require("./batalha");
 const missao = require("./missao");
+const comprar = require("./comprar");
 
 // async function updateIdLugar(idLugar, idGuerreiro) {
 //   try {
@@ -70,6 +71,14 @@ async function Alquimia(idGuerreiro) {
     console.log(err);
   }
 
+  try {
+    const res = await db.query(`SELECT nomenpc, descricao, fala FROM amigável WHERE idnpc=1`);
+
+    console.log(`O dono desta loja se chama ${res.rows[0].nomenpc}. ${res.rows[0].descricao}\n\n– ${res.rows[0].fala}\n`)
+  } catch (err) {
+    console.log(err);
+  }
+
   // updateIdLugar(Number(4), Number(idGuerreiro));
   try {
     const res = await db.query(
@@ -79,7 +88,21 @@ async function Alquimia(idGuerreiro) {
     console.log(err);
   }
 
+  console.log("Deseja comprar poções?\n1. Sim\n2. Não")
+  op = Number(entrada("Insira o número da sua resposta: "));
+
+  if (op == 1) {
+    do {
+      await comprar.compraPocao(idGuerreiro)
+
+      console.log("Deseja comprar mais?\n1. Sim\n2. Não\n")
+      op = Number(entrada("Insira o número da sua resposta: "));
+    } while (op == 1);
+  }
+  
+  
   do {
+    console.clear();
     lugares.Alquimia();
     op = Number(entrada("\nInforme para onde deseja ir: "));
 
