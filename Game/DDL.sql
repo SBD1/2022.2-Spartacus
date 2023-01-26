@@ -231,6 +231,25 @@ CREATE TABLE IF NOT EXISTS Instancia_de_Item
 
 --------------------------------------------------------------------------
 
+CREATE TABLE IF NOT EXISTS mochila (
+    id_mochila SERIAL NOT NULL,
+	idGuerreiro integer NOT NULL,
+	idInstancia integer,
+    CONSTRAINT mochila_pkey PRIMARY KEY (id_mochila),
+    CONSTRAINT idGuerreiro_fk FOREIGN KEY (idGuerreiro)
+        REFERENCES Guerreiro (idGuerreiro) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        DEFERRABLE INITIALLY DEFERRED,
+    CONSTRAINT idInstancia_fk FOREIGN KEY (idInstancia)
+        REFERENCES Instancia_de_Item (idInstancia) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        DEFERRABLE INITIALLY DEFERRED
+);
+
+--------------------------------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS Missao
 (
     idMissao serial NOT NULL,
@@ -247,9 +266,15 @@ CREATE TABLE IF NOT EXISTS Instancia_de_Missao
 (
     idInstancia serial NOT NULL,
     idMissao integer NOT NULL,
-    idInimigo integer,
+    idAmigavel integer NOT NULL,
+    idInimigo integer NOT NULL,
     idGuerreiro integer NOT NULL,
     CONSTRAINT Instancia_de_Missao_pkey PRIMARY KEY (idInstancia),
+    CONSTRAINT idAmigavel_fk FOREIGN KEY (idAmigavel)
+        REFERENCES Amigável (idNPC) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+        DEFERRABLE INITIALLY DEFERRED,
     CONSTRAINT idGuerreiro_fk FOREIGN KEY (idGuerreiro)
         REFERENCES Guerreiro (idGuerreiro) MATCH SIMPLE
         ON UPDATE NO ACTION
@@ -297,5 +322,3 @@ CREATE TABLE IF NOT EXISTS Instancia_de_Treino
         ON DELETE NO ACTION
         DEFERRABLE INITIALLY DEFERRED
 );
-
---------------------------------------------------------------------------
