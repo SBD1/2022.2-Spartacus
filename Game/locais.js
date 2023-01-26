@@ -85,7 +85,8 @@ function LesteE() {
 function OesteE() {
   console.log("A partir daqui você pode se locomover por alguns locais! Veja:");
   console.log("1. Alquimia - Loja de Poções.");
-  console.log("2. Sair.");
+  console.log("2. Casa.");
+  console.log("3. Sair.");
 }
 
 function FlorestaAmazonica() {
@@ -98,6 +99,12 @@ function FlorestaAmazonica() {
 function CavernaMelissanthi() {
   console.log("A partir daqui você pode se locomover por alguns locais! Veja:");
   console.log("1. Floresta Amazônica.");
+  console.log("2. Sair.");
+}
+
+function Casa() {
+  console.log("A partir daqui você pode se locomover por alguns locais! Veja:");
+  console.log("1. Oeste de Esparta.");
   console.log("2. Sair.");
 }
 
@@ -116,4 +123,5 @@ module.exports = {
   OesteE,
   CavernaMelissanthi,
   FlorestaAmazonica,
+  Casa
 };

@@ -6,6 +6,7 @@ const treinar = require("./treino");
 const batalha = require("./batalha");
 const missao = require("./missao");
 const comprar = require("./comprar");
+const consultar = require("./casa");
 
 // async function updateIdLugar(idLugar, idGuerreiro) {
 //   try {
@@ -378,7 +379,11 @@ async function OesteE(idGuerreiro) {
         await Alquimia(idGuerreiro);
         break;
 
-      case 2:
+      case 2: //centroT
+        await Casa(idGuerreiro);
+        break;
+
+      case 3:
         process.exit();
         break;
 
@@ -387,7 +392,7 @@ async function OesteE(idGuerreiro) {
         console.log("Opção inválida!\n");
         break;
     }
-  } while (op >= 1 || op <= 2);
+  } while (op >= 1 || op <= 3);
 }
 
 async function LesteE(idGuerreiro) {
@@ -701,6 +706,61 @@ async function CavernaMelissanthi(idGuerreiro) {
   } while (op >= 1 || op <= 2);
 }
 
+async function Casa(idGuerreiro) {
+  console.clear();
+  console.log("Você está em casa!\n");
+  try {
+    res = await db.query(`SELECT descricaolugar FROM lugar WHERE idlugar = 13`);
+    console.log(res.rows[0].descricaolugar + "\n");
+  } catch (err) {
+    console.log(err);
+  }
+
+  // updateIdLugar(Number(1), Number(idGuerreiro));
+  try {
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=13 WHERE idguerreiro=${idGuerreiro}`
+    );
+  } catch (err) {
+    console.log(err);
+  }
+
+  console.log("Deseja consultar suas informações?\n1. Sim\n2. Não");
+  op = Number(entrada("Insira o número da sua resposta: "));
+
+  if (op == 1) {
+    do {
+      console.clear();
+      await consultar.casa(idGuerreiro);
+      
+
+      console.log("Deseja consultar novamente?\n1. Sim\n2. Não");
+      op = Number(entrada("Insira o número da sua resposta: "));
+    } while (op == 1);
+  }
+
+  do {
+    console.clear();
+    lugares.Casa();
+    op = Number(entrada("\nInforme para onde deseja ir: "));
+
+    switch (op) {
+      case 1: //florestaA
+        await OesteE(idGuerreiro);
+        break;
+
+      case 2:
+        process.exit();
+        break;
+
+      default: // opcao invalida
+        console.clear();
+        console.log("Opção inválida!\n");
+        break;
+    }
+  } while (op >= 1 || op <= 2);
+}
+
 module.exports = {
   Trezentes,
   Alquimia,
@@ -716,4 +776,5 @@ module.exports = {
   LesteE,
   FlorestaAmazonica,
   CavernaMelissanthi,
+  Casa
 };

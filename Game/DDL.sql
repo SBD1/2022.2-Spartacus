@@ -247,15 +247,9 @@ CREATE TABLE IF NOT EXISTS Instancia_de_Missao
 (
     idInstancia serial NOT NULL,
     idMissao integer NOT NULL,
-    idAmigavel integer NOT NULL,
-    idInimigo integer NOT NULL,
+    idInimigo integer,
     idGuerreiro integer NOT NULL,
     CONSTRAINT Instancia_de_Missao_pkey PRIMARY KEY (idInstancia),
-    CONSTRAINT idAmigavel_fk FOREIGN KEY (idAmigavel)
-        REFERENCES Amigável (idNPC) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        DEFERRABLE INITIALLY DEFERRED,
     CONSTRAINT idGuerreiro_fk FOREIGN KEY (idGuerreiro)
         REFERENCES Guerreiro (idGuerreiro) MATCH SIMPLE
         ON UPDATE NO ACTION
