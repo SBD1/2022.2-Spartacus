@@ -324,9 +324,21 @@ async function CentroTreinamento(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
-  //chamando treino
-  await treinar.treinando(idGuerreiro);
+
+  console.log("Deseja treinar?\n1. Sim\n2. Não");
+  op = Number(entrada("Insira o número da sua resposta: "));
+
+  if (op == 1) {
+    do {
+      await treinar.treinar(idGuerreiro);
+
+      console.log("Deseja treinar mais?\n1. Sim\n2. Não\n");
+      op = Number(entrada("Insira o número da sua resposta: "));
+    } while (op == 1);
+  }
+
   do {
+    console.clear()
     lugares.CentroTreinamento();
     op = Number(entrada("\nInforme para onde deseja ir: "));
 
