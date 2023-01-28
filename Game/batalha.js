@@ -6,15 +6,7 @@ let op, idNPC = 0;
 //    return vida_total - dano_npc;
 //}
 
-async function menuOpcoes(){
-    console.log("1 - Carniceiro");
-    console.log("2 - Kane");
-    console.log("3 - Dominador");
-    console.log("4 - Tormenta");
-    console.log("5 - Aniquilador");
-    console.log("6 - Sair do Centro de Batalha");
-}
-
+/* 
 async function batalha (idNPC, idGuerreiro) {
 
     try {
@@ -43,76 +35,72 @@ async function batalha (idNPC, idGuerreiro) {
         console.log("Vida atual: " + damage);
     }
 }
+*/
 
-async function switchInimigos(op, idGuerreiro){
-    switch (op) {
-        case 1: 
-            try {
-                res = await db.query(`SELECT idnpc, descricao FROM inimigo WHERE idnpc = 4`);
-                console.log(res.rows[0].descricao + "\n");
-                idNPC = Number(res.rows[0].idnpc);
-            } catch (err) {
-                console.log(err)
-            }
-            await batalha(idNPC, idGuerreiro);
-            break;
-        case 2:
-            try {
-                res = await db.query(`SELECT idnpc, descricao FROM inimigo WHERE idnpc = 5`);
-                console.log(res.rows[0].descricao + "\n");
-                idNPC = Number(res.rows[0].idnpc);
-            } catch (err) {
-                console.log(err)
-            }
-            await batalha(idNPC, idGuerreiro);
-            break;
-        case 3: 
-            try {
-                res = await db.query(`SELECT idnpc, descricao FROM inimigo WHERE idnpc = 6`);
-                console.log(res.rows[0].descricao + "\n");
-                idNPC = Number(res.rows[0].idnpc);
-            } catch (err) {
-                console.log(err)
-            }
-            await batalha(idNPC, idGuerreiro);
-            break;
-        case 4: 
-            try {
-                res = await db.query(`SELECT idnpc, descricao FROM inimigo WHERE idnpc = 7`);
-                console.log(res.rows[0].descricao + "\n");
-                idNPC = Number(res.rows[0].idnpc);
-            } catch (err) {
-                console.log(err)
-            }
-            await batalha(idNPC, idGuerreiro);
-            break;
-        case 5: 
-            try {
-                res = await db.query(`SELECT idnpc, descricao FROM inimigo WHERE idnpc = 8`);
-                console.log(res.rows[0].descricao + "\n");
-                idNPC = Number(res.rows[0].idnpc);
-            } catch (err) {
-                console.log(err)
-            }
-            await batalha(idNPC, idGuerreiro);
-            break;
-        case 6 :
-            console.log("Saindo do Centro de Batalha! \n");
-            break;
-        default: 
-            console.log("Opção Inválida! Digite novamente ou 6 para SAIR!");
+async function menuOpcoes(){
+    try {
+        const res = await db.query(`SELECT idnpc, nomenpc FROM inimigo WHERE idnpc BETWEEN 4 AND 8 ORDER BY idnpc`);
+        res.rows.map(({idnpc, nomenpc}) => (console.log(`${Number(idnpc) - 3}. ${nomenpc}`)));
+    } catch (err) {
+        console.log(err);
     }
 }
 
-async function batalhando(idGuerreiro){
-    op = Number(entrada("\nDeseja batalhar? (1-Sim/2-Não) "));
-        if (op == 1){
-            do {
-                await menuOpcoes();
-                op = Number(entrada("Com quem deseja batalhar? "));
-                await switchInimigos(op, idGuerreiro);
-            } while (op != 6);
-        }
+async function printDescricao(idNPC){
+    try {
+        const res = await db.query(`SELECT descricao FROM inimigo WHERE idnpc=${idNPC + 3}`);
+        console.log(res.rows[0].descricao);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+async function batalha (idGuerreiro, idNPC) {
+    try {
+        const res = await db.query(`SELECT vida, defesa, forca FROM guerreiro WHERE idguerreiro=${idGuerreiro}`);
+        var vidaGuerreiro = Number(res.rows[0].vida);
+        var defesaGuerreiro = Number(res.rows[0].defesa);
+        var forcaGuerreiro = Number(res.rows[0].forca);
+    } catch (err) {
+        console.log(err);
+    }
+
+    try {
+        const res = await db.query(`SELECT vida, dano FROM inimigo WHERE idnpc=${idNPC + 3}`);
+        var vidaNPC = Number(res.rows[0].vida);
+        var danoNPC = Number(res.rows[0].dano);
+    } catch (err) {
+        console.log(err);
+    }
+
+    try {
+        const res = await db.query(`SELECT I.iditem
+                                    FROM instancia_de_item IT
+                                    INNER JOIN item I ON I.iditem = IT.iditem
+                                    INNER JOIN mochila M ON M.idinstancia = IT.idinstancia
+                                    WHERE IT.idguerreiro = ${idGuerreiro}`);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+/* SELECT AR.potencia, AR.nome
+FROM instancia_de_item IT
+INNER JOIN item I ON I.iditem = IT.iditem
+INNER JOIN arma AR ON AR.iditem = I.iditem
+INNER JOIN mochila MO ON MO.idinstancia = IT.idinstancia
+WHERE IT.idguerreiro = 1; */
+
+async function batalhando (idGuerreiro) {
+    op = Number(entrada("Bem vindo ao Centro de Batalha! Deseja batalhar? (1-Sim/2-Não) "));
+    if (op == 1) {
+        await menuOpcoes();
+        idNPC = Number(entrada("Selecione o inimigo que deseja batalhar: "));
+        await printDescricao(idNPC); 
+        await batalhando(idGuerreiro, idNPC);
+    } else {
+        console.log('Saindo do Centro de Batalha!');
+    }
 }
 
 module.exports = { batalhando };
