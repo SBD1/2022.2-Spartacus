@@ -79,6 +79,9 @@ async function batalha(
     } catch (err) {
       console.log(err);
     }
+    await db.query(
+      `UPDATE guerreiro SET vida = ${vida_total} WHERE idguerreiro=${idGuerreiro}`
+    );
     console.log(
       "Você ganhou a batalha! \nDinheiro ganho: " +
         qtdDinheiro +
