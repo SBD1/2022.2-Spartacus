@@ -48,6 +48,13 @@ async function jogar() {
         console.log(err)
       }
 
+      try {
+        const res = await db.query(`INSERT INTO mochila (idguerreiro) VALUES (${idGuerreiro})`)
+
+      } catch (err) {
+        console.log(err)
+      }
+
     } else {
       console.log(`Entrando com guerreiro ${nome}...`)
       idGuerreiro = Number(res.rows[0].idguerreiro);
