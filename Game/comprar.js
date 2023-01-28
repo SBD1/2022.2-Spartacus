@@ -132,14 +132,13 @@ async function compraArma(idGuerreiro) {
         console.log(err)
       }
 
-      // try {
-      //   // A TABELA DE ITEM NÃO ESTÁ GRAVANDO OS IDS QUE FORAM GERADOS A PARTIR DOS FILHOS
-      //   const res = await db.query(`INSERT INTO instancia_de_item (iditem, idguerreiro) VALUES
-      //   (${iditem}, ${idGuerreiro})`);
+      try {
+        const res = await db.query(`INSERT INTO instancia_de_item (iditem, idguerreiro) VALUES
+        (${iditem}, ${idGuerreiro})`);
     
-      // } catch (err) {
-      //   console.log(err)
-      // }
+      } catch (err) {
+        console.log(err)
+      }
 
       try {
         const res = await db.query(`UPDATE arma SET quantidade=quantidade-1 WHERE iditem=${iditem}`);
@@ -210,14 +209,13 @@ async function compraArmadura(idGuerreiro) {
         console.log(err)
       }
 
-      // try {
-      //   // A TABELA DE ITEM NÃO ESTÁ GRAVANDO OS IDS QUE FORAM GERADOS A PARTIR DOS FILHOS
-      //   const res = await db.query(`INSERT INTO instancia_de_item (iditem, idguerreiro) VALUES
-      //   (${iditem}, ${idGuerreiro})`);
+      try {
+        const res = await db.query(`INSERT INTO instancia_de_item (iditem, idguerreiro) VALUES
+        (${iditem}, ${idGuerreiro})`);
     
-      // } catch (err) {
-      //   console.log(err)
-      // }
+      } catch (err) {
+        console.log(err)
+      }
 
       try {
         const res = await db.query(`UPDATE armadura SET quantidade=quantidade-1 WHERE iditem=${iditem}`);

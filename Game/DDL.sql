@@ -204,26 +204,9 @@ CREATE TABLE IF NOT EXISTS Instancia_de_Item
     idInstancia serial NOT NULL,
     idItem integer NOT NULL,
     idGuerreiro integer NOT NULL,
-    idLugar integer,
-    idLoja integer,
     CONSTRAINT Instancia_de_Item_pkey PRIMARY KEY (idInstancia),
     CONSTRAINT idGuerreiro_fk FOREIGN KEY (idGuerreiro)
         REFERENCES Guerreiro (idGuerreiro) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        DEFERRABLE INITIALLY DEFERRED,
-    CONSTRAINT idItem_fk FOREIGN KEY (idItem)
-        REFERENCES Item (idItem) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        DEFERRABLE INITIALLY DEFERRED,
-    CONSTRAINT idLoja_fk FOREIGN KEY (idLoja)
-        REFERENCES Loja (idLoja) MATCH SIMPLE
-        ON UPDATE NO ACTION
-        ON DELETE NO ACTION
-        DEFERRABLE INITIALLY DEFERRED,
-    CONSTRAINT idLugar_fk FOREIGN KEY (idLugar)
-        REFERENCES Lugar (idLugar) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
         DEFERRABLE INITIALLY DEFERRED
