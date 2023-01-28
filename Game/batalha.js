@@ -1,8 +1,6 @@
 const db = require("./database");
 const entrada = require("prompt-sync")({ sigint: true });
-let op,
-  idNPC = 0;
-var atributo = 0;
+let idNPC = 0;
 
 async function menuOpcoes() {
   try {
@@ -25,7 +23,7 @@ async function printDescricao(idNPC) {
     console.log(res.rows[0].descricao);
   } catch (err) {
     console.log(err);
-  }
+  } 
 }
 
 async function calculaDamage(dano, def) {
@@ -147,7 +145,7 @@ async function getAtributos(idGuerreiro, idNPC) {
                                     WHERE IT.idguerreiro = ${idGuerreiro}`);
     idItem = Number(res.rows[0].iditem);
   } catch (err) {
-    console.log(err);
+    
   }
 
   // Verificação se é uma arma ou armadura
