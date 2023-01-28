@@ -209,17 +209,15 @@ async function getAtributos(idGuerreiro, idNPC) {
 }
 
 async function main_batalhando(idGuerreiro) {
-  op = Number(
-    entrada("Bem vindo ao Centro de Batalha! Deseja batalhar? (1-Sim/2-Não) ")
-  );
-  if (op == 1) {
+    console.clear();
     await menuOpcoes();
     idNPC = Number(entrada("Selecione o inimigo que deseja batalhar: "));
-    await printDescricao(idNPC);
-    await getAtributos(idGuerreiro, idNPC);
-  } else {
-    console.log("Saindo do Centro de Batalha!");
-  }
+    if (idNPC >= 1 && idNPC <= 6) {
+        await printDescricao(idNPC);
+        await getAtributos(idGuerreiro, idNPC);
+    } else {
+        console.log("Opção Inválida!");
+    }
 }
 
 module.exports = { main_batalhando };

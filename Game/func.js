@@ -282,7 +282,16 @@ async function CentroBatalha(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
-  await batalha.main_batalhando(idGuerreiro);
+
+  op = Number(
+    entrada("Bem vindo ao Centro de Batalha! Deseja batalhar? (1-Sim/2-Não) ")
+  );
+  if (op == 1) {
+    await batalha.main_batalhando(idGuerreiro);
+  } else {
+    console.log("Saindo do Centro de Batalha!");
+  }
+  
   do {
     lugares.CentroBatalha();
     op = Number(entrada("\nInforme para onde deseja ir: "));
