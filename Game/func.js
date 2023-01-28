@@ -282,7 +282,7 @@ async function CentroBatalha(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
-  await batalha.batalhando(idGuerreiro);
+  await batalha.main_batalhando(idGuerreiro);
   do {
     lugares.CentroBatalha();
     op = Number(entrada("\nInforme para onde deseja ir: "));
