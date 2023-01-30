@@ -11,6 +11,13 @@ async function createTables() {
   .catch(e => console.error(e.stack))
 }
 
+async function createTriggers() {
+  var triggers = fs.readFileSync('Trigger_and_Procedures.sql').toString();
+  db.query(triggers)
+  .then(res => console.log('TRIGGERS CRIADAS COM SUCESSO!'))
+  .catch(e => console.error(e.stack))
+}
+
 async function populateTables() {
   var dml = fs.readFileSync('DML.sql').toString(); 
   db.query(dml)
@@ -92,10 +99,13 @@ async function main() {
         console.clear();
 
         createTables(); 
-        await new Promise(r => setTimeout(r, 5000));
+        await new Promise(r => setTimeout(r, 3500));
+
+        createTriggers(); 
+        await new Promise(r => setTimeout(r, 3500));
 
         populateTables();
-        await new Promise(r => setTimeout(r, 5000));
+        await new Promise(r => setTimeout(r, 3500));
 
         do {
           console.log("\n1. Jogar");
