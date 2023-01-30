@@ -146,19 +146,45 @@ FOR EACH ROW EXECUTE PROCEDURE check_npc_inimigo();
 
 
 
--- TRIGGER PARA VERIFICAR SE O GUERREIRO MORREU
+-- TRIGGER PARA AS REGRAS DE NEGÓCIO DOS ATRIBUTOS DO GUERREIRO
 
--- CREATE OR REPLACE FUNCTION update_vida_guerreiro() RETURNS trigger AS $update_vida_guerreiro$
--- BEGIN
---     SELECT vida FROM guerreiro 
+CREATE OR REPLACE FUNCTION check_atributos_guerreiro() RETURNS trigger AS $check_atributos_guerreiro$
+BEGIN
 
---     IF (vida <= 0) THEN
---          RAISE NOTICE 'Você morreu! Sua vida foi restaurada para 100 novamente.';
---     END IF;
---     RETURN NULL;
--- END;
--- $update_vida_guerreiro$ LANGUAGE plpgsql;
+  IF NEW.vida <= 0 THEN
+    RAISE NOTICE 'Você morreu! Sua vida foi restaurada para 100 novamente.';
 
--- CREATE TRIGGER update_vida_guerreiro
--- AFTER UPDATE ON guerreiro
--- FOR EACH ROW EXECUTE PROCEDURE update_vida_guerreiro();
+    UPDATE guerreiro SET vida=100 WHERE idguerreiro = NEW.idguerreiro;
+  END IF;
+
+  IF NEW.forca > 100 THEN
+    RAISE NOTICE 'Você já atingiu o máximo de força!';
+
+    UPDATE guerreiro SET forca=100 WHERE idguerreiro = NEW.idguerreiro;
+  END IF;
+
+  IF NEW.defesa > 100 THEN
+    RAISE NOTICE 'Você já atingiu o máximo de defesa!';
+
+    UPDATE guerreiro SET defesa=100 WHERE idguerreiro = NEW.idguerreiro;
+  END IF;
+
+  IF NEW.respeito > 100 THEN
+    RAISE NOTICE 'Você já atingiu o máximo de respeito!';
+
+    UPDATE guerreiro SET respeito=100 WHERE idguerreiro = NEW.idguerreiro;
+  END IF;
+
+  IF NEW.habilidade > 100 THEN
+    RAISE NOTICE 'Você já atingiu o máximo de habilidade!';
+
+    UPDATE guerreiro SET habilidade=100 WHERE idguerreiro = NEW.idguerreiro;
+  END IF;
+
+  RETURN NULL;
+END;
+$check_atributos_guerreiro$ LANGUAGE plpgsql;
+
+CREATE TRIGGER check_atributos_guerreiro
+AFTER UPDATE ON guerreiro
+FOR EACH ROW EXECUTE PROCEDURE check_atributos_guerreiro();
