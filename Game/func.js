@@ -8,14 +8,6 @@ const missao = require("./missao");
 const comprar = require("./comprar");
 const consultar = require("./casa");
 
-// async function updateIdLugar(idLugar, idGuerreiro) {
-//   try {
-//     const res = await db.query(`UPDATE guerreiro SET idlugar=${idLugar} WHERE idguerreiro=${idGuerreiro}`)
-
-//   } catch (err) {
-//     console.log(err)
-//   }
-// }
 
 async function Trezentes(idGuerreiro) {
   console.clear();
@@ -63,7 +55,7 @@ async function Trezentes(idGuerreiro) {
         await comprar.compraArmadura(idGuerreiro);
       }
 
-      console.log("Deseja comprar mais?\n1. Sim\n2. Não\n");
+      console.log("Deseja comprar mais?\n1. Sim\n2. Não");
       op = Number(entrada("Insira o número da sua resposta: "));
     } while (op == 1);
   }
@@ -133,7 +125,7 @@ async function Alquimia(idGuerreiro) {
     do {
       await comprar.compraPocao(idGuerreiro);
 
-      console.log("Deseja comprar mais?\n1. Sim\n2. Não\n");
+      console.log("Deseja comprar mais?\n1. Sim\n2. Não");
       op = Number(entrada("Insira o número da sua resposta: "));
     } while (op == 1);
   }
@@ -341,7 +333,7 @@ async function CentroTreinamento(idGuerreiro) {
     do {
       await treinar.treinar(idGuerreiro);
 
-      console.log("Deseja treinar mais?\n1. Sim\n2. Não\n");
+      console.log("Deseja treinar mais?\n1. Sim\n2. Não");
       op = Number(entrada("Insira o número da sua resposta: "));
     } while (op == 1);
   }
@@ -626,12 +618,8 @@ async function CentroE(idGuerreiro) {
       case 4: // entrada
         await EntradaE(idGuerreiro);
         break;
-      case 5: // entrada
-        console.clear();
-        await missao.missao01();
-        break;
 
-      case 6:
+      case 5:
         process.exit();
         break;
 

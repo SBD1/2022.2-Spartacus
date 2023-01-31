@@ -249,8 +249,8 @@ CREATE TABLE IF NOT EXISTS Instancia_de_Missao
 (
     idInstancia serial NOT NULL,
     idMissao integer NOT NULL,
-    idAmigavel integer NOT NULL,
-    idInimigo integer NOT NULL,
+    idAmigavel integer,
+    idInimigo integer,
     idGuerreiro integer NOT NULL,
     CONSTRAINT Instancia_de_Missao_pkey PRIMARY KEY (idInstancia),
     CONSTRAINT idAmigavel_fk FOREIGN KEY (idAmigavel)

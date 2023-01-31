@@ -1,5 +1,6 @@
 const db = require("./database");
 const entrada = require("prompt-sync")({ sigint: true });
+const missao = require("./missao");
 var dinheiro = 0, valor = 0, nomeitem = 0, atributo = 0, qtdpoc = 0;
 
 async function menuPocoes() {
@@ -54,10 +55,9 @@ async function compraPocao(idGuerreiro) {
     }
 
     if (dinheiro >= valor) {
-      const newdinheiro = dinheiro - valor;
 
       try {
-        const res = await db.query(`UPDATE guerreiro SET dinheiro=${newdinheiro}, ${atributo}= ${atributo} + ${qtdpoc} WHERE idguerreiro=${idGuerreiro}`);
+        const res = await db.query(`UPDATE guerreiro SET dinheiro=dinheiro-${valor}, ${atributo}= ${atributo} + ${qtdpoc} WHERE idguerreiro=${idGuerreiro}`);
     
       } catch (err) {
         console.log(err)
@@ -123,10 +123,13 @@ async function compraArma(idGuerreiro) {
     }
 
     if (dinheiro >= valor) {
-      const newdinheiro = dinheiro - valor;
+
+      console.log(`Parabéns! Você acabou de comprar ${nomeitem}!\n`)
+
+      await missao.missao01(idGuerreiro);
 
       try {
-        const res = await db.query(`UPDATE guerreiro SET dinheiro=${newdinheiro} WHERE idguerreiro=${idGuerreiro}`);
+        const res = await db.query(`UPDATE guerreiro SET dinheiro=dinheiro-${valor} WHERE idguerreiro=${idGuerreiro}`);
     
       } catch (err) {
         console.log(err)
@@ -146,8 +149,6 @@ async function compraArma(idGuerreiro) {
       } catch (err) {
         console.log(err)
       }
-
-      console.log(`Parabéns! Você acabou de comprar ${nomeitem}!\n`)
       
     } else {
       console.log("Você não tem dinheiro suficiente!\n");
@@ -200,10 +201,13 @@ async function compraArmadura(idGuerreiro) {
     }
 
     if (dinheiro >= valor) {
-      const newdinheiro = dinheiro - valor;
+
+      console.log(`Parabéns! Você acabou de comprar ${nomeitem}!\n`)
+
+      await missao.missao02(idGuerreiro);
 
       try {
-        const res = await db.query(`UPDATE guerreiro SET dinheiro=${newdinheiro} WHERE idguerreiro=${idGuerreiro}`);
+        const res = await db.query(`UPDATE guerreiro SET dinheiro=dinheiro-${valor} WHERE idguerreiro=${idGuerreiro}`);
     
       } catch (err) {
         console.log(err)
@@ -223,8 +227,6 @@ async function compraArmadura(idGuerreiro) {
       } catch (err) {
         console.log(err)
       }
-
-      console.log(`Parabéns! Você acabou de comprar ${nomeitem}!\n`)
       
     } else {
       console.log("Você não tem dinheiro suficiente!\n");

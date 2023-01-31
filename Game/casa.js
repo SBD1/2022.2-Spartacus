@@ -117,7 +117,7 @@ async function casa(idGuerreiro) {
 										FROM instancia_de_treino i
 										INNER JOIN treino t ON i.idtreino = t.idtreino
 										WHERE i.idguerreiro = ${idGuerreiro}
-										ORDER BY t.tipotreino`);
+										ORDER BY i.idinstancia`);
 
 			if (res.rows.length === Number(0)) {
 				console.log("Você ainda não possui treinos!\n")
@@ -137,7 +137,7 @@ async function casa(idGuerreiro) {
 										INNER JOIN batalha b ON b.idbatalha = i.idbatalha
 										INNER JOIN inimigo n ON b.idinimigo = n.idnpc
 										WHERE i.idguerreiro = ${idGuerreiro}
-										ORDER BY n.nomenpc`);
+										ORDER BY i.idinstancia`);
 
 			if (res.rows.length === Number(0)) {
 				console.log("Você ainda não possui batalhas!\n")
@@ -156,7 +156,7 @@ async function casa(idGuerreiro) {
 										FROM instancia_de_missao i
 										INNER JOIN missao m ON i.idmissao = m.idmissao
 										WHERE i.idguerreiro = ${idGuerreiro}
-										ORDER BY m.recompensa, m.nomemissao`);
+										ORDER BY i.idinstancia, m.nomemissao`);
 
 			if (res.rows.length === Number(0)) {
 				console.log("Você ainda não possui missões concluídas!\n")
