@@ -210,7 +210,7 @@ async function main_batalhando(idGuerreiro) {
     console.clear();
     await menuOpcoes();
     idNPC = Number(entrada("Selecione o inimigo que deseja batalhar: "));
-    if (idNPC >= 1 && idNPC <= 6) {
+    if (idNPC >= 1 && idNPC <= 5) {
         await printDescricao(idNPC);
         await getAtributos(idGuerreiro, idNPC);
     } else {
