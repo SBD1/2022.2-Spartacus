@@ -550,6 +550,19 @@ async function Everleste(idGuerreiro) {
     console.log(err);
   }
 
+  try {
+    res = await db.query(`SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 10`);
+    if (res.rows.length == 0) {
+      op = Number(entrada("\nDeseja realizar a missão de Everleste? (1 - SIM / 2 - NÃO): "));
+      if(op == 1){
+        await missao.missao010(idGuerreiro);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+
+
   // updateIdLugar(Number(12), Number(idGuerreiro));
   try {
     const res = await db.query(

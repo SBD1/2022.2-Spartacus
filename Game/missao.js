@@ -1,4 +1,5 @@
 const db = require("./database");
+const missoes_batalha = require("./missoes_de_batalha");
 
 async function imprime_missao(idMissao) {
   try {
@@ -70,4 +71,21 @@ async function missao02(idGuerreiro) {
   }
 }
 
-module.exports = { missao01, missao02 };
+async function missao010(idGuerreiro) {
+  try {
+    res = await db.query(`SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idinimigo BETWEEN 3 AND 27)`);
+    if (res.rows.length == 0) {
+      await imprime_missao(10);
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 3);
+      try {
+        res = await db.query(`UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`);
+    
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+module.exports = { missao01, missao02, missao010 };
