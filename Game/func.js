@@ -509,7 +509,8 @@ async function LagoPrespa(idGuerreiro) {
     );
   } catch (err) {
     console.log(err);
-  } // missao caverna
+  }
+  // missao prespa
   try {
     res = await db.query(
       `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${19}) `
@@ -518,8 +519,11 @@ async function LagoPrespa(idGuerreiro) {
     console.log(err);
   }
   if (res.rows.length == 0) {
-    await missao_caverna.missao_prespa(idGuerreiro);
+    idmissao = 19;
+    idnpc = 26;
+    await missao_caverna(idGuerreiro, idmissao, idnpc);
   }
+  // --------------------------------------------------------
 
   do {
     lugares.LagoPrespa();
@@ -730,7 +734,9 @@ async function CavernaMelissanthi(idGuerreiro) {
     console.log(err);
   }
   if (res.rows.length == 0) {
-    await missao_caverna(idGuerreiro);
+    idmissao = 14;
+    idnpc = 21;
+    await missao_caverna(idGuerreiro, idmissao, idnpc);
   }
 
   do {
