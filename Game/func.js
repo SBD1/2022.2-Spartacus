@@ -466,7 +466,20 @@ async function FlorestaBrightwood(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
-
+  // missao floresta brightwood
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${17}) `
+    );
+  } catch (err) {
+    console.log(err);
+  }
+  if (res.rows.length == 0) {
+    idmissao = 17;
+    idnpc = 24;
+    await missao_caverna(idGuerreiro, idmissao, idnpc);
+  }
+  // ---------------------------------------
   do {
     lugares.FlorestaBrightwood();
     op = Number(entrada("\nInforme para onde deseja ir: "));
