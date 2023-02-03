@@ -530,6 +530,35 @@ async function LagoPrespa(idGuerreiro) {
   }
 
   // --------------------------------------------------------
+  // Menu para selecionar missão ----------------------------
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 19`
+    );
+    if (res.rows.length == 0) {
+      op = Number(
+        entrada(
+          "\nVocê tem uma missão disponível aqui, deseja fazê-la? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1) {
+        console.clear();
+        await missao.imprime_missao(19);
+        op = Number(
+          entrada(
+            "\ndeseja mesmo fazê-la? (1 - SIM / 2 - NÃO): "
+          )
+        );
+        if (op == 1){
+          await missao.missao019(idGuerreiro);
+        }
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+
+//-------------------------------------------------------------------
 
   do {
     lugares.LagoPrespa();
