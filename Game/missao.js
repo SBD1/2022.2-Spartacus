@@ -87,11 +87,11 @@ async function missao02(idGuerreiro) {
 async function missao010(idGuerreiro) {
   try {
     res = await db.query(
-      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idinimigo BETWEEN 3 AND 27)`
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 3`
     );
     if (res.rows.length == 0) {
       await imprime_missao(10);
-      await missoes_batalha.getAtributosMissoes(idGuerreiro, 3);
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 3, 10);
       try {
         res = await db.query(
           `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
@@ -107,11 +107,12 @@ async function missao010(idGuerreiro) {
 async function missao014(idGuerreiro) {
   try {
     res = await db.query(
-      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${14})`
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 14`
     );
     if (res.rows.length == 0) {
       await imprime_missao(14);
-      await missoes_batalha.getAtributosMissoes(idGuerreiro, 21);
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 21, 14);
       try {
         res = await db.query(
           `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
@@ -119,52 +120,6 @@ async function missao014(idGuerreiro) {
       } catch (err) {
         console.log(err);
       }
-    }
-  } catch (err) {
-    console.log(err);
-  }
-}
-async function missao017(idGuerreiro) {
-  try {
-    res = await db.query(
-      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${17})`
-    );
-    if (res.rows.length == 0) {
-      await imprime_missao(17);
-      await missoes_batalha.getAtributosMissoes(idGuerreiro, 24);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  } catch (err) {
-    console.log(err);
-  }
-}
-async function missao019(idGuerreiro) {
-  await imprime_missao(17);
-  await missoes_batalha.getAtributosMissoes(idGuerreiro, 26);
-  try {
-    res = await db.query(
-      `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-    );
-  } catch (err) {
-    console.log(err);
-  }
-}
-async function missao020(idGuerreiro) {
-  try {
-    await imprime_missao(17);
-    await missoes_batalha.getAtributosMissoes(idGuerreiro, 27);
-    try {
-      res = await db.query(
-        `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-      );
-    } catch (err) {
-      console.log(err);
     }
   } catch (err) {
     console.log(err);
@@ -176,7 +131,4 @@ module.exports = {
   missao02,
   missao010,
   missao014,
-  missao017,
-  missao019,
-  missao020,
 };

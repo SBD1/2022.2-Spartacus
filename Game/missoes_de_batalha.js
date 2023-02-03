@@ -11,7 +11,9 @@ async function batalha_missoes(
     vidaNPC,
     danoNPC,
     nomeNPC,
-    idGuerreiro
+    idGuerreiro,
+    idMissao,
+    idNPC
 ) {
     while (vidaNPC > 0 && vida_total > 0) {
       // ataque do guerreiro
@@ -30,7 +32,7 @@ async function batalha_missoes(
     if (vidaNPC <= 0) {
         try {
             await db.query(
-                `INSERT INTO instancia_de_missao (idmissao, idguerreiro, idinimigo) VALUES (10, ${idGuerreiro}, 3)`
+                `INSERT INTO instancia_de_missao (idmissao, idinimigo, idguerreiro) VALUES (${idMissao}, ${idNPC}, ${idGuerreiro})`
             );
             await db.query(
                 `UPDATE guerreiro SET vida = ${vida_total} WHERE idguerreiro=${idGuerreiro}`
@@ -44,7 +46,7 @@ async function batalha_missoes(
     }
   }
 
-async function getAtributosMissoes (idGuerreiro, idNPC) {
+async function getAtributosMissoes (idGuerreiro, idNPC, idMissao) {
 
     var dano_total = 0,
     vida_total = 0,
@@ -139,7 +141,9 @@ async function getAtributosMissoes (idGuerreiro, idNPC) {
         vidaNPC,
         danoNPC,
         nomeNPC,
-        idGuerreiro
+        idGuerreiro, 
+        idMissao,
+        idNPC
     );
 }
 

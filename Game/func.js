@@ -468,7 +468,7 @@ async function FlorestaBrightwood(idGuerreiro) {
 
   try {
     res = await db.query(
-      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 10`
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 14`
     );
     if (res.rows.length == 0) {
       op = Number(
@@ -477,7 +477,7 @@ async function FlorestaBrightwood(idGuerreiro) {
         )
       );
       if (op == 1) {
-        await missao.missao017(idGuerreiro);
+        await missao.missao014(idGuerreiro);
       }
     }
   } catch (err) {
@@ -525,25 +525,6 @@ async function LagoPrespa(idGuerreiro) {
     const res = await db.query(
       `UPDATE guerreiro SET idlugar=11 WHERE idguerreiro=${idGuerreiro}`
     );
-  } catch (err) {
-    console.log(err);
-  }
-  //------------------------------------------------------------------
-
-  try {
-    res = await db.query(
-      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 10`
-    );
-    if (res.rows.length == 0) {
-      op = Number(
-        entrada(
-          "\nDeseja realizar a missão do Lago Prespa? (1 - SIM / 2 - NÃO): "
-        )
-      );
-      if (op == 1) {
-        await missao.missao019(idGuerreiro);
-      }
-    }
   } catch (err) {
     console.log(err);
   }
