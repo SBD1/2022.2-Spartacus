@@ -458,6 +458,7 @@ async function FlorestaBrightwood(idGuerreiro) {
   }
 
   // updateIdLugar(Number(10), Number(idGuerreiro));
+
   try {
     const res = await db.query(
       `UPDATE guerreiro SET idlugar=10 WHERE idguerreiro=${idGuerreiro}`
@@ -466,7 +467,84 @@ async function FlorestaBrightwood(idGuerreiro) {
     console.log(err);
   }
 
+  //------- Menu de Missões --------------------------------
+ try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 15`
+    );
+    if (res.rows.length == 0) {
+      op = Number(
+        entrada(
+          "\nVocê tem uma missão disponível aqui, deseja fazê-la? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1) {
+        console.clear();
+        await missao.imprime_missao(15);
+        op = Number(
+          entrada(
+            "\ndeseja mesmo fazê-la? (1 - SIM / 2 - NÃO): "
+          )
+        );
+        if (op == 1){
+          console.clear();
+          await missao.missao015(idGuerreiro);
+        }
+      }
+    } else {
+      res = await db.query(
+        `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 16`
+      );
+      if (res.rows.length == 0) {
+        op = Number(
+          entrada(
+            "\nVocê tem uma missão disponível aqui, deseja fazê-la? (1 - SIM / 2 - NÃO): "
+          )
+        );
+        if (op == 1) {
+          console.clear();
+          await missao.imprime_missao(16);
+          op = Number(
+            entrada(
+              "\ndeseja mesmo fazê-la? (1 - SIM / 2 - NÃO): "
+            )
+          );
+          if (op == 1){
+            console.clear();
+            await missao.missao016(idGuerreiro);
+          }
+        }
+      }else{
+        res = await db.query(
+          `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 17`
+        );
+        if (res.rows.length == 0) {
+          op = Number(
+            entrada(
+              "\nVocê tem uma missão disponível aqui, deseja fazê-la? (1 - SIM / 2 - NÃO): "
+            )
+          );
+          if (op == 1) {
+            console.clear();
+            await missao.imprime_missao(17);
+            op = Number(
+              entrada(
+                "\ndeseja mesmo fazê-la? (1 - SIM / 2 - NÃO): "
+              )
+            );
+            if (op == 1){
+              console.clear();
+              await missao.missao017(idGuerreiro);
+            }
+          }
+        }
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
   // ---------------------------------------
+  console.clear();
   do {
     lugares.FlorestaBrightwood();
     op = Number(entrada("\nInforme para onde deseja ir: "));

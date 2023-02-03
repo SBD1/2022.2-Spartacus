@@ -127,6 +127,72 @@ async function missao014(idGuerreiro) {
   }
 }
 
+async function missao015(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 22`
+    );
+    if (res.rows.length == 0) {
+      //await imprime_missao(19);
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 22, 15);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function missao016(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 23`
+    );
+    if (res.rows.length == 0) {
+      //await imprime_missao(19);
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 23, 16);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function missao017(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 24`
+    );
+    if (res.rows.length == 0) {
+      //await imprime_missao(19);
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 24, 17);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 async function missao019(idGuerreiro) {
   try {
     res = await db.query(
@@ -155,5 +221,8 @@ module.exports = {
   missao02,
   missao010,
   missao014,
+  missao015,
+  missao016,
+  missao017,
   missao019,
 };
