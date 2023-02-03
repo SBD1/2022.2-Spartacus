@@ -681,6 +681,20 @@ async function FlorestaAmazonica(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
+  // missao floresta amazonica
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${20}) `
+    );
+  } catch (err) {
+    console.log(err);
+  }
+  if (res.rows.length == 0) {
+    idmissao = 20;
+    idnpc = 27;
+    await missao_caverna(idGuerreiro, idmissao, idnpc);
+  }
+  //---------------------------------------------
 
   do {
     lugares.FlorestaAmazonica();
