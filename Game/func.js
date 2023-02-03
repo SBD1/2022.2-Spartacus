@@ -7,7 +7,7 @@ const batalha = require("./batalha");
 const missao = require("./missao");
 const comprar = require("./comprar");
 const consultar = require("./casa");
-
+const missao_caverna = require("./missao_caverna");
 
 async function Trezentes(idGuerreiro) {
   console.clear();
@@ -283,7 +283,7 @@ async function CentroBatalha(idGuerreiro) {
   } else {
     console.log("Saindo do Centro de Batalha!");
   }
-  
+
   do {
     lugares.CentroBatalha();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -339,7 +339,7 @@ async function CentroTreinamento(idGuerreiro) {
   }
 
   do {
-    console.clear()
+    console.clear();
     lugares.CentroTreinamento();
     op = Number(entrada("\nInforme para onde deseja ir: "));
 
@@ -551,17 +551,22 @@ async function Everleste(idGuerreiro) {
   }
 
   try {
-    res = await db.query(`SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 10`);
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 10`
+    );
     if (res.rows.length == 0) {
-      op = Number(entrada("\nDeseja realizar a missão de Everleste? (1 - SIM / 2 - NÃO): "));
-      if(op == 1){
+      op = Number(
+        entrada(
+          "\nDeseja realizar a missão de Everleste? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1) {
         await missao.missao010(idGuerreiro);
       }
     }
   } catch (err) {
     console.log(err);
   }
-
 
   // updateIdLugar(Number(12), Number(idGuerreiro));
   try {
@@ -697,6 +702,17 @@ async function CavernaMelissanthi(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
+  // missao caverna
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${14}) `
+    );
+  } catch (err) {
+    console.log(err);
+  }
+  if (res.rows.length == 0) {
+    await missao_caverna(idGuerreiro);
+  }
 
   // updateIdLugar(Number(1), Number(idGuerreiro));
   try {
@@ -754,7 +770,6 @@ async function Casa(idGuerreiro) {
     do {
       console.clear();
       await consultar.casa(idGuerreiro);
-      
 
       console.log("Deseja consultar novamente?\n1. Sim\n2. Não");
       op = Number(entrada("Insira o número da sua resposta: "));
@@ -798,5 +813,5 @@ module.exports = {
   LesteE,
   FlorestaAmazonica,
   CavernaMelissanthi,
-  Casa
+  Casa,
 };

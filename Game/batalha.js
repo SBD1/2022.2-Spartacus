@@ -23,7 +23,7 @@ async function printDescricao(idNPC) {
     console.log(res.rows[0].descricao);
   } catch (err) {
     console.log(err);
-  } 
+  }
 }
 
 async function calculaDamage(dano, def) {
@@ -144,9 +144,7 @@ async function getAtributos(idGuerreiro, idNPC) {
                                     INNER JOIN mochila MO ON MO.idinstancia = IT.idinstancia
                                     WHERE IT.idguerreiro = ${idGuerreiro}`);
     idItem = Number(res.rows[0].iditem);
-  } catch (err) {
-    
-  }
+  } catch (err) {}
 
   // Verificação se é uma arma ou armadura
   if (idItem >= 1 && idItem <= 20) {
@@ -207,15 +205,15 @@ async function getAtributos(idGuerreiro, idNPC) {
 }
 
 async function main_batalhando(idGuerreiro) {
-    console.clear();
-    await menuOpcoes();
-    idNPC = Number(entrada("Selecione o inimigo que deseja batalhar: "));
-    if (idNPC >= 1 && idNPC <= 5) {
-        await printDescricao(idNPC);
-        await getAtributos(idGuerreiro, idNPC);
-    } else {
-        console.log("Opção Inválida!");
-    }
+  console.clear();
+  await menuOpcoes();
+  idNPC = Number(entrada("Selecione o inimigo que deseja batalhar: "));
+  if (idNPC >= 1 && idNPC <= 5) {
+    await printDescricao(idNPC);
+    await getAtributos(idGuerreiro, idNPC);
+  } else {
+    console.log("Opção Inválida!");
+  }
 }
 
-module.exports = { main_batalhando };
+module.exports = { main_batalhando, calculaDamage };
