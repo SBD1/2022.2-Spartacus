@@ -70,7 +70,7 @@ async function getAtributosMissoes (idGuerreiro, idNPC, idMissao) {
     try {
         await db.query(
         `INSERT INTO instancia_de_inimigo (idinimigo, idguerreiro) VALUES (${
-            idNPC + 3
+            idNPC
         }, ${idGuerreiro})`
         );
     } catch (err) {

@@ -135,7 +135,7 @@ async function missao019(idGuerreiro) {
     if (res.rows.length == 0) {
       //await imprime_missao(19);
       // idGuerreiro idInimigo e idMissao
-      await missoes_batalha.getAtributosMissoes(idGuerreiro, 9, 19);
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 26, 19);
       try {
         res = await db.query(
           `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
