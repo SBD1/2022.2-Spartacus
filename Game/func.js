@@ -7,7 +7,6 @@ const batalha = require("./batalha");
 const missao = require("./missao");
 const comprar = require("./comprar");
 const consultar = require("./casa");
-const missao_caverna = require("./missao_caverna");
 
 async function Trezentes(idGuerreiro) {
   console.clear();
@@ -466,19 +465,25 @@ async function FlorestaBrightwood(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
-  // missao floresta brightwood
+
   try {
     res = await db.query(
-      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${17}) `
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 10`
     );
+    if (res.rows.length == 0) {
+      op = Number(
+        entrada(
+          "\nDeseja realizar a missão da Floresta Brightwood? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1) {
+        await missao.missao017(idGuerreiro);
+      }
+    }
   } catch (err) {
     console.log(err);
   }
-  if (res.rows.length == 0) {
-    idmissao = 17;
-    idnpc = 24;
-    await missao_caverna(idGuerreiro, idmissao, idnpc);
-  }
+
   // ---------------------------------------
   do {
     lugares.FlorestaBrightwood();
@@ -523,19 +528,26 @@ async function LagoPrespa(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
-  // missao prespa
+  //------------------------------------------------------------------
+
   try {
     res = await db.query(
-      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${19}) `
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 10`
     );
+    if (res.rows.length == 0) {
+      op = Number(
+        entrada(
+          "\nDeseja realizar a missão do Lago Prespa? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1) {
+        await missao.missao019(idGuerreiro);
+      }
+    }
   } catch (err) {
     console.log(err);
   }
-  if (res.rows.length == 0) {
-    idmissao = 19;
-    idnpc = 26;
-    await missao_caverna(idGuerreiro, idmissao, idnpc);
-  }
+
   // --------------------------------------------------------
 
   do {
@@ -694,20 +706,21 @@ async function FlorestaAmazonica(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
-  // missao floresta amazonica
-  try {
-    res = await db.query(
-      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${20}) `
-    );
-  } catch (err) {
-    console.log(err);
-  }
+  //------------------------------------------------------------------
+  res = await db.query(
+    `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${20})`
+  );
   if (res.rows.length == 0) {
-    idmissao = 20;
-    idnpc = 27;
-    await missao_caverna(idGuerreiro, idmissao, idnpc);
+    op = Number(
+      entrada(
+        "\nDeseja realizar a missão da Floresta Amazonica? (1 - SIM / 2 - NÃO): "
+      )
+    );
+    if (op == 1) {
+      await missao.missao020(idGuerreiro);
+    }
   }
-  //---------------------------------------------
+  // --------------------------------------------------------
 
   do {
     lugares.FlorestaAmazonica();
@@ -752,20 +765,26 @@ async function CavernaMelissanthi(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
-  // missao caverna
+
   try {
     res = await db.query(
-      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${14}) `
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 10`
     );
+    if (res.rows.length == 0) {
+      op = Number(
+        entrada(
+          "\nDeseja realizar a missão de Caverna de Melissanthi? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1) {
+        await missao.missao014(idGuerreiro);
+      }
+    }
   } catch (err) {
     console.log(err);
   }
-  if (res.rows.length == 0) {
-    idmissao = 14;
-    idnpc = 21;
-    await missao_caverna(idGuerreiro, idmissao, idnpc);
-  }
 
+  // --------------------------------------------------------------------------------
   do {
     lugares.CavernaMelissanthi();
     op = Number(entrada("\nInforme para onde deseja ir: "));
