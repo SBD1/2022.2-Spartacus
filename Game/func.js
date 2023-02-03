@@ -509,6 +509,16 @@ async function LagoPrespa(idGuerreiro) {
     );
   } catch (err) {
     console.log(err);
+  } // missao caverna
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${19}) `
+    );
+  } catch (err) {
+    console.log(err);
+  }
+  if (res.rows.length == 0) {
+    await missao_caverna.missao_prespa(idGuerreiro);
   }
 
   do {
@@ -702,6 +712,15 @@ async function CavernaMelissanthi(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
+
+  // updateIdLugar(Number(1), Number(idGuerreiro));
+  try {
+    const res = await db.query(
+      `UPDATE guerreiro SET idlugar=1 WHERE idguerreiro=${idGuerreiro}`
+    );
+  } catch (err) {
+    console.log(err);
+  }
   // missao caverna
   try {
     res = await db.query(
@@ -712,15 +731,6 @@ async function CavernaMelissanthi(idGuerreiro) {
   }
   if (res.rows.length == 0) {
     await missao_caverna(idGuerreiro);
-  }
-
-  // updateIdLugar(Number(1), Number(idGuerreiro));
-  try {
-    const res = await db.query(
-      `UPDATE guerreiro SET idlugar=1 WHERE idguerreiro=${idGuerreiro}`
-    );
-  } catch (err) {
-    console.log(err);
   }
 
   do {
