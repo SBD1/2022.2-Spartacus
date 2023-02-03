@@ -811,20 +811,34 @@ async function FlorestaAmazonica(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
-  //------------------------------------------------------------------
-  res = await db.query(
-    `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND (idmissao=${20})`
-  );
-  if (res.rows.length == 0) {
-    op = Number(
-      entrada(
-        "\nDeseja realizar a missão da Floresta Amazonica? (1 - SIM / 2 - NÃO): "
-      )
+   // Menu para selecionar missão ----------------------------
+   try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 20`
     );
-    if (op == 1) {
-      await missao.missao020(idGuerreiro);
+    if (res.rows.length == 0) {
+      op = Number(
+        entrada(
+          "\nVocê tem uma missão disponível aqui, deseja fazê-la? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1) {
+        console.clear();
+        await missao.imprime_missao(20);
+        op = Number(
+          entrada(
+            "\ndeseja mesmo fazê-la? (1 - SIM / 2 - NÃO): "
+          )
+        );
+        if (op == 1){
+          await missao.missao020(idGuerreiro);
+        }
+      }
     }
+  } catch (err) {
+    console.log(err);
   }
+
   // --------------------------------------------------------
 
   do {
