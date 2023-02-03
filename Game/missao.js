@@ -90,7 +90,7 @@ async function missao010(idGuerreiro) {
       `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 3`
     );
     if (res.rows.length == 0) {
-      await imprime_missao(10);
+      //await imprime_missao(10);
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 3, 10);
       try {
         res = await db.query(
@@ -193,6 +193,28 @@ async function missao017(idGuerreiro) {
   }
 }
 
+async function missao018(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 25`
+    );
+    if (res.rows.length == 0) {
+      //await imprime_missao(19);
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 25, 18);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 async function missao019(idGuerreiro) {
   try {
     res = await db.query(
@@ -224,5 +246,6 @@ module.exports = {
   missao015,
   missao016,
   missao017,
+  missao018,
   missao019,
 };

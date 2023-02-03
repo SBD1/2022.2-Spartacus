@@ -467,7 +467,7 @@ async function FlorestaBrightwood(idGuerreiro) {
     console.log(err);
   }
 
-  //------- Menu de Missões --------------------------------
+ //------- Menu de Missões --------------------------------
  try {
     res = await db.query(
       `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 15`
@@ -658,25 +658,6 @@ async function Everleste(idGuerreiro) {
   } catch (err) {
     console.log(err);
   }
-
-  try {
-    res = await db.query(
-      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 10`
-    );
-    if (res.rows.length == 0) {
-      op = Number(
-        entrada(
-          "\nDeseja realizar a missão de Everleste? (1 - SIM / 2 - NÃO): "
-        )
-      );
-      if (op == 1) {
-        await missao.missao010(idGuerreiro);
-      }
-    }
-  } catch (err) {
-    console.log(err);
-  }
-
   // updateIdLugar(Number(12), Number(idGuerreiro));
   try {
     const res = await db.query(
@@ -686,6 +667,60 @@ async function Everleste(idGuerreiro) {
     console.log(err);
   }
 
+  //------- Menu de Missões --------------------------------
+ try {
+  res = await db.query(
+    `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 10`
+  );
+  if (res.rows.length == 0) {
+    op = Number(
+      entrada(
+        "\nVocê tem uma missão disponível aqui, deseja fazê-la? (1 - SIM / 2 - NÃO): "
+      )
+    );
+    if (op == 1) {
+      console.clear();
+      await missao.imprime_missao(10);
+      op = Number(
+        entrada(
+          "\ndeseja mesmo fazê-la? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1){
+        console.clear();
+        await missao.missao010(idGuerreiro);
+      }
+    }
+  } else {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 18`
+    );
+    if (res.rows.length == 0) {
+      op = Number(
+        entrada(
+          "\nVocê tem uma missão disponível aqui, deseja fazê-la? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1) {
+        console.clear();
+        await missao.imprime_missao(18);
+        op = Number(
+          entrada(
+            "\ndeseja mesmo fazê-la? (1 - SIM / 2 - NÃO): "
+          )
+        );
+        if (op == 1){
+          console.clear();
+          await missao.missao018(idGuerreiro);
+        }
+      }
+    }
+  }
+} catch (err) {
+  console.log(err);
+}
+
+  //Lugares Possíveis --------------------------------------
   do {
     lugares.Everleste();
     op = Number(entrada("\nInforme para onde deseja ir: "));
