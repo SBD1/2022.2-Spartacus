@@ -178,6 +178,84 @@ async function SaidaE(idGuerreiro) {
     console.log(err);
   }
 
+  //------- Menu de Missões --------------------------------
+  try {
+    res = await db.query(
+    `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 21`
+  );
+  if (res.rows.length == 0) {
+    op = Number(
+      entrada(
+        "\nVocê tem um inimigo por perto, deseja enfrentá-lo? (1 - SIM / 2 - NÃO): "
+      )
+    );
+    if (op == 1) {
+      console.clear();
+      await missao.imprime_missao(21);
+      op = Number(
+        entrada(
+          "\nQuer mesmo enfrentá-lo? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1){
+        console.clear();
+        await missao.missao021(idGuerreiro);
+      }
+    }
+  } else {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 22`
+    );
+    if (res.rows.length == 0) {
+      op = Number(
+        entrada(
+          "\nVocê tem um inimigo por perto, deseja enfrentá-lo? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1) {
+        console.clear();
+        await missao.imprime_missao(22);
+        op = Number(
+          entrada(
+            "\nQuer mesmo enfrentá-lo? (1 - SIM / 2 - NÃO): "
+          )
+        );
+        if (op == 1){
+          console.clear();
+          await missao.missao022(idGuerreiro);
+        }
+      }
+    }else {
+      res = await db.query(
+        `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 23`
+      );
+      if (res.rows.length == 0) {
+        op = Number(
+          entrada(
+            "\nVocê tem um inimigo por perto, deseja enfrentá-lo? (1 - SIM / 2 - NÃO): "
+          )
+        );
+        if (op == 1) {
+          console.clear();
+          await missao.imprime_missao(23);
+          op = Number(
+            entrada(
+              "\nQuer mesmo enfrentá-lo? (1 - SIM / 2 - NÃO): "
+            )
+          );
+          if (op == 1){
+            console.clear();
+            await missao.missao023(idGuerreiro);
+          }
+        }
+      }
+    }
+  }
+} catch (err) {
+  console.log(err);
+}
+// ----------------------------------------------------------
+
   do {
     lugares.SaidaE();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -382,6 +460,84 @@ async function OesteE(idGuerreiro) {
     console.log(err);
   }
 
+  //------- Menu de Missões --------------------------------
+    try {
+      res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 24`
+    );
+    if (res.rows.length == 0) {
+      op = Number(
+        entrada(
+          "\nVocê tem um inimigo por perto, deseja enfrentá-lo? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1) {
+        console.clear();
+        await missao.imprime_missao(24);
+        op = Number(
+          entrada(
+            "\nQuer mesmo enfrentá-lo? (1 - SIM / 2 - NÃO): "
+          )
+        );
+        if (op == 1){
+          console.clear();
+          await missao.missao024(idGuerreiro);
+        }
+      }
+    } else {
+      res = await db.query(
+        `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 25`
+      );
+      if (res.rows.length == 0) {
+        op = Number(
+          entrada(
+            "\nVocê tem um inimigo por perto, deseja enfrentá-lo? (1 - SIM / 2 - NÃO): "
+          )
+        );
+        if (op == 1) {
+          console.clear();
+          await missao.imprime_missao(25);
+          op = Number(
+            entrada(
+              "\nQuer mesmo enfrentá-lo? (1 - SIM / 2 - NÃO): "
+            )
+          );
+          if (op == 1){
+            console.clear();
+            await missao.missao025(idGuerreiro);
+          }
+        }
+      }else {
+        res = await db.query(
+          `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 26`
+        );
+        if (res.rows.length == 0) {
+          op = Number(
+            entrada(
+              "\nVocê tem um inimigo por perto, deseja enfrentá-lo? (1 - SIM / 2 - NÃO): "
+            )
+          );
+          if (op == 1) {
+            console.clear();
+            await missao.imprime_missao(26);
+            op = Number(
+              entrada(
+                "\nQuer mesmo enfrentá-lo? (1 - SIM / 2 - NÃO): "
+              )
+            );
+            if (op == 1){
+              console.clear();
+              await missao.missao026(idGuerreiro);
+            }
+          }
+        }
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+  // ----------------------------------------------------------
+
   do {
     lugares.OesteE();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -426,6 +582,83 @@ async function LesteE(idGuerreiro) {
     console.log(err);
   }
 
+    //------- Menu de Missões --------------------------------
+  try {
+    res = await db.query(
+    `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 11`
+  );
+  if (res.rows.length == 0) {
+    op = Number(
+      entrada(
+        "\nVocê tem um inimigo por perto, deseja enfrentá-lo? (1 - SIM / 2 - NÃO): "
+      )
+    );
+    if (op == 1) {
+      console.clear();
+      await missao.imprime_missao(11);
+      op = Number(
+        entrada(
+          "\nQuer mesmo enfrentá-lo? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1){
+        console.clear();
+        await missao.missao011(idGuerreiro);
+      }
+    }
+  } else {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 12`
+    );
+    if (res.rows.length == 0) {
+      op = Number(
+        entrada(
+          "\nVocê tem um inimigo por perto, deseja enfrentá-lo? (1 - SIM / 2 - NÃO): "
+        )
+      );
+      if (op == 1) {
+        console.clear();
+        await missao.imprime_missao(12);
+        op = Number(
+          entrada(
+            "\nQuer mesmo enfrentá-lo? (1 - SIM / 2 - NÃO): "
+          )
+        );
+        if (op == 1){
+          console.clear();
+          await missao.missao012(idGuerreiro);
+        }
+      }
+    }else {
+      res = await db.query(
+        `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idmissao = 13`
+      );
+      if (res.rows.length == 0) {
+        op = Number(
+          entrada(
+            "\nVocê tem um inimigo por perto, deseja enfrentá-lo? (1 - SIM / 2 - NÃO): "
+          )
+        );
+        if (op == 1) {
+          console.clear();
+          await missao.imprime_missao(13);
+          op = Number(
+            entrada(
+              "\nQuer mesmo enfrentá-lo? (1 - SIM / 2 - NÃO): "
+            )
+          );
+          if (op == 1){
+            console.clear();
+            await missao.missao013(idGuerreiro);
+          }
+        }
+      }
+    }
+  }
+} catch (err) {
+  console.log(err);
+}
+// ----------------------------------------------------------
   do {
     lugares.LesteE();
     op = Number(entrada("\nInforme para onde deseja ir: "));
@@ -445,6 +678,7 @@ async function LesteE(idGuerreiro) {
         break;
     }
   } while (op >= 1 || op <= 2);
+  
 }
 
 async function FlorestaBrightwood(idGuerreiro) {
@@ -458,7 +692,6 @@ async function FlorestaBrightwood(idGuerreiro) {
   }
 
   // updateIdLugar(Number(10), Number(idGuerreiro));
-
   try {
     const res = await db.query(
       `UPDATE guerreiro SET idlugar=10 WHERE idguerreiro=${idGuerreiro}`
@@ -544,7 +777,6 @@ async function FlorestaBrightwood(idGuerreiro) {
     console.log(err);
   }
   // ---------------------------------------
-  console.clear();
   do {
     lugares.FlorestaBrightwood();
     op = Number(entrada("\nInforme para onde deseja ir: "));

@@ -133,7 +133,6 @@ async function missao015(idGuerreiro) {
       `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 22`
     );
     if (res.rows.length == 0) {
-      //await imprime_missao(19);
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 22, 15);
       try {
@@ -259,12 +258,209 @@ async function missao020(idGuerreiro) {
   }
 }
 
+//missões com Kretins, Furbos e Sicarius no Leste de Esparta--------------------------------
+
+async function missao011(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 9`
+    );
+    if (res.rows.length == 0) {
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 9, 11);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function missao012(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 13`
+    );
+    if (res.rows.length == 0) {
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 13, 12);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function missao013(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 18`
+    );
+    if (res.rows.length == 0) {
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 18, 13);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+//missões com Kretins, Furbos e Sicarius na Saída de Esparta--------------------------------
+
+async function missao021(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 10`
+    );
+    if (res.rows.length == 0) {
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 10, 21);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function missao022(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 14`
+    );
+    if (res.rows.length == 0) {
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 14, 22);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function missao023(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 19`
+    );
+    if (res.rows.length == 0) {
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 19, 23);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+//missões com Kretins, Furbos e Sicarius no Oeste de Esparta--------------------------------
+
+async function missao024(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 11`
+    );
+    if (res.rows.length == 0) {
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 11, 24);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function missao025(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 15`
+    );
+    if (res.rows.length == 0) {
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 15, 25);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function missao026(idGuerreiro) {
+  try {
+    res = await db.query(
+      `SELECT * FROM instancia_de_missao WHERE (idguerreiro=${idGuerreiro}) AND idinimigo = 20`
+    );
+    if (res.rows.length == 0) {
+      // idGuerreiro idInimigo e idMissao
+      await missoes_batalha.getAtributosMissoes(idGuerreiro, 20, 26);
+      try {
+        res = await db.query(
+          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
 
 module.exports = {
   imprime_missao,
   missao01,
   missao02,
   missao010,
+  missao011,
+  missao012,
+  missao013,
   missao014,
   missao015,
   missao016,
@@ -272,4 +468,10 @@ module.exports = {
   missao018,
   missao019,
   missao020,
+  missao021,
+  missao022,
+  missao023,
+  missao024,
+  missao025,
+  missao026
 };
