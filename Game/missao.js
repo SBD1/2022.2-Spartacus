@@ -70,4 +70,33 @@ async function missao02(idGuerreiro) {
   }
 }
 
-module.exports = { missao01, missao02 };
+async function missao03(idGuerreiro) {
+  try {
+    res = await db.query(`SELECT * FROM instancia_de_batalha WHERE idguerreiro=${idGuerreiro}`);
+
+    if (res.rows.length == 0) {
+      console.log(`Esse é só o início de sua jornada! Você completou essa missão e ganhou uma recompensa por isso.`)
+      await imprime_missao(3);
+      
+      try {
+        res = await db.query(`INSERT INTO instancia_de_missao (idmissao, idguerreiro) VALUES (3, ${idGuerreiro})`);
+    
+      } catch (err) {
+        console.log(err);
+      }
+
+      try {
+        res = await db.query(`UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`);
+    
+      } catch (err) {
+        console.log(err);
+      }
+
+    }
+
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+module.exports = { missao01, missao02, missao03 };

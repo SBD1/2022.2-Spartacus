@@ -276,7 +276,7 @@ async function CentroBatalha(idGuerreiro) {
   }
 
   op = Number(
-    entrada("Bem vindo ao Centro de Batalha! Deseja batalhar? (1-Sim/2-Não) ")
+    entrada("Deseja batalhar?\n1. Sim\n2. Não\nInsira o número da sua resposta: ")
   );
   if (op == 1) {
     await batalha.main_batalhando(idGuerreiro);

@@ -1,4 +1,5 @@
 const db = require("./database");
+const missao = require("./missao");
 const entrada = require("prompt-sync")({ sigint: true });
 let idNPC = 0;
 
@@ -20,7 +21,7 @@ async function printDescricao(idNPC) {
     const res = await db.query(
       `SELECT descricao FROM inimigo WHERE idnpc=${idNPC + 3}`
     );
-    console.log(res.rows[0].descricao);
+    console.log(res.rows[0].descricao + "\n");
   } catch (err) {
     console.log(err);
   } 
@@ -45,13 +46,13 @@ async function batalha(
     var damage = await calculaDamage(dano_total, 0);
     vidaNPC -= damage;
     console.log("Você causou " + damage + " de dano a " + nomeNPC + ".");
-    console.log("Vida " + nomeNPC + ": " + vidaNPC);
+    console.log("Vida " + nomeNPC + ": " + vidaNPC + "\n");
 
     // ataque do inimigo
     damage = await calculaDamage(danoNPC, defesaGuerreiro);
     vida_total -= damage;
     console.log(nomeNPC + " causou " + damage + " de dano em você!");
-    console.log("Vida Guerreiro: " + vida_total);
+    console.log("Vida Guerreiro: " + vida_total + "\n");
   }
 
   if (vidaNPC <= 0) {
@@ -81,9 +82,9 @@ async function batalha(
       `UPDATE guerreiro SET vida = ${vida_total} WHERE idguerreiro=${idGuerreiro}`
     );
     console.log(
-      "Você ganhou a batalha! \nDinheiro ganho: " +
+      "Você ganhou a batalha!\nDinheiro ganho: $" +
         qtdDinheiro +
-        "\nRespeito ganho: " +
+        ",00\nRespeito ganho: " +
         qtdRespeito
     );
   } else {
@@ -211,6 +212,7 @@ async function main_batalhando(idGuerreiro) {
     await menuOpcoes();
     idNPC = Number(entrada("Selecione o inimigo que deseja batalhar: "));
     if (idNPC >= 1 && idNPC <= 5) {
+        await missao.missao03(idGuerreiro);
         await printDescricao(idNPC);
         await getAtributos(idGuerreiro, idNPC);
     } else {
