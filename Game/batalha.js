@@ -24,7 +24,7 @@ async function printDescricao(idNPC) {
     console.log(res.rows[0].descricao + "\n");
   } catch (err) {
     console.log(err);
-  } 
+  }
 }
 
 async function calculaDamage(dano, def) {
@@ -146,7 +146,7 @@ async function getAtributos(idGuerreiro, idNPC) {
                                     WHERE IT.idguerreiro = ${idGuerreiro}`);
     idItem = Number(res.rows[0].iditem);
   } catch (err) {
-    
+    console.log(err);
   }
 
   // Verificação se é uma arma ou armadura
@@ -220,4 +220,4 @@ async function main_batalhando(idGuerreiro) {
     }
 }
 
-module.exports = { main_batalhando };
+module.exports = { main_batalhando, calculaDamage };
