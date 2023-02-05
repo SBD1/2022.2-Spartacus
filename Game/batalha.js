@@ -46,13 +46,13 @@ async function batalha(
     var damage = await calculaDamage(dano_total, 0);
     vidaNPC -= damage;
     console.log("Você causou " + damage + " de dano a " + nomeNPC + ".");
-    console.log("Vida " + nomeNPC + ": " + vidaNPC + "\n");
+    console.log("Vida " + nomeNPC + ": " + vidaNPC);
 
     // ataque do inimigo
     damage = await calculaDamage(danoNPC, defesaGuerreiro);
     vida_total -= damage;
     console.log(nomeNPC + " causou " + damage + " de dano em você!");
-    console.log("Vida Guerreiro: " + vida_total + "\n");
+    console.log("Vida Guerreiro: " + vida_total);
   }
 
   if (vidaNPC <= 0) {
@@ -85,10 +85,13 @@ async function batalha(
       "Você ganhou a batalha!\nDinheiro ganho: $" +
         qtdDinheiro +
         ",00\nRespeito ganho: " +
-        qtdRespeito
+        qtdRespeito + "\n"
     );
   } else {
-    console.log(nomeNPC + " ganhou a batalha!");
+    console.log(nomeNPC + " ganhou a batalha!" + "\n");
+    await db.query(
+      `UPDATE guerreiro SET vida = ${vida_total} WHERE idguerreiro=${idGuerreiro}`
+    );
   }
 }
 
@@ -145,9 +148,7 @@ async function getAtributos(idGuerreiro, idNPC) {
                                     INNER JOIN mochila MO ON MO.idinstancia = IT.idinstancia
                                     WHERE IT.idguerreiro = ${idGuerreiro}`);
     idItem = Number(res.rows[0].iditem);
-  } catch (err) {
-    console.log(err);
-  }
+  } catch (err) {}
 
   // Verificação se é uma arma ou armadura
   if (idItem >= 1 && idItem <= 20) {

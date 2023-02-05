@@ -28,6 +28,14 @@ async function batalha_missoes(
       console.log(nomeNPC + " causou " + damage + " de dano em você!");
       console.log("Vida Guerreiro: " + vida_total);
     }
+
+    try {
+        await db.query(
+            `UPDATE guerreiro SET vida = ${vida_total} WHERE idguerreiro=${idGuerreiro}`
+        );
+    } catch (err) {
+        console.log(err); 
+    }
   
     if (vidaNPC <= 0) {
         try {
@@ -35,14 +43,14 @@ async function batalha_missoes(
                 `INSERT INTO instancia_de_missao (idmissao, idinimigo, idguerreiro) VALUES (${idMissao}, ${idNPC}, ${idGuerreiro})`
             );
             await db.query(
-                `UPDATE guerreiro SET vida = ${vida_total} WHERE idguerreiro=${idGuerreiro}`
+                `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
             );
         } catch (err) {
             console.log(err); 
         }
-        console.log("Pelo visto nenhum inimigo está aos seus pés! Parabéns!");
+        console.log("Pelo visto nenhum inimigo está aos seus pés! Parabéns, você venceu!" + "\n");
     } else {
-      console.log(nomeNPC + " ganhou a batalha! Missão não completada!");
+      console.log(nomeNPC + " ganhou a batalha! Missão não completada!" + "\n");
     }
   }
 
@@ -97,9 +105,7 @@ async function getAtributosMissoes (idGuerreiro, idNPC, idMissao) {
                                         INNER JOIN mochila MO ON MO.idinstancia = IT.idinstancia
                                         WHERE IT.idguerreiro = ${idGuerreiro}`);
         idItem = Number(res.rows[0].iditem);
-    } catch (err) {
-        
-    }
+    } catch (err) {}
 
     // Verificação se é uma arma ou armadura
     if (idItem >= 1 && idItem <= 20) {

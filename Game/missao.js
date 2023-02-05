@@ -1,8 +1,5 @@
 const db = require("./database");
-const batalha = require("./batalha");
 const missoes_batalha = require("./missoes_de_batalha");
-const entrada = require("prompt-sync")({ sigint: true });
-let op, vida, defesa, forca, nomemissao, nomeNPC, danoNPC, newdinheiro;
 
 async function imprime_missao(idMissao) {
   try {
@@ -85,6 +82,7 @@ async function missao02(idGuerreiro) {
 }
 
 async function missao03(idGuerreiro) {
+  console.clear();
   try {
     res = await db.query(`SELECT * FROM instancia_de_batalha WHERE idguerreiro=${idGuerreiro}`);
 
@@ -120,13 +118,6 @@ async function missao010(idGuerreiro) {
     if (res.rows.length == 0) {
       //await imprime_missao(10);
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 3, 10);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -142,13 +133,6 @@ async function missao014(idGuerreiro) {
       await imprime_missao(14);
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 21, 14);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -163,13 +147,6 @@ async function missao015(idGuerreiro) {
     if (res.rows.length == 0) {
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 22, 15);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -185,13 +162,6 @@ async function missao016(idGuerreiro) {
       //await imprime_missao(19);
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 23, 16);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -207,13 +177,6 @@ async function missao017(idGuerreiro) {
       //await imprime_missao(19);
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 24, 17);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -229,13 +192,6 @@ async function missao018(idGuerreiro) {
       //await imprime_missao(19);
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 25, 18);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -251,13 +207,6 @@ async function missao019(idGuerreiro) {
       //await imprime_missao(19);
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 26, 19);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -273,13 +222,6 @@ async function missao020(idGuerreiro) {
       //await imprime_missao(19);
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 27, 20);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -296,13 +238,6 @@ async function missao011(idGuerreiro) {
     if (res.rows.length == 0) {
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 9, 11);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -317,13 +252,6 @@ async function missao012(idGuerreiro) {
     if (res.rows.length == 0) {
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 13, 12);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -338,13 +266,6 @@ async function missao013(idGuerreiro) {
     if (res.rows.length == 0) {
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 18, 13);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -361,13 +282,6 @@ async function missao021(idGuerreiro) {
     if (res.rows.length == 0) {
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 10, 21);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -382,13 +296,6 @@ async function missao022(idGuerreiro) {
     if (res.rows.length == 0) {
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 14, 22);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -403,13 +310,6 @@ async function missao023(idGuerreiro) {
     if (res.rows.length == 0) {
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 19, 23);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -426,13 +326,6 @@ async function missao024(idGuerreiro) {
     if (res.rows.length == 0) {
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 11, 24);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -447,13 +340,6 @@ async function missao025(idGuerreiro) {
     if (res.rows.length == 0) {
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 15, 25);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);
@@ -468,13 +354,6 @@ async function missao026(idGuerreiro) {
     if (res.rows.length == 0) {
       // idGuerreiro idInimigo e idMissao
       await missoes_batalha.getAtributosMissoes(idGuerreiro, 20, 26);
-      try {
-        res = await db.query(
-          `UPDATE guerreiro SET dinheiro=dinheiro+20 WHERE idguerreiro=${idGuerreiro}`
-        );
-      } catch (err) {
-        console.log(err);
-      }
     }
   } catch (err) {
     console.log(err);

@@ -28,9 +28,9 @@ async function populateTables() {
 async function jogar() {
   console.clear();
 
-  console.log("------------------");
-  console.log("| SPARTACUS GAME |");
-  console.log("------------------\n");
+  console.log("::::::::::::::::::::::::::");
+  console.log("      SPARTACUS GAME      ");
+  console.log("::::::::::::::::::::::::::\n");
 
   const nome = entrada("Digite o nome do seu guerreiro: ");
 
@@ -78,9 +78,9 @@ async function jogar() {
 async function main() {
   console.clear();
 
-  console.log("\n----------------------------------------------------");
-  console.log("| Bem-vindo, guerreiro, ao início da sua aventura! |");
-  console.log("----------------------------------------------------\n");
+  console.log("\n::::::::::::::::::::::::::::::::::::::::::::::::::::");
+  console.log("  Bem-vindo, guerreiro, ao início da sua aventura!  ");
+  console.log("::::::::::::::::::::::::::::::::::::::::::::::::::::\n");
 
   op = 0;
   do {
